@@ -1,0 +1,43 @@
+<ul>
+<% 
+@employee.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+
+<p>
+<%= f.label :name %> </br>
+<%= f.text_field :name %>
+</p>
+<p>
+<%= f.label :lastname %> </br>
+<%= f.text_field :lastname %>
+</p>
+<p>
+<%= f.label :address %> </br>
+<%= f.text_field :address %>
+</p>
+<p>
+<%= f.label :telephone %> </br>
+<%= f.text_field :telephone %>
+</p>
+<p>
+<%= f.label :document %> </br>
+<%= f.text_field :document %>
+</p>
+<p>
+<%= f.label :speciality %> </br>
+<%= f.text_field :speciality %>
+</p>
+<p>
+<%= f.label :status %> </br>
+<%= f.text_field :status %>
+</p>
+<p>
+<%= f.label :charge_for_hours %> </br>
+<%= f.text_field :charge_for_hours %>
+</p>
+<p>
+<%= f.submit "Enviar" %>
+</p>
