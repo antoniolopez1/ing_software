@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 2019_04_24_231732) do
     t.string "document"
     t.string "speciality"
     t.string "status"
-    t.float "charge_for_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

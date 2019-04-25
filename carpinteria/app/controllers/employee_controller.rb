@@ -16,7 +16,7 @@ class EmployeeController < ApplicationController
     @employee.document= params[:employee][:document]
     @employee.speciality= params[:employee][:speciality]
     @employee.status= params[:employee][:status]
-    @employee.charge_for_hours= params[:employee][:charge_for_hours]
+    
     if @employee.save 
       redirect_to  employee_index_path
     else 
@@ -39,7 +39,7 @@ class EmployeeController < ApplicationController
     @employee.document= params[:employee][:document]
     @employee.speciality= params[:employee][:speciality]
     @employee.status= params[:employee][:status]
-    @employee.charge_for_hours= params[:employee][:charge_for_hours]
+   
     if @employee.save 
       redirect_to  employee_index_path
     else 

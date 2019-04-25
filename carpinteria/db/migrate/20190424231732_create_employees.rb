@@ -8,8 +8,6 @@ class CreateEmployees < ActiveRecord::Migration[5.2]
       t.string :document
       t.string :speciality
       t.string :status
-      t.float :charge_for_hours
-
       t.timestamps
     end
   end

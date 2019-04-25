@@ -9,7 +9,7 @@
 		<TH>Documento</TH>
 		<TH>Especialidad</TH>
 		<TH>Estado</TH>
-		<TH>Cobro por hora</TH>
+		
 		<TH colspan="2"><%= link_to 'Nuevo', employee_new_path %></TH></tr>
 </thead>
 	<tbody>
@@ -23,7 +23,7 @@
 		<TD><%= f.document %></TD>
 		<TD><%= f.speciality %></TD>
 		<TD><%= f.status %></TD>
-		<TD><%= f.charge_for_hours %></TD>
+		
 		<TD><%= link_to 'Editar', employee_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
 		</TD>
