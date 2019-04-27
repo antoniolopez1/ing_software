@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
+  #rutas para historial de horas
+  get 'hours_history/index'
+  get 'hours_history/new'
+  post 'hours_history/create'
+  get 'hours_history/:id/edit', to: 'hours_history#edit', as: 'hours_history_edit'
+  patch 'hours_history/:id/update', to: 'hours_history#update', as: 'hours_history_update'
+  delete 'hours_history/:id/destroy', to: 'hours_history#destroy', as: 'hours_history_destroy'
+  #ruta para home
   get 'home/index'
+  #rutas para empleados
   get 'employee/index'
   get 'employee/new'
   post 'employee/create'

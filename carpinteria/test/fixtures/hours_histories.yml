@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  entry_time: 2019-04-27 14:06:57
+  departure_time: 2019-04-27 14:06:57
+  employee: one
+
+two:
+  entry_time: 2019-04-27 14:06:57
+  departure_time: 2019-04-27 14:06:57
+  employee: two
