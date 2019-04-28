@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_000743) do
+ActiveRecord::Schema.define(version: 2019_04_28_014303) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2019_04_28_000743) do
   create_table "hours_histories", force: :cascade do |t|
     t.time "entry_time"
     t.time "departure_time"
+    t.float "total_hours"
+    t.float "extra_hours"
     t.bigint "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

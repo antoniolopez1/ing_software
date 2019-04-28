@@ -5,6 +5,8 @@
 		<TH>Fecha</TH>
 		<TH>Hora de entrada</TH>
 		<TH>Hora de salida</TH>
+		<TH>Horas trabajadas</TH>
+		<TH>Horas extras trabajadas</TH>
 		<TH>Personal</TH>
 			
 		<TH colspan="2"><%= link_to 'Nuevo', hours_history_new_path %></TH></tr>
@@ -16,6 +18,8 @@
 		<TD><%= f.created_at.strftime("%Y/%m/%d") %></TD>
 		<TD><%= f.entry_time.strftime("%T") %></TD>
 		<TD><%= f.departure_time.strftime("%T") %></TD>
+		<TD><%= f.total_hours %></TD>
+		<TD><%= f.extra_hours %></TD>
 		<TD><%= f.employee.lastname %>, <%= f.employee.name %> </TD>
 		
 		<TD><%= link_to 'Editar', hours_history_edit_path(f['id']) %></TD><TD>

@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  entry_time: 2019-04-27 14:06:57
-  departure_time: 2019-04-27 14:06:57
+  entry_time: 2019-04-27 21:43:03
+  departure_time: 2019-04-27 21:43:03
+  total_hours: 1.5
+  extra_hours: 1.5
   employee: one
 
 two:
-  entry_time: 2019-04-27 14:06:57
-  departure_time: 2019-04-27 14:06:57
+  entry_time: 2019-04-27 21:43:03
+  departure_time: 2019-04-27 21:43:03
+  total_hours: 1.5
+  extra_hours: 1.5
   employee: two
