@@ -13,6 +13,13 @@ Rails.application.routes.draw do
   get 'furniture/:id/edit' , to: 'furniture#edit', as: 'furniture_edit'
   patch 'furniture/:id/edit', to: 'furniture#update', as: 'furniture_update'
   delete 'furniture/:id/destroy', to: 'furniture#destroy', as: 'furniture_destroy'
+  #rutas para providers
+  get 'provider/index'
+  get 'provider/new'
+  post 'provider/create'
+  get 'provider/:id/edit', to: 'provider#edit', as: 'provider_edit'
+  patch 'provider/:id/update', to: 'provider#update', as: 'provider_update'
+  delete 'provider/:id/destroy', to: 'provider#destroy', as: 'provider_destroy'
   #rutas para salaries
   get 'salary/index'
   get 'salary/new'

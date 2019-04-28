@@ -1,0 +1,7 @@
+<h1>Provider#new</h1>
+<div class="container-div">
+	<h1>Nuevo Proveedor</h1>
+	<%= form_for @provider, :url => { :action => :create } do |f| %>
+	<%= render "form", f: f %>
+	<% end %>
+</div>
