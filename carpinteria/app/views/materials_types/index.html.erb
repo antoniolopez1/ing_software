@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Materials Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @materials_types.each do |materials_type| %>
+      <tr>
+        <td><%= materials_type.description %></td>
+        <td><%= link_to 'Show', materials_type %></td>
+        <td><%= link_to 'Edit', edit_materials_type_path(materials_type) %></td>
+        <td><%= link_to 'Destroy', materials_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Materials Type', new_materials_type_path %>

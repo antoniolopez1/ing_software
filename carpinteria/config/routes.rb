@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :utilities
+  resources :measure_units
+  resources :materials_types
   #rutas para historial de horas
   get 'hours_history/index'
   get 'hours_history/new'
