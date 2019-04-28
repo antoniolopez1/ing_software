@@ -1,0 +1,19 @@
+<ul>
+<% 
+@salary.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+
+<p>
+<%= f.label "Personal" %> </br>
+<%= f.text_field :employee_id %>
+</p>
+<p>
+<%= f.label "Bonificación por hora" %> </br>
+<%= f.text_field :charge_for_hours %>
+</p>
+<p>
+<%= f.submit "Enviar" %>
+</p>

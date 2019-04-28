@@ -1,0 +1,10 @@
+<h1>Salary#new</h1>
+
+<div class="container-div">
+	<h1>Registro del Personal</h1>
+	<%= form_for @salary, :url => { :action => :create } do |f| %>
+	<%= render "form", f: f %>
+	<% end %>
+</div>
+
+

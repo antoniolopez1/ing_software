@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  #rutas para salaries
+  get 'salary/index'
+  get 'salary/new'
+  post 'salary/create'
+  get 'salary/:id/edit', to: 'salary#edit', as: 'salary_edit'
+  patch 'salary/:id/update', to: 'salary#update', as: 'salary_update'
+  delete 'salary/:id/destroy', to: 'salary#destroy', as: 'salary_destroy'
+  #rutas de scaffold
   resources :utilities
   resources :measure_units
   resources :materials_types
