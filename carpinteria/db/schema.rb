@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_040236) do
+ActiveRecord::Schema.define(version: 2019_04_28_141625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 2019_04_28_040236) do
     t.string "document"
     t.string "speciality"
     t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "furnitures", force: :cascade do |t|
+    t.string "description"
+    t.float "cost"
+    t.float "profit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,6 +71,17 @@ ActiveRecord::Schema.define(version: 2019_04_28_040236) do
 
   create_table "utilities", force: :cascade do |t|
     t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "utilities_for_furnitures", force: :cascade do |t|
+    t.integer "utilities_id"
+    t.integer "furniture_id"
+    t.float "width"
+    t.float "high"
+    t.float "thickness"
+    t.float "cost"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

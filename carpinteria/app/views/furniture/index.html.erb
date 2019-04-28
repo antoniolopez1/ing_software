@@ -1,0 +1,21 @@
+<div class="container-div">
+<h1>Furniture</h1>
+<table class="table ">
+	  <thead class="thead-light">
+	<tr><TH>Descripción</TH><TH>Costo</TH><TH>Ganancia</TH><TH colspan="2"><%= link_to 'Nuevo', furniture_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @furnitures.each do |f| %>
+
+	<tr><TD><%= f.description %></TD>
+		<TD><%= f.cost %></TD>
+		<TD><%= f.profit %></TD>
+		<TD><%= link_to 'Editar', furniture_edit_path(f['id']) %></TD><TD>
+
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,2 @@
+class UtilitiesForFurniture < ApplicationRecord
+end

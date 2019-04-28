@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  #rutas para utilities_for_furniture
+  get 'utilities_for_furniture/index'
+  get 'utilities_for_furniture/new'
+  post 'utilities_for_furniture/create'
+  get 'utilities_for_furniture/:id/edit', to: 'utilities_for_furniture#edit', as: 'utilities_for_furniture_edit'
+  patch 'utilities_for_furniture/:id/edit', to: 'utilities_for_furniture#update', as: 'utilities_for_furniture_update'
+  delete 'utilities_for_furniture/:id/destroy', to: 'utilities_for_furniture#destroy', as: 'utilities_for_furniture_destroy'
+   #rutas para furniture
+  get 'furniture/index'
+  get 'furniture/new'
+  post 'furniture/create'
+  get 'furniture/:id/edit' , to: 'furniture#edit', as: 'furniture_edit'
+  patch 'furniture/:id/edit', to: 'furniture#update', as: 'furniture_update'
+  delete 'furniture/:id/destroy', to: 'furniture#destroy', as: 'furniture_destroy'
   #rutas para salaries
   get 'salary/index'
   get 'salary/new'
