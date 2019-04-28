@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  #rutas para customer
+  get 'customer/index'
+  get 'customer/new'
+  post 'customer/create'
+  get 'customer/:id/edit', to: 'customer#edit', as: 'customer_edit'
+  patch 'customer/:id/update', to: 'customer#update', as: 'customer_update'
+  delete 'customer/:id/destroy', to: 'customer#destroy', as: 'customer_destroy'
   #rutas para utilities_for_furniture
   get 'utilities_for_furniture/index'
   get 'utilities_for_furniture/new'
