@@ -1,0 +1,22 @@
+<%= form_with(model: measure_unit, local: true) do |form| %>
+  <% if measure_unit.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(measure_unit.errors.count, "error") %> prohibited this measure_unit from being saved:</h2>
+
+      <ul>
+      <% measure_unit.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

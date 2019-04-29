@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  utilities_id: 1
+  furniture_id: 1
+  width: 1.5
+  high: 1.5
+  thickness: 1.5
+  cost: 1.5
+
+two:
+  utilities_id: 1
+  furniture_id: 1
+  width: 1.5
+  high: 1.5
+  thickness: 1.5
+  cost: 1.5

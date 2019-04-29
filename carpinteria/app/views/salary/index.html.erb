@@ -1,0 +1,30 @@
+<h1>Salary#index</h1>
+<table class="table ">
+	  <thead class="thead-dark">
+	<tr><TH>ID</TH>
+		<TH>Personal</TH>
+		<TH>Bonificacion por hora</TH>
+		<TH>Acumulado</TH>
+		<TH>Total de horas trabajadas</TH>
+		<TH>Total de Horas extras trabajadas</TH>
+		<TH colspan="2"><%= link_to 'Nuevo', salary_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @salaries.each do |f| %>
+	
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.employee.lastname %>, <%= f.employee.name %> </TD>
+		<TD><%= f.charge_for_hours %></TD>
+		<TD><%= f.accumulated %></TD>
+		<TD><%= f.total_hours%></TD>
+		<TD><%= f.total_extra_hours %></TD>
+			
+		
+		<TD><%= link_to 'Editar', salary_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>

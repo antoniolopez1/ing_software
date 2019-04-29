@@ -1,0 +1,7 @@
+<h1>Provider#edit</h1>
+<div class="container-div">
+	<h1>Editar Proveedor</h1>
+	<%= form_for @provider, :url => { :action => :update } do |f| %>
+	<%= render "form", f: f %>
+	<% end %>
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  employee: one
+  accumulated: 1.5
+  charge_for_hours: 1.5
+  total_hours: 1.5
+  total_extra_hours: 1.5
+
+two:
+  employee: two
+  accumulated: 1.5
+  charge_for_hours: 1.5
+  total_hours: 1.5
+  total_extra_hours: 1.5

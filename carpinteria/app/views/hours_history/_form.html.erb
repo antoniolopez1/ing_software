@@ -1,0 +1,24 @@
+<ul>
+<% 
+@hours_history.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+
+<p>
+<%= f.label "Hora de entrada" %> </br>
+<%= f.time_field :entry_time %>
+</p>
+<p>
+<%= f.label "Hora de salida" %> </br>
+<%= f.time_field :departure_time %>
+</p>
+<p>
+<%= f.label "Personal" %> </br>
+<%= f.text_field :employee_id %>
+</p>
+
+<p>
+<%= f.submit "Enviar" %>
+</p>

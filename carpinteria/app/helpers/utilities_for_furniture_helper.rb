@@ -1,0 +1,2 @@
+module UtilitiesForFurnitureHelper
+end

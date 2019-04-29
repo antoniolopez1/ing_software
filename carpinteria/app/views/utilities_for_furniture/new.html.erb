@@ -1,0 +1,6 @@
+<div class="container-div">
+	<h1>Nuevo Furniture</h1>
+	<%= form_for @utilities_for_furniture, :url => { :action => :create } do |e| %>
+	<%= render "form", e: e %>
+	<% end %>
+</div>

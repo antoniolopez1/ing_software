@@ -1,0 +1,34 @@
+<h1>Employee#index</h1>
+<table class="table ">
+	  <thead class="thead-dark">
+	<tr><TH>ID</TH>
+		<TH>Nombres</TH>
+		<TH>Apellidos</TH>
+		<TH>Dirección</TH>
+		<TH>Telefono</TH>
+		<TH>Documento</TH>
+		<TH>Especialidad</TH>
+		<TH>Estado</TH>
+		
+		<TH colspan="2"><%= link_to 'Nuevo', employee_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @employees.each do |f| %>
+	
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.name %></TD>
+		<TD><%= f.lastname %></TD>
+		<TD><%= f.address %></TD>
+		<TD><%= f.telephone %></TD>
+		<TD><%= f.document %></TD>
+		<TD><%= f.speciality %></TD>
+		<TD><%= f.status %></TD>
+		
+		<TD><%= link_to 'Editar', employee_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>

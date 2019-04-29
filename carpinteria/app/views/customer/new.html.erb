@@ -1,0 +1,7 @@
+<h1>Customer#new</h1>
+<div class="container-div">
+	<h1>Nuevo Cliente</h1>
+	<%= form_for @customer, :url => { :action => :create } do |f| %>
+	<%= render "form", f: f %>
+	<% end %>
+</div>
