@@ -42,3 +42,50 @@ CREATE TRIGGER bi_hours
   ON public.hours_histories
   FOR EACH ROW
   EXECUTE PROCEDURE public.accumulated_hours();
+###################TRIGGERS FUNCTION-INSERT de balance y accumulated############
+CREATE OR REPLACE FUNCTION public.balance_employee_payments()
+  RETURNS trigger AS
+$BODY$begin
+
+UPDATE salaries SET accumulated = new.balance, total_extra_hours = 0, total_hours=new.balance/charge_for_hours
+WHERE id=new.salary_id;
+return new;
+end
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.balance_employee_payments()
+  OWNER TO postgres;
+#######################TRIGGER INSERT balance ############
+CREATE TRIGGER ai_balance
+  AFTER INSERT
+  ON public.employee_payments
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.balance_employee_payments();
+#######################TRIGGER FUNCTION update balance#########################
+
+CREATE OR REPLACE FUNCTION public.balance_accumulated()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE salaries SET accumulated = (old.amount+old.balance)-new.amount, 
+total_extra_hours = 0, 
+total_hours=((old.amount+old.balance)-new.amount)/charge_for_hours
+WHERE id=new.salary_id;
+
+end if;
+return new;
+end
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.balance_accumulated()
+  OWNER TO postgres;
+#######################TRIGGER before update balance###################
+CREATE TRIGGER bu_balance
+  BEFORE UPDATE
+  ON public.employee_payments
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.balance_accumulated();
+
+
