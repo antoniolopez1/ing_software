@@ -32,6 +32,7 @@ class HoursHistoryController < ApplicationController
       departure_time=hour_to_float(@hours_history.departure_time)
       entry_time=hour_to_float(@hours_history.entry_time)
       acumulated=departure_time-entry_time
+      extra=0
     else
       dt=subtract_hours(@hours_history.departure_time,Time.new(2019, 4, 27, 17))
       puts (dt)
@@ -86,6 +87,6 @@ class HoursHistoryController < ApplicationController
     id=params[:id]
     @hours_history=HoursHistory.find(id)
     @hours_history.destroy
-    redirect_to  employee_index_path
+    redirect_to  hours_history_index_path
   end
 end

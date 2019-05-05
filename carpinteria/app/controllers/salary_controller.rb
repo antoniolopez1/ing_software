@@ -11,6 +11,9 @@ class SalaryController < ApplicationController
     @salary=Salary.new
     @salary.employee_id=params[:salary][:employee_id]
     @salary.charge_for_hours=params[:salary][:charge_for_hours]
+    @salary.accumulated=0
+    @salary.total_hours=0
+    @salary.total_extra_hours=0
     if @salary.save 
       redirect_to  salary_index_path
     else 
