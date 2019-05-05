@@ -1,4 +1,4 @@
-###################TRIGGER FUNCTION########################
+###################TRIGGER FUNCTION-INSERT########################
 CREATE OR REPLACE FUNCTION accumulated_hour()
   RETURNS trigger AS
 $BODY$
@@ -13,9 +13,32 @@ $BODY$
   COST 100;
 ALTER FUNCTION public.accumulated_hours()
   OWNER TO postgres;
-###################TRIGGER#############
+###################TRIGGER- INSERT#############
 CREATE TRIGGER ai_hour
   AFTER INSERT
   ON public.hours_histories
   FOR EACH ROW
   EXECUTE PROCEDURE public.accumulated_hour();
+###################TRIGGER FUNCTION-UPDATE########################
+CREATE OR REPLACE FUNCTION public.accumulated_hours()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE salaries
+SET total_hours = total_hours + new.total_hours - old.total_hours, total_extra_hours = total_extra_hours + new.extra_hours - old.extra_hours,
+accumulated=(charge_for_hours*(total_hours + new.total_hours - old.total_hours))+((total_extra_hours+ new.extra_hours - old.extra_hours)*20000)
+WHERE employee_id=new.employee_id;
+end if;
+return new;
+end
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.accumulated_hours()
+  OWNER TO postgres;
+###################TRIGGER- UPDATE#############
+CREATE TRIGGER bi_hours
+  BEFORE UPDATE
+  ON public.hours_histories
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.accumulated_hours();
