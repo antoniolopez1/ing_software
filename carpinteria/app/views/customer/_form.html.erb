@@ -1,3 +1,4 @@
+
 <ul>
 <% 
 @customer.errors.full_messages.each do |m|
@@ -6,34 +7,50 @@
 <% end %>
 </ul>
 
-<p>
-<%= f.label :name %> </br>
+ <div class="row">
+  <div class="col-sm-4 ">
+  	<p >
+<%= f.label :Nombres %> </br>
 <%= f.text_field :name %>
-</p>
-<p>
-<%= f.label :lastname %> </br>
+	</p>
+	<p>
+<%= f.label :Apellidos %> </br>
 <%= f.text_field :lastname %>
 </p>
-<p>
-<%= f.label :address %> </br>
-<%= f.text_field :address %>
-</p>
-<p>
-<%= f.label :telephone %> </br>
+
+  </div>
+  <div class="col-sm-4 ">
+  	<p>
+<%= f.label :Teléfono %> </br>
 <%= f.text_field :telephone %>
 </p>
+	<p>
+<%= f.label :Dirección%> </br>
+<%= f.text_field :address %>
+</p>
+
+
+  </div>
+  <div class="col-sm-4 ">
+  
 <p>
-<%= f.label :document %> </br>
-<%= f.text_field :document %>
+<%= f.label :"Documento" %> </br>
+<%= f.text_field :document, size: "13"%>
+<%= f.label :" - " %>
+<%= f.text_field :ruc, size: "1" %>
 </p>
 <p>
-<%= f.label :ruc %> </br>
-<%= f.text_field :ruc %>
-</p>
-<p>
-<%= f.label :ruc %> </br>
+<%= f.label :Observaciones %> </br>
 <%= f.text_field :observation %>
 </p>
+  </div>
+</div> 
+
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar"  %>
 </p>
+
+
+
+
+
