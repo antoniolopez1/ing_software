@@ -1,0 +1,19 @@
+<ul>
+<% 
+@employee_payment.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+
+<p>
+<%= f.label :salary %> </br>
+<%= f.text_field :salary_id %>
+</p>
+<p>
+<%= f.label :amount %> </br>
+<%= f.text_field :amount %>
+</p>
+<p>
+<%= f.submit "Enviar" %>
+</p>

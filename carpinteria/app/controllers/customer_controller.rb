@@ -7,6 +7,8 @@ class CustomerController < ApplicationController
     @customer=Customer.new
   end
 
+
+
   def create
     @customer=Customer.new
     @customer.name=params[:customer][:name]

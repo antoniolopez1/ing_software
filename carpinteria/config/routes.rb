@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  #rutas para employee_payment
+  get 'employee_payment/index'
+  get 'employee_payment/new'
+  post 'employee_payment/create'
+  get 'employee_payment/:id/edit', to: 'employee_payment#edit', as: 'employee_payment_edit'
+  patch 'employee_payment/:id/update', to: 'employee_payment#update', as: 'employee_payment_update'
+  delete 'employee_payment/:id/destroy', to: 'employee_payment#destroy', as: 'employee_payment_destroy'
   #rutas para customer
   get 'customer/index'
   get 'customer/new'

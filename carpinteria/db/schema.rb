@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_28_191530) do
+ActiveRecord::Schema.define(version: 2019_05_05_143134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2019_04_28_191530) do
     t.text "observation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "employee_payments", force: :cascade do |t|
+    t.bigint "salary_id"
+    t.float "amount"
+    t.float "balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["salary_id"], name: "index_employee_payments_on_salary_id"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -112,6 +121,7 @@ ActiveRecord::Schema.define(version: 2019_04_28_191530) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"
   add_foreign_key "salaries", "employees"
 end
