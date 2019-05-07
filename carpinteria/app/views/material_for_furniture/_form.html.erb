@@ -1,0 +1,31 @@
+<ul>
+<% 
+@material_for_furniture.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+
+
+<p>
+<%= f.label :material_id %> </br>
+<%= f.collection_select(:material_id, Material.all, :id , :description)  %>
+</p>
+
+<p>
+<%= f.label :furniture_id %> </br>
+<%= f.collection_select(:furniture_id, Furniture.all, :id , :description)  %>
+</p>
+
+<p>
+<%= f.label :quantity %> </br>
+<%= f.number_field :quantity, :class => 'text_field', :step => 1  %>
+</p>
+<p>
+<%= f.label :cost %> </br>
+<%= f.number_field :cost , :class => 'text_field' %>
+</p>
+
+<p>
+<%= f.submit "Enviar" %>
+</p>

@@ -1,0 +1,30 @@
+<h1>Material#index</h1>
+<table class="table ">
+	  <thead class="thead-dark">
+	<tr><TH>Tipo de Material</TH>
+		<TH>Unidad de Medida</TH>
+		<TH>Descripcion</TH>
+		<TH>Cantidad</TH>
+		<TH>Costo</TH>
+		
+		
+		<TH colspan="2"><%= link_to 'Nuevo', material_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @materials.each do |f| %>
+	
+	<tr><TD><%= f.materials_types_id %></TD>
+		<TD><%= f.measure_units_id%></TD>
+		<TD><%= f.description %></TD>
+		<TD><%= f.quantity %></TD>
+		<TD><%= f.cost %></TD>
+	
+		
+		<TD><%= link_to 'Editar', material_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>
