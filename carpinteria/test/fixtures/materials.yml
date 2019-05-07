@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  materials_types_id: 1
+  measure_units_id: 1
+  description: MyString
+  queantity: 1
+  cost: 1.5
+
+two:
+  materials_types_id: 1
+  measure_units_id: 1
+  description: MyString
+  queantity: 1
+  cost: 1.5

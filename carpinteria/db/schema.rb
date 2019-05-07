@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_05_143134) do
+ActiveRecord::Schema.define(version: 2019_05_06_020856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,36 @@ ActiveRecord::Schema.define(version: 2019_05_05_143134) do
     t.index ["employee_id"], name: "index_hours_histories_on_employee_id"
   end
 
+  create_table "material_for_furnitures", force: :cascade do |t|
+    t.integer "quantity"
+    t.float "cost"
+    t.bigint "material_id"
+    t.bigint "furniture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_material_for_furnitures_on_furniture_id"
+    t.index ["material_id"], name: "index_material_for_furnitures_on_material_id"
+  end
+
+  create_table "materials", force: :cascade do |t|
+    t.integer "materials_types_id"
+    t.integer "measure_units_id"
+    t.string "description"
+    t.integer "quantity"
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "materials_for_furnitures", force: :cascade do |t|
+    t.integer "materials_id"
+    t.integer "furniture_id"
+    t.integer "quantity"
+    t.float "cost"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "materials_types", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", null: false
@@ -123,5 +153,7 @@ ActiveRecord::Schema.define(version: 2019_05_05_143134) do
 
   add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"
+  add_foreign_key "material_for_furnitures", "furnitures"
+  add_foreign_key "material_for_furnitures", "materials"
   add_foreign_key "salaries", "employees"
 end
