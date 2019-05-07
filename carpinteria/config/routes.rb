@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #rutas para employee_payment
   get 'employee_payment/index'
   get 'employee_payment/new'
