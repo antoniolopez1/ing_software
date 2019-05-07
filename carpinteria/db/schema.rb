@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_06_020856) do
+ActiveRecord::Schema.define(version: 2019_05_07_025808) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2019_05_06_020856) do
     t.string "document"
     t.string "speciality"
     t.string "status"
-    t.float "charge_for_hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -81,22 +80,15 @@ ActiveRecord::Schema.define(version: 2019_05_06_020856) do
   end
 
   create_table "materials", force: :cascade do |t|
-    t.integer "materials_types_id"
-    t.integer "measure_units_id"
     t.string "description"
     t.integer "quantity"
     t.float "cost"
+    t.bigint "materials_type_id"
+    t.bigint "measure_unit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "materials_for_furnitures", force: :cascade do |t|
-    t.integer "materials_id"
-    t.integer "furniture_id"
-    t.integer "quantity"
-    t.float "cost"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["materials_type_id"], name: "index_materials_on_materials_type_id"
+    t.index ["measure_unit_id"], name: "index_materials_on_measure_unit_id"
   end
 
   create_table "materials_types", force: :cascade do |t|
@@ -141,19 +133,25 @@ ActiveRecord::Schema.define(version: 2019_05_06_020856) do
   end
 
   create_table "utilities_for_furnitures", force: :cascade do |t|
-    t.integer "utilities_id"
-    t.integer "furniture_id"
     t.float "width"
     t.float "high"
     t.float "thickness"
     t.float "cost"
+    t.bigint "utility_id"
+    t.bigint "furniture_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_utilities_for_furnitures_on_furniture_id"
+    t.index ["utility_id"], name: "index_utilities_for_furnitures_on_utility_id"
   end
 
   add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"
   add_foreign_key "material_for_furnitures", "furnitures"
   add_foreign_key "material_for_furnitures", "materials"
+  add_foreign_key "materials", "materials_types"
+  add_foreign_key "materials", "measure_units"
   add_foreign_key "salaries", "employees"
+  add_foreign_key "utilities_for_furnitures", "furnitures"
+  add_foreign_key "utilities_for_furnitures", "utilities"
 end

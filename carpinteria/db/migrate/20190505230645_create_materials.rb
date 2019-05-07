@@ -1,12 +1,11 @@
 class CreateMaterials < ActiveRecord::Migration[5.2]
   def change
     create_table :materials do |t|
-      t.integer :materials_types_id
-      t.integer :measure_units_id
       t.string :description
-      t.integer :queantity
+      t.integer :quantity
       t.float :cost
-
+      t.references :materials_type, foreign_key: true
+      t.references :measure_unit, foreign_key: true
       t.timestamps
     end
   end
