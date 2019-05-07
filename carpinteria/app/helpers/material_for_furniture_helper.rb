@@ -1,0 +1,2 @@
+module MaterialForFurnitureHelper
+end

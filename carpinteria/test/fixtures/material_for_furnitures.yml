@@ -1,17 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  width: 1.5
-  high: 1.5
-  thickness: 1.5
+  quantity: 1
   cost: 1.5
-  utility: one
+  material: one
   furniture: one
 
 two:
-  width: 1.5
-  high: 1.5
-  thickness: 1.5
+  quantity: 1
   cost: 1.5
-  utility: two
+  material: two
   furniture: two

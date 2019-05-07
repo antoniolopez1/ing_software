@@ -1,0 +1,35 @@
+<ul>
+<% 
+@material.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+
+
+<p>
+<%= f.label :material_type_id %> </br>
+<%= f.collection_select(:materials_type_id, MaterialsType.all, :id , :description)  %>
+</p>
+
+<p>
+<%= f.label :measure_unit_id %> </br>
+<%= f.collection_select(:measure_unit_id, MeasureUnit.all, :id , :description)  %>
+</p>
+
+<p>
+<%= f.label :description %> </br>
+<%= f.text_field :description %>
+</p>
+<p>
+<%= f.label :quantity %> </br>
+<%= f.number_field :quantity, :class => 'text_field', :step => 1  %>
+</p>
+<p>
+<%= f.label :cost %> </br>
+<%= f.number_field :cost , :class => 'text_field' %>
+</p>
+
+<p>
+<%= f.submit "Enviar" %>
+</p>
