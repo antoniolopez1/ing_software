@@ -1,0 +1,7 @@
+<h1>Purchase#edit</h1>
+<div class="container-div">
+	<h1>Registro de compras</h1>
+	<%= form_for @purchase, :url => { :action => :update } do |f| %>
+	<%= render "form", f: f %>
+	<% end %>
+</div>

@@ -10,7 +10,7 @@ class MaterialController < ApplicationController
 
   def create
     @material=Material.new
-    @material.materials_type_id=params[:material][:material_types_id]
+    @material.materials_type_id=params[:material][:materials_type_id]
     @material.measure_unit_id=params[:material][:measure_unit_id]
     @material.description=params[:material][:description]
     @material.quantity=params[:material][:quantity]

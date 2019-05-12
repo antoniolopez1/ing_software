@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_07_025808) do
+ActiveRecord::Schema.define(version: 2019_05_11_235316) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,6 +115,30 @@ ActiveRecord::Schema.define(version: 2019_05_07_025808) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "purchase_details", force: :cascade do |t|
+    t.bigint "purchase_id"
+    t.integer "quantity"
+    t.float "subtotal"
+    t.bigint "material_id"
+    t.float "net_price"
+    t.float "iva"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["material_id"], name: "index_purchase_details_on_material_id"
+    t.index ["purchase_id"], name: "index_purchase_details_on_purchase_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.date "purchase_date"
+    t.float "total"
+    t.float "amount"
+    t.float "balance"
+    t.bigint "provider_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_purchases_on_provider_id"
+  end
+
   create_table "salaries", force: :cascade do |t|
     t.bigint "employee_id"
     t.float "accumulated"
@@ -151,6 +175,9 @@ ActiveRecord::Schema.define(version: 2019_05_07_025808) do
   add_foreign_key "material_for_furnitures", "materials"
   add_foreign_key "materials", "materials_types"
   add_foreign_key "materials", "measure_units"
+  add_foreign_key "purchase_details", "materials"
+  add_foreign_key "purchase_details", "purchases"
+  add_foreign_key "purchases", "providers"
   add_foreign_key "salaries", "employees"
   add_foreign_key "utilities_for_furnitures", "furnitures"
   add_foreign_key "utilities_for_furnitures", "utilities"
