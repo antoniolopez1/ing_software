@@ -10,7 +10,7 @@ class UtilitiesForFurnitureController < ApplicationController
 
   def create
       @utilities_for_furniture=UtilitiesForFurniture.new
-      @utilities_for_furniture.utilities_id=params[:utilities_for_furniture][:utilities_id]
+      @utilities_for_furniture.utility_id=params[:utilities_for_furniture][:utility_id]
       @utilities_for_furniture.furniture_id=params[:utilities_for_furniture][:furniture_id]
       @utilities_for_furniture.width=params[:utilities_for_furniture][:width]
       @utilities_for_furniture.high=params[:utilities_for_furniture][:high]
@@ -32,7 +32,7 @@ if @utilities_for_furniture.save
   def update
     id=params[:utilities_for_furniture][:id]
     @utilities_for_furniture=UtilitiesForFurniture.find(id)
-    @utilities_for_furniture.utilities_id=params[:utilities_for_furniture][:utilities_id]
+    @utilities_for_furniture.utility_id=params[:utilities_for_furniture][:utility_id]
     @utilities_for_furniture.furniture_id=params[:utilities_for_furniture][:furniture_id]
     @utilities_for_furniture.width=params[:utilities_for_furniture][:width]
     @utilities_for_furniture.high=params[:utilities_for_furniture][:high]

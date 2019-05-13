@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  materials_id: 1
+  furniture_id: 1
+  quantity: 1
+  cost: 1.5
+
+two:
+  materials_id: 1
+  furniture_id: 1
+  quantity: 1
+  cost: 1.5

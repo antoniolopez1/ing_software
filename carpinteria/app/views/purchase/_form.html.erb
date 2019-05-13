@@ -1,0 +1,22 @@
+<ul>
+<% 
+@purchase.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+<p>
+<%= f.label "Proveedor" %> </br>
+<%= f.text_field :provider_id %>
+</p>
+<p>
+<%= f.label "Fecha" %> </br>
+<%= f.date_field :purchase_date %>
+</p>
+<p>
+<%= f.label "Importe" %> </br>
+<%= f.text_field :amount %>
+</p>
+<p>
+<%= f.submit "Enviar" %>
+</p>

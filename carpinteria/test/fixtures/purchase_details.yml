@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  purchase: one
+  quantity: 1
+  subtotal: 1.5
+  material: one
+  net_price: 1.5
+  iva: 1.5
+
+two:
+  purchase: two
+  quantity: 1
+  subtotal: 1.5
+  material: two
+  net_price: 1.5
+  iva: 1.5

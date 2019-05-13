@@ -1,0 +1,35 @@
+<ul>
+<% 
+@purchase_detail.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+<p>
+<%= f.label "Compra id" %> </br>
+<%= f.text_field :purchase_id %>
+</p>
+<p>
+<%= f.label "Material" %> </br>
+<%= f.text_field :material_id %>
+</p>
+<p>
+<%= f.label "Precio neto" %> </br>
+<%= f.text_field :net_price %>
+</p>
+<p>
+<%= f.label "IVA" %> </br>
+<%= f.text_field :iva %>
+</p>
+<p>
+<%= f.label "Cantidad" %> </br>
+<%= f.text_field :quantity %>
+</p>
+<!--p>
+<%= f.label "Subtotal" %> </br>
+<%= f.text_field :subtotal %>
+</p-->
+
+<p>
+<%= f.submit "Enviar" %>
+</p>

@@ -1,4 +1,39 @@
 Rails.application.routes.draw do
+  #rutas para detalles de la compra
+  get 'purchase_detail/index'
+  get 'purchase_detail/new'
+  post 'purchase_detail/create'
+  get 'purchase_detail/:id/edit', to: 'purchase_detail#edit', as: 'purchase_detail_edit'
+  patch 'purchase_detail/:id/update', to: 'purchase_detail#update', as: 'purchase_detail_update'
+  delete 'purchase_detail/:id/destroy', to: 'purchase_detail#destroy', as: 'purchase_detail_destroy'
+  #rutas para compras 
+  get 'purchase/index'
+  get 'purchase/new'
+  post 'purchase/create'
+  get 'purchase/:id/edit', to: 'purchase#edit', as: 'purchase_edit'
+  patch 'purchase/:id/update', to: 'purchase#update', as: 'purchase_update'
+  delete 'purchase/:id/destroy', to: 'purchase#destroy', as: 'purchase_destroy'
+  #rutas para material_for_furniture
+  get 'material_for_furniture/index'
+  get 'material_for_furniture/new'
+  post 'material_for_furniture/create'
+  get 'material_for_furniture/:id/edit', to: 'material_for_furniture#edit', as: 'material_for_furniture_edit'
+  patch 'material_for_furniture/:id/update', to: 'material_for_furniture#update', as: 'material_for_furniture_update'
+  delete 'material_for_furniture/:id/destroy', to: 'material_for_furniture#destroy', as: 'material_for_furniture_destroy'
+ #rutas para materials_for_furniture
+  get 'materials_for_furniture/index'
+  get 'materials_for_furniture/new'
+  post 'materials_for_furniture/create'
+  get 'materials_for_furniture/:id/edit', to: 'materials_for_furniture#edit', as: 'materials_for_furniture_edit'
+  patch 'materials_for_furniture/:id/update', to: 'materials_for_furniture#update', as: 'materials_for_furniture_update'
+  delete 'materials_for_furniture/:id/destroy', to: 'materials_for_furniture#destroy', as: 'materials_for_furniture_destroy'
+   #rutas para material
+  get 'material/index'
+  get 'material/new'
+  post 'material/create'
+  get 'material/:id/edit', to: 'material#edit', as: 'material_edit'
+  patch 'material/:id/update', to: 'material#update', as: 'material_update'
+  delete 'material/:id/destroy', to: 'material#destroy', as: 'material_destroy'
   #rutas para employee_payment
   get 'employee_payment/index'
   get 'employee_payment/new'

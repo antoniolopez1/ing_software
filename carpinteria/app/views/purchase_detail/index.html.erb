@@ -1,0 +1,33 @@
+<h1>PurchaseDetail#index</h1>
+<table class="table ">
+	  <thead class="thead-dark">
+	<tr><TH>ID</TH>
+		<TH>Compra</TH>
+		<TH>Material</TH>
+		<TH>Precio Neto</TH>
+		<TH>IVA</TH>
+		<TH>Cantidad</TH>
+		<TH>Subotal</TH>
+		
+
+		<TH colspan="2"><%= link_to 'Nuevo', purchase_detail_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @purchase_details.each do |f| %>
+	
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.purchase_id %></TD>
+		<TD><%= f.material.description %></TD>
+		<TD><%= f.net_price %> </TD>
+		<TD><%= f.iva%>%</TD>
+		<TD><%= f.quantity %> </TD>
+		<TD><%= f.subtotal %></TD>
+		
+		<TD><%= link_to 'Editar', purchase_detail_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>

@@ -3,7 +3,7 @@ class HoursHistoryController < ApplicationController
     mf=hour.strftime("%M").to_f
     hora=hour.strftime("%H").to_f
     minuto=mf.to_f/60
-    puts (hora+minuto)
+    #puts (hora+minuto)
     return hora+minuto
   end
   def subtract_hours(time,time2)

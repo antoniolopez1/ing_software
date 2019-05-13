@@ -87,5 +87,86 @@ CREATE TRIGGER bu_balance
   ON public.employee_payments
   FOR EACH ROW
   EXECUTE PROCEDURE public.balance_accumulated();
+#######################TRIGGER Function purchase_total_i###########
+CREATE OR REPLACE FUNCTION public.purchase_total()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE purchases SET total=total+new.subtotal, balance=(total+new.subtotal)-amount
+WHERE id=new.purchase_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.purchase_total()
+  OWNER TO postgres;
+#######################TRIGGER ai_purchase_detail#######################
+CREATE TRIGGER ai_purchase_detail
+  AFTER INSERT
+  ON public.purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.purchase_total();
+#######################TRIGGER Function purchase_total_u###################
+CREATE OR REPLACE FUNCTION public.purchase_total_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE purchases SET total = (total-old.subtotal)+new.subtotal, 
+balance = ((total-old.subtotal)+new.subtotal)-amount
+
+WHERE id=new.purchase_id;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.purchase_total_u()
+  OWNER TO postgres;
+##########################TRIGGER bu_purchase_detail########################
+CREATE TRIGGER bu_purchase_detail
+  BEFORE UPDATE
+  ON public.purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.purchase_total_u();
+###########################TRIGGER Function material quantity###############
+CREATE OR REPLACE FUNCTION public.material_quantity_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE materials SET quantity=quantity+new.quantity, cost=((new.net_price*new.iva)/100)+new.net_price
+WHERE id=new.material_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.material_quantity_i()
+  OWNER TO postgres;
+#############################TRIGGER ai_purchase_detail in materials#################
+CREATE TRIGGER ai_purchase_detail_material
+  AFTER INSERT
+  ON public.purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.material_quantity_i();
+
+#############################TRIGGER Function material_quantity_u#####################
+CREATE OR REPLACE FUNCTION public.material_quantity_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE materials SET quantity=(quantity-old.quantity)+new.quantity, cost=((new.net_price*new.iva)/100)+new.net_price
+WHERE id=new.material_id;
+
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.material_quantity_u()
+  OWNER TO postgres;
+###############################TRIGGER bu_purchase_detail in materials######
+CREATE TRIGGER bu_purchase_detail_material
+  BEFORE UPDATE
+  ON public.purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.material_quantity_u();
+
 
 
