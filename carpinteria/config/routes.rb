@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'budget/index'
+  get 'budget/new'
+  post 'budget/create'
+  get 'budget/:id/edit', to: 'budget#edit', as: 'budget_edit'
+  patch 'budget/:id/update', to: 'budget#update', as: 'budget_update'
+  delete 'budget/:id/destroy', to: 'budget#destroy', as: 'budget_destroy'
   #rutas para detalles de la compra
   get 'purchase_detail/index'
   get 'purchase_detail/new'

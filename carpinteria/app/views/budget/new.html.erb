@@ -1,0 +1,7 @@
+<h1>Budget#new</h1>
+<div class="container-div">
+	<h1>Nuevo Presupuesto</h1>
+	<%= form_for @budget, :url => { :action => :create } do |f| %>
+	<%= render "form", f: f %>
+	<% end %>
+</div>

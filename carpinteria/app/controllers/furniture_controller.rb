@@ -13,7 +13,7 @@ class FurnitureController < ApplicationController
     @furniture.cost=params[:furniture][:cost]
     @furniture.profit=params[:furniture][:profit]
     @furniture.iva=params[:furniture][:iva]
-    @furniture.price=(@furniture.cost+@furniture.profit((@furniture.profit+@furniture.cost)*@furniture.iva)/100)
+    @furniture.price=(@furniture.cost+@furniture.profit+((@furniture.profit+@furniture.cost)*@furniture.iva)/100)
 
     if @furniture.save 
       redirect_to  furniture_index_path
@@ -34,7 +34,7 @@ class FurnitureController < ApplicationController
     @furniture.cost=params[:furniture][:cost]
     @furniture.profit=params[:furniture][:profit]
     @furniture.iva=params[:furniture][:iva]
-    @furniture.price=(@furniture.cost+@furniture.profit((@furniture.profit+@furniture.cost)*@furniture.iva)/100)
+    @furniture.price=(@furniture.cost+@furniture.profit+((@furniture.profit+@furniture.cost)*@furniture.iva)/100)
 
     if @furniture.save
       redirect_to  furniture_index_path

@@ -1,0 +1,2 @@
+module BudgetHelper
+end

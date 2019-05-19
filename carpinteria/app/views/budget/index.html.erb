@@ -1,0 +1,31 @@
+<h1>Budget#index</h1>
+<table class="table ">
+	  <thead class="thead-dark">
+	<tr><TH>ID</TH>
+		<TH>Mueble</TH>
+		<TH>Precio unitario</TH>
+		<TH>Cantidad</TH>
+		<TH>Subtotal</TH>
+		<TH>Observacion</TH>
+		
+		<TH colspan="2"><%= link_to 'Nuevo', budget_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @budgets.each do |f| %>
+	
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.furniture.description %></TD>
+		<TD><%= f.unit_price %></TD>
+		<TD><%= f.quantity %></TD>
+		<TD><%= f.subtotal %></TD>
+		<TD><%= f.observation %></TD>
+		
+		
+		<TD><%= link_to 'Editar', budget_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>

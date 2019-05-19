@@ -1,0 +1,44 @@
+
+<ul>
+<% 
+@budget.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+
+ <div class="row">
+  <div class="col-sm-4 ">
+  	<p >
+<%= f.label :Observación %> </br>
+<%= f.text_field :observation %>
+	</p>
+	<p>
+<%= f.label :Cantidad %> </br>
+<%= f.text_field :quantity %>
+</p>
+
+  </div>
+  <div class="col-sm-4 ">
+  	<p>
+<%= f.label "Precio unitario" %> </br>
+<%= f.text_field :unit_price %>
+</p>
+	<p>
+<%= f.label :Subtotal%> </br>
+<%= f.text_field :subtotal %>
+</p>
+</div>
+
+<div class="col-sm-4 ">
+    <p >
+<%= f.label :Mueble %> </br>
+<%= f.text_field :furniture_id %>
+  </p>
+  </div>
+    
+</div> 
+
+<p>
+<%= f.submit "Enviar"  %>
+</p>2

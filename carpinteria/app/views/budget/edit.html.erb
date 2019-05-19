@@ -1,0 +1,7 @@
+<h1>Budget#edit</h1>
+<div class="container-div">
+	<h1>Editar Presupuesto</h1>
+	<%= form_for @budget, :url => { :action => :update } do |f| %>
+	<%= render "form", f: f %>
+	<% end %>
+</div>
