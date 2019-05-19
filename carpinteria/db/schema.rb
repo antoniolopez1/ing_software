@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_11_235316) do
+ActiveRecord::Schema.define(version: 2019_05_19_223700) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budgets", force: :cascade do |t|
+    t.text "observation"
+    t.integer "quantity"
+    t.float "unit_price"
+    t.float "subtotal"
+    t.bigint "furniture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_budgets_on_furniture_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -50,9 +61,11 @@ ActiveRecord::Schema.define(version: 2019_05_11_235316) do
   end
 
   create_table "furnitures", force: :cascade do |t|
-    t.string "description"
+    t.text "description"
     t.float "cost"
     t.float "profit"
+    t.float "iva"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -169,6 +182,7 @@ ActiveRecord::Schema.define(version: 2019_05_11_235316) do
     t.index ["utility_id"], name: "index_utilities_for_furnitures_on_utility_id"
   end
 
+  add_foreign_key "budgets", "furnitures"
   add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"
   add_foreign_key "material_for_furnitures", "furnitures"

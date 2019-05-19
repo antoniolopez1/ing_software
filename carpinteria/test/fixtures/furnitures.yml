@@ -1,11 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  description: MyString
+  description: MyText
   cost: 1.5
   profit: 1.5
+  iva: 1.5
+  price: 1.5
 
 two:
-  description: MyString
+  description: MyText
   cost: 1.5
   profit: 1.5
+  iva: 1.5
+  price: 1.5
