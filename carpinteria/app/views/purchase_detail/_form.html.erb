@@ -1,12 +1,12 @@
 <ul>
-<% 
+<%
 @purchase_detail.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 <p>
-<%= f.label "Compra id" %> </br>
+<%= f.label "ID Compra" %> </br>
 <%= f.text_field :purchase_id %>
 </p>
 <p>
@@ -14,7 +14,7 @@
 <%= f.text_field :material_id %>
 </p>
 <p>
-<%= f.label "Precio neto" %> </br>
+<%= f.label "Precio Neto" %> </br>
 <%= f.text_field :net_price %>
 </p>
 <p>

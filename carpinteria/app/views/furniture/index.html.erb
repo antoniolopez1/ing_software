@@ -1,8 +1,12 @@
 <div class="container-div">
-<h1>Furniture</h1>
+	<h1  align="center">Muebles</h1>
 <table class="table ">
 	  <thead class="thead-light">
-	<tr><TH>Descripción</TH><TH>Costo</TH><TH>Ganancia</TH><TH colspan="2"><%= link_to 'Nuevo', furniture_new_path %></TH></tr>
+	<tr>
+		<TH>Descripción</TH>
+		<TH>Costo</TH>
+		<TH>Ganancia</TH>
+		<TH colspan="2"><%= link_to 'Nuevo', furniture_new_path %></TH></tr>
 </thead>
 	<tbody>
 	<% @furnitures.each do |f| %>

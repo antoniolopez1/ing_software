@@ -1,22 +1,24 @@
 <ul>
-<% 
+<%
 @furniture.errors.full_messages.each do |m|
 
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 <p>
-	<%= e.label :description %>
+	<%= e.label :Descripción %>
 	<%= e.text_field :description %>
 </p>
 <p>
-	<%= e.label :cost %>
-	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 %>
+	<%= e.label :Costo %>
+	<%= e.number_field :cost, :class => 'text_field',
+	:step => 0.5 %>
 <p>
 <p>
-	<%= e.label :profit %>
-	<%= e.number_field :profit, :class => 'text_field', :step => 0.5 %>
+	<%= e.label :Ganancia %>
+	<%= e.number_field :profit, :class => 'text_field',
+	:step => 0.5 %>
 <p>
 <%= e.submit "Enviar", class: 'btn btn-primary' %>
 </p>

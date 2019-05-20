@@ -1,34 +1,34 @@
 <ul>
-<% 
+<%
 @utilities_for_furniture.errors.full_messages.each do |m|
 
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
 <p>
-<%= e.label :utility_id %> </br>
+<%= e.label :ID Utilidad %> </br>
 <%= e.collection_select(:utility_id, Utility.all, :id , :description)  %>
 </p>
 <p>
-<%= e.label :furniture_id %> </br>
+<%= e.label :ID Mueble %> </br>
 <%= e.collection_select(:furniture_id, Furniture.all, :id , :description)  %>
 </p>
 <p>
-	<%= e.label :width %>
+	<%= e.label :Ancho %>
 	<%= e.number_field :width, :class => 'text_field', :step => 0.5 %>
 <p>
 <p>
-	<%= e.label :high %>
+	<%= e.label :Alto %>
 	<%= e.number_field :high, :class => 'text_field', :step => 0.5 %>
 <p>
 	<p>
-	<%= e.label :thickness %>
+	<%= e.label :Espesor %>
 	<%= e.number_field :thickness, :class => 'text_field', :step => 0.5 %>
 <p>
 	<p>
-	<%= e.label :cost %>
+	<%= e.label :Costo %>
 	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 %>
 <p>
 <%= e.submit "Enviar", class: 'btn btn-primary' %>

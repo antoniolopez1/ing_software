@@ -1,12 +1,12 @@
 <ul>
-<% 
+<%
 @purchase.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 <p>
-<%= f.label "Proveedor" %> </br>
+<%= f.label "ID Proveedor" %> </br>
 <%= f.text_field :provider_id %>
 </p>
 <p>
