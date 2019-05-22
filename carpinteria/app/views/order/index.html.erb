@@ -1,0 +1,35 @@
+<h1>Order#index</h1>
+<table class="table ">
+	  <thead class="thead-dark">
+
+	<tr><TH>ID</TH>
+		<TH>Estado</TH>
+		<TH>Cliente</TH>
+		<TH>Fecha de inicio</TH>
+		<TH>Fecha de entrega</TH>
+		<TH>Observación</TH>
+		<TH>Presupuesto</TH>
+		
+		
+		<TH colspan="2"><%= link_to 'Nuevo', order_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @orders.each do |f| %>
+	
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.status %></TD>
+		<TD><%= f.customer.name %></TD>
+		<TD><%= f.begin_date %></TD>
+		<TD><%= f.end_date %></TD>
+		<TD><%= f.observation %></TD>
+		<TD><%= f.budget_for_order.total%></TD>
+		
+		
+		<TD><%= link_to 'Editar', order_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>

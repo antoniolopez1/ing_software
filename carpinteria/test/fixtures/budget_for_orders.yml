@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  total: 1.5
+  observation: MyText
+  budget: one
+
+two:
+  total: 1.5
+  observation: MyText
+  budget: two

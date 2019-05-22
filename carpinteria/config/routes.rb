@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  #rutas para pedidos del cliente
+  get 'order/index'
+  get 'order/new'
+  post 'order/create'
+  get 'order/:id/edit', to: 'order#edit', as: 'order_edit'
+  patch 'order/:id/update', to: 'order#update', as: 'order_update'
+  delete 'order/:id/destroy', to: 'order#destroy', as: 'order_destroy'
+  #rutas para el presupuesto por orden
+  resources :budget_for_orders
+  #rutas para presupuestos
   get 'budget/index'
   get 'budget/new'
   post 'budget/create'

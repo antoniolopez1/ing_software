@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @budget_for_order.total %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @budget_for_order.observation %>
+</p>
+
+<p>
+  <strong>Budget:</strong>
+  <%= @budget_for_order.budget %>
+</p>
+
+<%= link_to 'Edit', edit_budget_for_order_path(@budget_for_order) %> |
+<%= link_to 'Back', budget_for_orders_path %>

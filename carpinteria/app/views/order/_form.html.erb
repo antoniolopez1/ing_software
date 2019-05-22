@@ -1,0 +1,34 @@
+<ul>
+<% 
+@order.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+</ul>
+<p>
+<%= f.label :begin_date %> </br>
+<%= f.date_field :begin_date %>
+</p>
+<p>
+<%= f.label :end_date %> </br>
+<%= f.date_field :end_date %>
+</p>
+<p>
+<%= f.label :status %> </br>
+<%= f.text_field :status %>
+</p>
+<p>
+<%= f.label :observation %> </br>
+<%= f.text_field :observation %>
+</p>
+<p>
+<%= f.label :budget_for_order_id %> </br>
+<%= f.text_field :budget_for_order_id %>
+</p>
+<p>
+<%= f.label :customer_id %> </br>
+<%= f.text_field :customer_id %>
+</p>
+<p>
+<%= f.submit "Enviar" %>
+</p>

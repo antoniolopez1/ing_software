@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_19_223700) do
+ActiveRecord::Schema.define(version: 2019_05_22_184736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budget_for_orders", force: :cascade do |t|
+    t.float "total"
+    t.text "observation"
+    t.bigint "budget_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_budget_for_orders_on_budget_id"
+  end
 
   create_table "budgets", force: :cascade do |t|
     t.text "observation"
@@ -116,6 +125,19 @@ ActiveRecord::Schema.define(version: 2019_05_19_223700) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "status"
+    t.date "begin_date"
+    t.date "end_date"
+    t.text "observation"
+    t.bigint "budget_for_order_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_for_order_id"], name: "index_orders_on_budget_for_order_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "lastname"
@@ -182,6 +204,7 @@ ActiveRecord::Schema.define(version: 2019_05_19_223700) do
     t.index ["utility_id"], name: "index_utilities_for_furnitures_on_utility_id"
   end
 
+  add_foreign_key "budget_for_orders", "budgets"
   add_foreign_key "budgets", "furnitures"
   add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"
@@ -189,6 +212,8 @@ ActiveRecord::Schema.define(version: 2019_05_19_223700) do
   add_foreign_key "material_for_furnitures", "materials"
   add_foreign_key "materials", "materials_types"
   add_foreign_key "materials", "measure_units"
+  add_foreign_key "orders", "budget_for_orders"
+  add_foreign_key "orders", "customers"
   add_foreign_key "purchase_details", "materials"
   add_foreign_key "purchase_details", "purchases"
   add_foreign_key "purchases", "providers"
