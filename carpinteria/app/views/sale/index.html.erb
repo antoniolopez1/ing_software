@@ -1,0 +1,38 @@
+<h1>Sale#index</h1>
+<table class="table ">
+	  <thead class="thead-dark">
+	  	
+
+
+
+
+
+	<tr><TH>ID</TH>
+		<TH>Cliente</TH>
+		<TH>Pedido</TH>
+		<TH>Estado</TH>
+		<TH>Total</TH>
+		<TH>Importe</TH>
+		<TH>Saldo</TH>
+		<TH colspan="2"><%= link_to 'Nuevo', sale_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @sales.each do |f| %>
+	
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.customer.lastname %>, <%= f.customer.name %> </TD>
+		<TD><%= f.order_id %></TD>
+		<TD><%= f.status %></TD>
+		<TD><%= f.total%></TD>
+		<TD><%= f.amount%></TD>
+		<TD><%= f.balance %></TD>
+			
+		
+		<TD><%= link_to 'Editar', sale_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>

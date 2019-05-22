@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_22_184736) do
+ActiveRecord::Schema.define(version: 2019_05_22_193511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -185,6 +185,19 @@ ActiveRecord::Schema.define(version: 2019_05_22_184736) do
     t.index ["employee_id"], name: "index_salaries_on_employee_id"
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.float "total"
+    t.float "amount"
+    t.float "balance"
+    t.string "status"
+    t.bigint "order_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_sales_on_customer_id"
+    t.index ["order_id"], name: "index_sales_on_order_id"
+  end
+
   create_table "utilities", force: :cascade do |t|
     t.string "description"
     t.datetime "created_at", null: false
@@ -218,6 +231,8 @@ ActiveRecord::Schema.define(version: 2019_05_22_184736) do
   add_foreign_key "purchase_details", "purchases"
   add_foreign_key "purchases", "providers"
   add_foreign_key "salaries", "employees"
+  add_foreign_key "sales", "customers"
+  add_foreign_key "sales", "orders"
   add_foreign_key "utilities_for_furnitures", "furnitures"
   add_foreign_key "utilities_for_furnitures", "utilities"
 end

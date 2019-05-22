@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  #rutas para ventas
+  get 'sale/index'
+  get 'sale/new'
+  post 'sale/create'
+  get 'sale/:id/edit', to: 'sale#edit', as: 'sale_edit'
+  patch 'sale/:id/update', to: 'sale#update', as: 'sale_update'
+  delete 'sale/:id/destroy', to: 'sale#destroy', as: 'sale_destroy'
   #rutas para pedidos del cliente
   get 'order/index'
   get 'order/new'
