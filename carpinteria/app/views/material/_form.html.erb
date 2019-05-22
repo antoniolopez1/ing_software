@@ -8,12 +8,12 @@
 
 
 <p>
-<%= f.label :ID Tipo de Material %> </br>
+<%= f.label :ID_Tipo_de_Material %> </br>
 <%= f.collection_select(:materials_type_id, MaterialsType.all, :id , :description)  %>
 </p>
 
 <p>
-<%= f.label :ID Unidad de Medida %> </br>
+<%= f.label :ID_Unidad_de_Medida %> </br>
 <%= f.collection_select(:measure_unit_id, MeasureUnit.all, :id , :description)  %>
 </p>
 

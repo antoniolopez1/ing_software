@@ -8,11 +8,11 @@
 </ul>
 
 <p>
-<%= e.label :ID Utilidad %> </br>
+<%= e.label :"ID Utilidad" %> </br>
 <%= e.collection_select(:utility_id, Utility.all, :id , :description)  %>
 </p>
 <p>
-<%= e.label :ID Mueble %> </br>
+<%= e.label :"ID Mueble" %> </br>
 <%= e.collection_select(:furniture_id, Furniture.all, :id , :description)  %>
 </p>
 <p>

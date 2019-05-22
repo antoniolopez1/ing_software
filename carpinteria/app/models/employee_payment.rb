@@ -3,7 +3,7 @@ class EmployeePayment < ApplicationRecord
 
   validates :amount,
   numericality: {
-    greater_than: 0,
+    greater_than: 99,
     less_than: 999999999,
     :message => "Monto no entra en el rango"
   }

@@ -15,3 +15,5 @@ validates_time :departure_time,
 :message => 'Rango entre las 5 a 18 hs'
 
 end
+<%= select_tag(:IVA, options_for_select([[5],[10]])) %>
+</p>

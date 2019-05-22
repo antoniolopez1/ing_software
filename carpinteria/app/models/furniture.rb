@@ -13,15 +13,15 @@ class Furniture < ApplicationRecord
 
    validates :cost,
    numericality: {
-     greater_than: 0,
+     greater_than: 99,
      less_than: 999999999,
      :message => "Costo entra no entra en el rango"
    }
    validates :profit,
    numericality: {
-     greater_than: 0,
+     greater_than: 99,
      less_than: 999999999,
-     :message => "Costo no entra en el rango"
+     :message => "Ganancia no entra en el rango"
    }
 
 
