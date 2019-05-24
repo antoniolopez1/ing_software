@@ -66,3 +66,6 @@ gem 'client_side_validations'
 gem 'bootstrap'
 
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
+
+## Gema rails_admin para Panel de Administracion de design
+gem  'rails_admin', '~> 1.0'

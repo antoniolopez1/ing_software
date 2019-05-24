@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #rutas para detalles de la compra
   get 'purchase_detail/index'
   get 'purchase_detail/new'
