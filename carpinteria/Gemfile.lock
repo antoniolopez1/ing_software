@@ -49,6 +49,7 @@ GEM
     arel (9.0.0)
     autoprefixer-rails (9.5.1.1)
       execjs
+    bcrypt (3.1.12)
     bindex (0.7.0)
     bootsnap (1.4.4)
       msgpack (~> 1.0)
@@ -85,6 +86,12 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    devise (4.6.2)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 6.0)
+      responders
+      warden (~> 1.2.3)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.11.1)
@@ -143,6 +150,7 @@ GEM
     nio4r (2.3.1)
     nokogiri (1.10.3)
       mini_portile2 (~> 2.4.0)
+    orm_adapter (0.5.0)
     pg (1.1.4)
     popper_js (1.14.5)
     public_suffix (3.0.3)
@@ -200,6 +208,9 @@ GEM
     regexp_parser (1.5.1)
     regexp_property_values (0.3.5)
     remotipart (1.4.3)
+    responders (2.4.1)
+      actionpack (>= 4.2.0, < 6.0)
+      railties (>= 4.2.0, < 6.0)
     ruby_dep (1.5.0)
     rubyzip (1.2.3)
     sass (3.7.4)
@@ -251,6 +262,8 @@ GEM
       execjs (>= 0.3.0, < 3)
     validates_timeliness (5.0.0.alpha4)
       timeliness (>= 0.3.10, < 1)
+    warden (1.2.8)
+      rack (>= 2.0.6)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -273,6 +286,7 @@ DEPENDENCIES
   chromedriver-helper
   client_side_validations
   coffee-rails (~> 4.2)
+  devise
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
