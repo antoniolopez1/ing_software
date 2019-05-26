@@ -1,6 +1,6 @@
 <ul>
 <% 
-@utilities_for_furniture.errors.full_messages.each do |m|
+@utility.errors.full_messages.each do |m|
 
 %>
 <li> <%= m %></li> 
@@ -8,29 +8,32 @@
 </ul>
 
 <p>
-<%= e.label :utility_id %> </br>
-<%= e.collection_select(:utility_id, Utility.all, :id , :description)  %>
+<%= e.label :utility_type_id %> </br>
+<%= e.collection_select(:utility_type_id, Utility.all, :id , :description)  %>
 </p>
 <p>
-<%= e.label :furniture_id %> </br>
-<%= e.collection_select(:furniture_id, Furniture.all, :id , :description)  %>
+<%= e.label :quantity %> </br>
+<%= e.text_field :quantity  %>
 </p>
 <p>
 	<%= e.label :width %>
 	<%= e.number_field :width, :class => 'text_field', :step => 0.5 %>
-</p>
+<p>
 <p>
 	<%= e.label :high %>
 	<%= e.number_field :high, :class => 'text_field', :step => 0.5 %>
-</p>
+<p>
 	<p>
 	<%= e.label :thickness %>
 	<%= e.number_field :thickness, :class => 'text_field', :step => 0.5 %>
-</p>
+<p>
 	<p>
 	<%= e.label :cost %>
 	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 %>
-</p>
-<p>
+	<p>
+	<p>
+	<%= e.label :observation %> </br>
+	<%= e.text_field :observation  %>
+	</p>
 <%= e.submit "Enviar", class: 'btn btn-primary' %>
 </p>

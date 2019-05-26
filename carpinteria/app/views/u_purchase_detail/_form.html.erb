@@ -1,19 +1,23 @@
 <ul>
 <% 
-@utilities_for_furniture.errors.full_messages.each do |m|
-
+@u_purchase_detail.errors.full_messages.each do |m|
 %>
 <li> <%= m %></li> 
 <% end %>
 </ul>
-
+	
 <p>
-<%= e.label :utility_id %> </br>
-<%= e.collection_select(:utility_id, Utility.all, :id , :description)  %>
+<%= f.label "Compra id" %> </br>
+<%= f.text_field :purchase_id %>
 </p>
 <p>
-<%= e.label :furniture_id %> </br>
-<%= e.collection_select(:furniture_id, Furniture.all, :id , :description)  %>
+<%= f.label "Material" %> </br>
+<%= f.text_field :utility_id %>
+</p>
+
+<p>
+<%= f.label "Cantidad" %> </br>
+<%= f.text_field :quantity %>
 </p>
 <p>
 	<%= e.label :width %>
@@ -27,10 +31,16 @@
 	<%= e.label :thickness %>
 	<%= e.number_field :thickness, :class => 'text_field', :step => 0.5 %>
 </p>
-	<p>
+<p>
 	<%= e.label :cost %>
 	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 %>
 </p>
+
+<!--p>
+<%= f.label "Subtotal" %> </br>
+<%= f.text_field :subtotal %>
+</p-->
+
 <p>
-<%= e.submit "Enviar", class: 'btn btn-primary' %>
+<%= f.submit "Enviar" %>
 </p>

@@ -1,19 +1,21 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  utilities_type: one
+  purchase: one
+  utility: one
   quantity: 1
   width: 1.5
   high: 1.5
   thickness: 1.5
   cost: 1.5
-  observation: MyText
+  subtotal: 1.5
 
 two:
-  utilities_type: two
+  purchase: two
+  utility: two
   quantity: 1
   width: 1.5
   high: 1.5
   thickness: 1.5
   cost: 1.5
-  observation: MyText
+  subtotal: 1.5

@@ -1,0 +1,25 @@
+<h1>Utility#index</h1>
+<table class="table ">
+	  <thead class="thead-light">
+	<tr><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Observación</TH><TH colspan="2"><%= link_to 'Nuevo', utility_new_path %></TH></tr>
+</thead>
+
+	<tbody>
+	<% @utilities.each do |f| %>
+
+	<tr><TD><%= f.utility_type.description %></TD>
+		<TD><%= f.quantity %></TD>
+		<TD><%= f.width %></TD>
+		<TD><%= f.high %></TD>
+		<TD><%= f.thickness %></TD>
+		<TD><%= f.cost %></TD>
+		<TD><%= f.observation %></TD>
+		<TD><%= link_to 'Editar', utility_edit_path(f['id']) %></TD><TD>
+
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+</table>
+</div>

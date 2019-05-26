@@ -1,4 +1,20 @@
 Rails.application.routes.draw do
+  #rutas para detalles venta para los tablones
+  get 'u_purchase_detail/index'
+  get 'u_purchase_detail/new'
+  post 'u_purchase_detail/create'
+  get 'u_purchase_detail/:id/edit', to: 'u_purchase_detail#edit', as: 'u_purchase_detail_edit'
+  patch 'u_purchase_detail/:id/update', to: 'u_purchase_detail#update', as: 'u_purchase_detail_update'
+  delete 'u_purchase_detail/:id/destroy', to: 'u_purchase_detail#destroy', as: 'u_purchase_detail_destroy'
+  #rutas para utilities
+  get 'utility/index'
+  get 'utility/new'
+  post 'utility/create'
+  get 'utility/:id/edit', to: 'utility#edit', as: 'utility_edit'
+  patch 'utility/:id/update', to: 'utility#update', as: 'utility_update'
+  delete 'utility/:id/destroy', to: 'utility#destroy', as: 'utility_destroy'
+  #rutas para utilities types
+  resources :utilities_types
   #rutas para ventas
   get 'sale/index'
   get 'sale/new'
@@ -100,7 +116,6 @@ Rails.application.routes.draw do
   patch 'salary/:id/update', to: 'salary#update', as: 'salary_update'
   delete 'salary/:id/destroy', to: 'salary#destroy', as: 'salary_destroy'
   #rutas de scaffold
-  resources :utilities
   resources :measure_units
   resources :materials_types
   #rutas para historial de horas
