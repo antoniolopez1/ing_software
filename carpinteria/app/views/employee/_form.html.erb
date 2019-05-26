@@ -1,38 +1,39 @@
 <ul>
-<% 
+<%
 @employee.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
 <p>
-<%= f.label :name %> </br>
+<%= f.label :Nombres%> </br>
 <%= f.text_field :name %>
 </p>
 <p>
-<%= f.label :lastname %> </br>
+<%= f.label :Apellidos %> </br>
 <%= f.text_field :lastname %>
 </p>
 <p>
-<%= f.label :address %> </br>
+<%= f.label :Dirección %> </br>
 <%= f.text_field :address %>
 </p>
 <p>
-<%= f.label :telephone %> </br>
+<%= f.label :Teléfono %> </br>
 <%= f.text_field :telephone %>
 </p>
 <p>
-<%= f.label :document %> </br>
+<%= f.label :Documento %> </br>
 <%= f.text_field :document %>
 </p>
 <p>
-<%= f.label :speciality %> </br>
+<%= f.label :Especialidad %> </br>
 <%= f.text_field :speciality %>
 </p>
 <p>
-<%= f.label :status %> </br>
-<%= f.text_field :status %>
+  <%= f.label :Estado %>&nbsp&nbsp&nbsp&nbsp&nbsp
+  <%= f.check_box :status, {}, "ACTIVO", "INACTIVO"%>&nbsp&nbspACTIVO </br>
+<p>
 </p>
 
 <p>

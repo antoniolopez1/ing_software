@@ -28,7 +28,7 @@ class CustomerController < ApplicationController
 
   def edit
     id=params[:id]
-    @customer=Customer.find(id)
+    @customer=Customer.find(id) 
   end
 
   def update

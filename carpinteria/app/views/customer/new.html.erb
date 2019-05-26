@@ -1,7 +1,6 @@
 
-<div class="container-div" align="center">
-	<h1>Clientes</h1>
-	<h1>Nuevo Cliente</h1>
+<div class="container-div" >
+	<h1 align="center" >Nuevo Cliente</h1>
 	<br><br>
 	<%= form_for @customer, :url => { :action => :create, :validate => true } do |f| %>
 	<%= render "form", f: f %>

@@ -1,13 +1,13 @@
 <ul>
-<% 
+<%
 @salary.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
 <p>
-<%= f.label "Personal" %> </br>
+<%= f.label "ID Personal" %> </br>
 <%= f.text_field :employee_id %>
 </p>
 <p>

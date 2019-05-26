@@ -1,11 +1,15 @@
 <ul>
-<% 
+<%
 @hours_history.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
+<p>
+<%= f.label "Fecha" %> </br>
+<%= f.date_field :created_at %>
+</p>
 <p>
 <%= f.label "Hora de entrada" %> </br>
 <%= f.time_field :entry_time %>
@@ -15,7 +19,7 @@
 <%= f.time_field :departure_time %>
 </p>
 <p>
-<%= f.label "Personal" %> </br>
+<%= f.label "ID Personal" %> </br>
 <%= f.text_field :employee_id %>
 </p>
 

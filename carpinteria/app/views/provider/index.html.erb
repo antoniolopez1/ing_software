@@ -1,27 +1,27 @@
-<h1>Provider#index</h1>
+	<h1 align="center">Proveedores</h1>
 <table class="table ">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
 		<TH>Nombres</TH>
 		<TH>Apellidos</TH>
 		<TH>Dirección</TH>
-		<TH>Telefono</TH>
+		<TH>Teléfono</TH>
 		<TH>Documento - RUC</TH>
-		
-		
+
+
 		<TH colspan="2"><%= link_to 'Nuevo', provider_new_path %></TH></tr>
 </thead>
 	<tbody>
 	<% @providers.each do |f| %>
-	
+
 	<tr><TD><%= f.id %></TD>
 		<TD><%= f.name %></TD>
 		<TD><%= f.lastname %></TD>
 		<TD><%= f.address %></TD>
 		<TD><%= f.telephone %></TD>
 		<TD><%= f.document %> - <%= f.ruc%></TD>
-		
-		
+
+
 		<TD><%= link_to 'Editar', provider_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
 		</TD>
@@ -30,4 +30,3 @@
     </tbody>
 
 </table>
-

@@ -64,3 +64,11 @@ gem 'jquery-rails'
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 gem 'client_side_validations'
 gem 'bootstrap'
+
+gem 'validates_timeliness', '~> 5.0.0.alpha3'
+
+## Gema rails_admin para Panel de Administracion de design
+gem  'rails_admin', '~> 1.0'
+
+# Gema devise para crear sesiones de logueo
+gem 'devise'

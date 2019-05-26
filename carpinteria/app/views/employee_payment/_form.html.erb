@@ -1,17 +1,17 @@
 <ul>
-<% 
+<%
 @employee_payment.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
 <p>
-<%= f.label :salary %> </br>
+<%= f.label :ID %> </br>
 <%= f.text_field :salary_id %>
 </p>
 <p>
-<%= f.label :amount %> </br>
+<%= f.label :Monto%> </br>
 <%= f.text_field :amount %>
 </p>
 <p>

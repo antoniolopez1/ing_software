@@ -1,13 +1,15 @@
-
-<ul>
-<% 
+<!-- para mostrar errores -->
+<ul  >
+<%
 @customer.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
- <div class="row">
+
+<!-- formulario -->
+ <div class="row" align="center">
   <div class="col-sm-4 ">
   	<p >
 <%= f.label :Nombres %> </br>
@@ -32,25 +34,20 @@
 
   </div>
   <div class="col-sm-4 ">
-  
+
 <p>
-<%= f.label :"Documento" %> </br>
+<%= f.label :"Documento-"%>RUC  </br>
 <%= f.text_field :document, size: "13"%>
 <%= f.label :" - " %>
 <%= f.text_field :ruc, size: "1" %>
 </p>
 <p>
 <%= f.label :Observaciones %> </br>
-<%= f.text_field :observation %>
+<%= f.text_area :observation %>
 </p>
   </div>
-</div> 
+</div>
 
 <p>
 <%= f.submit "Enviar"  %>
 </p>
-
-
-
-
-

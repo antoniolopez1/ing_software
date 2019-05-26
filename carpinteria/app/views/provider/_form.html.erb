@@ -1,34 +1,33 @@
 <ul>
-<% 
+<%
 @provider.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
 <p>
-<%= f.label :name %> </br>
+<%= f.label :Nombres %> </br>
 <%= f.text_field :name %>
 </p>
 <p>
-<%= f.label :lastname %> </br>
+<%= f.label :Apellidos %> </br>
 <%= f.text_field :lastname %>
 </p>
 <p>
-<%= f.label :address %> </br>
+<%= f.label :Dirección %> </br>
 <%= f.text_field :address %>
 </p>
 <p>
-<%= f.label :telephone %> </br>
+<%= f.label :Teléfono %> </br>
 <%= f.text_field :telephone %>
 </p>
+
 <p>
-<%= f.label :document %> </br>
-<%= f.text_field :document %>
-</p>
-<p>
-<%= f.label :ruc %> </br>
-<%= f.text_field :ruc %>
+<%= f.label :"Documento-"%>RUC  </br>
+<%= f.text_field :document, size: "13"%>
+<%= f.label :" - " %>
+<%= f.text_field :ruc, size: "1" %>
 </p>
 <p>
 <%= f.submit "Enviar" %>

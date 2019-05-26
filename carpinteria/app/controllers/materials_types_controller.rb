@@ -63,8 +63,8 @@ class MaterialsTypesController < ApplicationController
 
   private
    def set_materials_type
-      @materials_types = MaterialsType.find(params[:id])
-    
+      @materials_type = MaterialsType.find(params[:id])
+
 
     end
 

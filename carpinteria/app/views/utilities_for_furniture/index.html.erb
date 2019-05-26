@@ -1,5 +1,5 @@
 <div class="container-div">
-<h1>Utilities for Furniture</h1>
+<h1 align="center">Utilidades de los Muebles</h1>
 <table class="table ">
 	  <thead class="thead-light">
 	<tr><TH>Utilities</TH><TH>Furniture</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path %></TH></tr>
@@ -13,7 +13,7 @@
 		<TD><%= f.high %></TD>
 		<TD><%= f.thickness %></TD>
 		<TD><%= f.cost %></TD>
-		
+
 		<TD><%= link_to 'Editar', utilities_for_furniture_edit_path(f['id']) %></TD><TD>
 
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>

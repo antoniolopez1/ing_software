@@ -1,12 +1,12 @@
 <ul>
-<% 
+<%
 @purchase_detail.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 <p>
-<%= f.label "Compra id" %> </br>
+<%= f.label "ID Compra" %> </br>
 <%= f.text_field :purchase_id %>
 </p>
 <p>
@@ -14,13 +14,18 @@
 <%= f.text_field :material_id %>
 </p>
 <p>
-<%= f.label "Precio neto" %> </br>
+<%= f.label "Precio Neto" %> </br>
 <%= f.text_field :net_price %>
 </p>
 <p>
 <%= f.label "IVA" %> </br>
 <%= f.text_field :iva %>
 </p>
+<!-- hacer un select al iva? ya que hay solo dos opciones
+<%= select_tag(:IVA, options_for_select([[5],[10]])) %> -->
+
+
+
 <p>
 <%= f.label "Cantidad" %> </br>
 <%= f.text_field :quantity %>

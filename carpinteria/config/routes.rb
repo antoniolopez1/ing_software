@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  devise_for :users
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #rutas para detalles venta para los tablones
   get 'u_purchase_detail/index'
   get 'u_purchase_detail/new'
@@ -38,6 +41,7 @@ Rails.application.routes.draw do
   get 'budget/:id/edit', to: 'budget#edit', as: 'budget_edit'
   patch 'budget/:id/update', to: 'budget#update', as: 'budget_update'
   delete 'budget/:id/destroy', to: 'budget#destroy', as: 'budget_destroy'
+
   #rutas para detalles de la compra
   get 'purchase_detail/index'
   get 'purchase_detail/new'
