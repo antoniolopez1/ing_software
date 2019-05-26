@@ -1,6 +1,6 @@
 class Employee < ApplicationRecord
-	has_one :hours_histories
-	has_one :salaries
+	has_many :hours_history
+	has_one :salary
 
 
 

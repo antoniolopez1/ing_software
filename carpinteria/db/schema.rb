@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_25_035811) do
+ActiveRecord::Schema.define(version: 2019_05_26_205437) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "budget_for_orders", force: :cascade do |t|
+    t.float "total"
+    t.text "observation"
+    t.bigint "budget_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_budget_for_orders_on_budget_id"
+  end
+
+  create_table "budgets", force: :cascade do |t|
+    t.text "observation"
+    t.integer "quantity"
+    t.float "unit_price"
+    t.float "subtotal"
+    t.bigint "furniture_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["furniture_id"], name: "index_budgets_on_furniture_id"
+  end
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -50,9 +70,11 @@ ActiveRecord::Schema.define(version: 2019_05_25_035811) do
   end
 
   create_table "furnitures", force: :cascade do |t|
-    t.string "description"
+    t.text "description"
     t.float "cost"
     t.float "profit"
+    t.float "iva"
+    t.float "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -103,6 +125,19 @@ ActiveRecord::Schema.define(version: 2019_05_25_035811) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string "status"
+    t.date "begin_date"
+    t.date "end_date"
+    t.text "observation"
+    t.bigint "budget_for_order_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_for_order_id"], name: "index_orders_on_budget_for_order_id"
+    t.index ["customer_id"], name: "index_orders_on_customer_id"
+  end
+
   create_table "providers", force: :cascade do |t|
     t.string "name"
     t.string "lastname"
@@ -150,6 +185,34 @@ ActiveRecord::Schema.define(version: 2019_05_25_035811) do
     t.index ["employee_id"], name: "index_salaries_on_employee_id"
   end
 
+  create_table "sales", force: :cascade do |t|
+    t.float "total"
+    t.float "amount"
+    t.float "balance"
+    t.string "status"
+    t.bigint "order_id"
+    t.bigint "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_sales_on_customer_id"
+    t.index ["order_id"], name: "index_sales_on_order_id"
+  end
+
+  create_table "u_purchase_details", force: :cascade do |t|
+    t.bigint "purchase_id"
+    t.bigint "utility_id"
+    t.integer "quantity"
+    t.float "width"
+    t.float "high"
+    t.float "thickness"
+    t.float "cost"
+    t.float "subtotal"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purchase_id"], name: "index_u_purchase_details_on_purchase_id"
+    t.index ["utility_id"], name: "index_u_purchase_details_on_utility_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -163,9 +226,16 @@ ActiveRecord::Schema.define(version: 2019_05_25_035811) do
   end
 
   create_table "utilities", force: :cascade do |t|
-    t.string "description"
+    t.bigint "utilities_type_id"
+    t.integer "quantity"
+    t.float "width"
+    t.float "high"
+    t.float "thickness"
+    t.float "cost"
+    t.text "observation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["utilities_type_id"], name: "index_utilities_on_utilities_type_id"
   end
 
   create_table "utilities_for_furnitures", force: :cascade do |t|
@@ -181,16 +251,31 @@ ActiveRecord::Schema.define(version: 2019_05_25_035811) do
     t.index ["utility_id"], name: "index_utilities_for_furnitures_on_utility_id"
   end
 
+  create_table "utilities_types", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "budget_for_orders", "budgets"
+  add_foreign_key "budgets", "furnitures"
   add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"
   add_foreign_key "material_for_furnitures", "furnitures"
   add_foreign_key "material_for_furnitures", "materials"
   add_foreign_key "materials", "materials_types"
   add_foreign_key "materials", "measure_units"
+  add_foreign_key "orders", "budget_for_orders"
+  add_foreign_key "orders", "customers"
   add_foreign_key "purchase_details", "materials"
   add_foreign_key "purchase_details", "purchases"
   add_foreign_key "purchases", "providers"
   add_foreign_key "salaries", "employees"
+  add_foreign_key "sales", "customers"
+  add_foreign_key "sales", "orders"
+  add_foreign_key "u_purchase_details", "purchases"
+  add_foreign_key "u_purchase_details", "utilities"
+  add_foreign_key "utilities", "utilities_types"
   add_foreign_key "utilities_for_furnitures", "furnitures"
   add_foreign_key "utilities_for_furnitures", "utilities"
 end
