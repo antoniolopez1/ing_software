@@ -10,7 +10,6 @@ class ProviderController < ApplicationController
   def create
     @provider=Provider.new
     @provider.name=params[:provider][:name]
-    @provider.lastname=params[:provider][:lastname]
     @provider.address=params[:provider][:address]
     @provider.telephone=params[:provider][:telephone]
     @provider.email=params[:provider][:email]
@@ -32,7 +31,6 @@ class ProviderController < ApplicationController
     id=params[:id]
     @provider=Provider.find(id)
     @provider.name=params[:provider][:name]
-    @provider.lastname=params[:provider][:lastname]
     @provider.address=params[:provider][:address]
     @provider.telephone=params[:provider][:telephone]
     @provider.email=params[:provider][:email]

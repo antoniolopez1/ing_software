@@ -7,14 +7,6 @@ class Provider < ApplicationRecord
 		format: { with: /\A[ÁÉÍÓÚÑA-Z\. ]+\z/,
 		message: "Solo letras o pasar a mayúsculas" }
 
-
-			validates :lastname,
-			:presence => {:message => "Campo obligatorio"},
-			format: { with: /\A[ÁÉÍÓÚÑA-Z\. ]+\z/,
-			message: "Solo letras o pasar a mayúsculas" }
-
-
-
 			validates :address,
 			:presence => {:message => "Campo obligatorio"},
 			format: { with: /\A[0-9ÁÉÍÓÚÑA-Z\. ]+\z/,

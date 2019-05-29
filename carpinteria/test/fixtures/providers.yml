@@ -2,7 +2,6 @@
 
 one:
   name: MyString
-  lastname: MyString
   address: MyText
   telephone: MyString
   email: MyString
@@ -11,7 +10,6 @@ one:
 
 two:
   name: MyString
-  lastname: MyString
   address: MyText
   telephone: MyString
   email: MyString

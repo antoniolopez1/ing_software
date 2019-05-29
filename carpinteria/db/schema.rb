@@ -140,7 +140,6 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
 
   create_table "providers", force: :cascade do |t|
     t.string "name"
-    t.string "lastname"
     t.text "address"
     t.string "telephone"
     t.string "email"
