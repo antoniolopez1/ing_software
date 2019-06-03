@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_205437) do
+ActiveRecord::Schema.define(version: 2019_06_03_185637) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -199,19 +199,19 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
 
   create_table "u_purchase_details", force: :cascade do |t|
     t.bigint "purchase_id"
-    t.bigint "utility_id"
+    t.bigint "utilities_type_id"
     t.integer "quantity"
     t.float "width"
     t.float "high"
     t.float "thickness"
     t.float "cost"
     t.float "subtotal"
+    t.text "observation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["purchase_id"], name: "index_u_purchase_details_on_purchase_id"
-    t.index ["utility_id"], name: "index_u_purchase_details_on_utility_id"
+    t.index ["utilities_type_id"], name: "index_u_purchase_details_on_utilities_type_id"
   end
-
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -224,7 +224,6 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-
 
   create_table "utilities", force: :cascade do |t|
     t.bigint "utilities_type_id"
@@ -275,7 +274,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
   add_foreign_key "sales", "customers"
   add_foreign_key "sales", "orders"
   add_foreign_key "u_purchase_details", "purchases"
-  add_foreign_key "u_purchase_details", "utilities"
+  add_foreign_key "u_purchase_details", "utilities_types"
   add_foreign_key "utilities", "utilities_types"
   add_foreign_key "utilities_for_furnitures", "furnitures"
   add_foreign_key "utilities_for_furnitures", "utilities"

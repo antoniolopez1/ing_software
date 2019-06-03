@@ -2,20 +2,22 @@
 
 one:
   purchase: one
-  utility: one
+  utilities_type: one
   quantity: 1
   width: 1.5
   high: 1.5
   thickness: 1.5
   cost: 1.5
   subtotal: 1.5
+  observation: MyText
 
 two:
   purchase: two
-  utility: two
+  utilities_type: two
   quantity: 1
   width: 1.5
   high: 1.5
   thickness: 1.5
   cost: 1.5
   subtotal: 1.5
+  observation: MyText
