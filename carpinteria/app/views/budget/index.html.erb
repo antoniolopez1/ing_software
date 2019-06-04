@@ -2,6 +2,7 @@
 <table class="table ">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
+		<TH>Presupuesto para pedido</TH>
 		<TH>Mueble</TH>
 		<TH>Precio unitario</TH>
 		<TH>Cantidad</TH>
@@ -14,6 +15,7 @@
 	<% @budgets.each do |f| %>
 	
 	<tr><TD><%= f.id %></TD>
+		<TD><%= f.budget_for_order.observation%></TD>
 		<TD><%= f.furniture.description %></TD>
 		<TD><%= f.unit_price %></TD>
 		<TD><%= f.quantity %></TD>

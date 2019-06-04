@@ -9,6 +9,16 @@
 
  <div class="row">
   <div class="col-sm-4 ">
+    <p >
+<%= f.label :Mueble %> </br>
+<%= f.text_field :furniture_id %>
+  </p>
+  <p >
+<%= f.label "Presupuesto para pedido" %> </br>
+<%= f.text_field :budget_for_order_id%>
+  </p>
+  </div>
+  <div class="col-sm-4 ">
   	<p >
 <%= f.label :Observación %> </br>
 <%= f.text_field :observation %>
@@ -30,12 +40,7 @@
 </p>
 </div>
 
-<div class="col-sm-4 ">
-    <p >
-<%= f.label :Mueble %> </br>
-<%= f.text_field :furniture_id %>
-  </p>
-  </div>
+
     
 </div> 
 

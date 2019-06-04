@@ -2,7 +2,7 @@
 <h1 align="center">Utilidades de los Muebles</h1>
 <table class="table ">
 	  <thead class="thead-light">
-	<tr><TH>Utilities</TH><TH>Furniture</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path %></TH></tr>
+	<tr><TH>Utilities</TH><TH>Furniture</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Cantidad</TH><TH>Costo</TH><TH>Sub-Total<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path %></TH></tr>
 </thead>
 	<tbody>
 	<% @utilities_for_furnitures.each do |f| %>
@@ -12,7 +12,9 @@
 		<TD><%= f.width %></TD>
 		<TD><%= f.high %></TD>
 		<TD><%= f.thickness %></TD>
+		<TD><%= f.quantity %></TD>
 		<TD><%= f.cost %></TD>
+		<TD><%= f.subtotal %></TD>
 
 		<TD><%= link_to 'Editar', utilities_for_furniture_edit_path(f['id']) %></TD><TD>
 
