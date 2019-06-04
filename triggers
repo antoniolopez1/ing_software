@@ -250,5 +250,22 @@ CREATE TRIGGER u_utility_total
   FOR EACH ROW
   EXECUTE PROCEDURE public.purchase_utilities_u();
 
-
+##################Trigger function furniture_cost_i##################
+CREATE OR REPLACE FUNCTION public.furniture_cost_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE furnitures SET cost=cost+new.subtotal, price=profit+(cost+new.subtotal)+(((profit+(cost+new.subtotal))*iva)/100)
+WHERE id=new.furniture_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.furniture_cost_i()
+  OWNER TO postgres;
+#######################Trigger i_cost_furniture#########
+CREATE TRIGGER i_cost_furniture
+  AFTER INSERT
+  ON public.material_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.furniture_cost_i();
 
