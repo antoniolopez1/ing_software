@@ -14,7 +14,10 @@ class MaterialForFurnitureController < ApplicationController
     @material_for_furniture.material_id=params[:material_for_furniture][:material_id]
     @material_for_furniture.furniture_id=params[:material_for_furniture][:furniture_id]
     @material_for_furniture.quantity=params[:material_for_furniture][:quantity]
-    @material_for_furniture.cost=params[:material_for_furniture][:cost]
+    material=Material.find(@material_for_furniture.material_id)
+    @material_for_furniture.cost=material.cost
+    @material_for_furniture.subtotal=@material_for_furniture.cost*@material_for_furniture.quantity
+    #@material_for_furniture.cost=params[:material_for_furniture][:cost]
 
     if @material_for_furniture.save 
       redirect_to  material_for_furniture_index_path
@@ -35,7 +38,10 @@ class MaterialForFurnitureController < ApplicationController
     @material_for_furniture.material_id=params[:material_for_furniture][:material_id]
     @material_for_furniture.furniture_id=params[:material_for_furniture][:furniture_id]
     @material_for_furniture.quantity=params[:material_for_furniture][:quantity]
-    @material_for_furniture.cost=params[:material_for_furniture][:cost]
+    material=Material.find(@material_for_furniture.material_id)
+    @material_for_furniture.cost=material.cost
+    @material_for_furniture.subtotal=@material_for_furniture.cost*@material_for_furniture.quantity
+    #@material_for_furniture.cost=params[:material_for_furniture][:cost]
 
       if @material_for_furniture.save 
       redirect_to  material_for_furniture_index_path

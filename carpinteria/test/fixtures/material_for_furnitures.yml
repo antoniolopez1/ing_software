@@ -3,11 +3,13 @@
 one:
   quantity: 1
   cost: 1.5
+  subtotal: 1.5
   material: one
   furniture: one
 
 two:
   quantity: 1
   cost: 1.5
+  subtotal: 1.5
   material: two
   furniture: two

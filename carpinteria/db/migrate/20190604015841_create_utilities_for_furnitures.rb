@@ -5,6 +5,8 @@ class CreateUtilitiesForFurnitures < ActiveRecord::Migration[5.2]
       t.float :high
       t.float :thickness
       t.float :cost
+      t.float :subtotal
+      t.integer :quantity
       t.references :utility, foreign_key: true
       t.references :furniture, foreign_key: true
 

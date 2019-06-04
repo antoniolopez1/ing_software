@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_03_185637) do
+ActiveRecord::Schema.define(version: 2019_06_04_015841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,8 @@ ActiveRecord::Schema.define(version: 2019_06_03_185637) do
   create_table "budget_for_orders", force: :cascade do |t|
     t.float "total"
     t.text "observation"
-    t.bigint "budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["budget_id"], name: "index_budget_for_orders_on_budget_id"
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -30,8 +28,10 @@ ActiveRecord::Schema.define(version: 2019_06_03_185637) do
     t.float "unit_price"
     t.float "subtotal"
     t.bigint "furniture_id"
+    t.bigint "budget_for_order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["budget_for_order_id"], name: "index_budgets_on_budget_for_order_id"
     t.index ["furniture_id"], name: "index_budgets_on_furniture_id"
   end
 
@@ -93,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_185637) do
   create_table "material_for_furnitures", force: :cascade do |t|
     t.integer "quantity"
     t.float "cost"
+    t.float "subtotal"
     t.bigint "material_id"
     t.bigint "furniture_id"
     t.datetime "created_at", null: false
@@ -243,6 +244,8 @@ ActiveRecord::Schema.define(version: 2019_06_03_185637) do
     t.float "high"
     t.float "thickness"
     t.float "cost"
+    t.float "subtotal"
+    t.integer "quantity"
     t.bigint "utility_id"
     t.bigint "furniture_id"
     t.datetime "created_at", null: false
@@ -257,7 +260,7 @@ ActiveRecord::Schema.define(version: 2019_06_03_185637) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "budget_for_orders", "budgets"
+  add_foreign_key "budgets", "budget_for_orders"
   add_foreign_key "budgets", "furnitures"
   add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"

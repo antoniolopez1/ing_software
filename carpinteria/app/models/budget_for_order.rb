@@ -1,3 +1,3 @@
 class BudgetForOrder < ApplicationRecord
-  belongs_to :budget
+  has_many :budget
 end

@@ -69,6 +69,6 @@ class BudgetForOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def budget_for_order_params
-      params.require(:budget_for_order).permit(:total, :observation, :budget_id)
+      params.require(:budget_for_order).permit(:total, :observation)
     end
 end

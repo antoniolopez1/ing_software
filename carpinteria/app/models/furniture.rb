@@ -11,12 +11,7 @@ class Furniture < ApplicationRecord
     message: "No es una descripción mueble válida"
    }
 
-   validates :cost,
-   numericality: {
-     greater_than: 99,
-     less_than: 999999999,
-     :message => "Costo entra no entra en el rango"
-   }
+   
    validates :profit,
    numericality: {
      greater_than: 99,
