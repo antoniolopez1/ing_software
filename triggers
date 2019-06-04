@@ -167,6 +167,88 @@ CREATE TRIGGER bu_purchase_detail_material
   ON public.purchase_details
   FOR EACH ROW
   EXECUTE PROCEDURE public.material_quantity_u();
+###############################Trigger Function utilities_details_i#####
+CREATE OR REPLACE FUNCTION public.utilities_details_i()
+  RETURNS trigger AS
+$BODY$begin
+
+insert into utilities (utilities_type_id, quantity, width, high, thickness, cost, observation, created_at, updated_at)
+ values (new.utilities_type_id, new.quantity, new.width, new.high, new.thickness, new.cost, new.observation, new.created_at, new.updated_at);
+
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.utilities_details_i()
+  OWNER TO postgres;
+################Trigger i_utility###########
+CREATE TRIGGER i_utility
+  AFTER INSERT
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.utilities_details_i();
+###############Trigger function utilities_details_u####
+CREATE OR REPLACE FUNCTION public.utilities_details_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE utilities SET utilities_type_id=new.utilities_type_id, quantity=new.quantity, width=new.width, high=new.high, thickness=new.thickness, cost=new.cost, observation=new.observation, updated_at=new.updated_at
+WHERE created_at=old.created_at;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.utilities_details_u()
+  OWNER TO postgres;
+####################Trigger u_utility###############
+CREATE TRIGGER u_utility
+  BEFORE UPDATE
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.utilities_details_u();
+#####################Trigger function purchase_utilities_i#######
+CREATE OR REPLACE FUNCTION public.purchase_utilities_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE purchases SET total=total+new.subtotal, balance=(total+new.subtotal)-amount
+WHERE id=new.purchase_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.purchase_utilities_i()
+  OWNER TO postgres;
+#######################Trigger i_utility_total###################
+
+CREATE TRIGGER i_utility_total
+  AFTER INSERT
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.purchase_utilities_i();
+#######################Trigger function purchase_utilities_u#######
+CREATE OR REPLACE FUNCTION public.purchase_utilities_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE purchases SET total = (total-old.subtotal)+new.subtotal, 
+balance = ((total-old.subtotal)+new.subtotal)-amount
+
+WHERE id=new.purchase_id;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.purchase_utilities_u()
+  OWNER TO postgres;
+###################Trigger u_utility_total##################
+
+CREATE TRIGGER u_utility_total
+  BEFORE UPDATE
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.purchase_utilities_u();
 
 
 
