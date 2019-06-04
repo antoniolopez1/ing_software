@@ -268,4 +268,26 @@ CREATE TRIGGER i_cost_furniture
   ON public.material_for_furnitures
   FOR EACH ROW
   EXECUTE PROCEDURE public.furniture_cost_i();
+#######################Trigger function u_furniture_cost#######
+CREATE OR REPLACE FUNCTION public.u_furniture_cost()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE furnitures SET cost = (cost-old.subtotal)+new.subtotal, 
+price = profit+((cost-old.subtotal)+new.subtotal)+(((profit+((cost-old.subtotal)+new.subtotal))*iva)/100)
 
+WHERE id=new.furniture_id;
+end if;
+return new;
+end
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.u_furniture_cost()
+  OWNER TO postgres;
+#######################Trigger u_cost_furniture#############
+CREATE TRIGGER u_cost_furniture
+  BEFORE UPDATE
+  ON public.material_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.u_furniture_cost();
