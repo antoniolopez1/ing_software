@@ -25,7 +25,7 @@ class BudgetForOrdersController < ApplicationController
   # POST /budget_for_orders.json
   def create
     @budget_for_order = BudgetForOrder.new(budget_for_order_params)
-
+    @budget_for_order.total=0
     respond_to do |format|
       if @budget_for_order.save
         format.html { redirect_to @budget_for_order, notice: 'Budget for order was successfully created.' }
@@ -69,6 +69,6 @@ class BudgetForOrdersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def budget_for_order_params
-      params.require(:budget_for_order).permit(:total, :observation)
+      params.require(:budget_for_order).permit(:observation, :customer_id)
     end
 end

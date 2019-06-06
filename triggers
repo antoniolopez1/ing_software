@@ -291,3 +291,43 @@ CREATE TRIGGER u_cost_furniture
   ON public.material_for_furnitures
   FOR EACH ROW
   EXECUTE PROCEDURE public.u_furniture_cost();
+#######################Trigger function budget_total_i######
+CREATE OR REPLACE FUNCTION public.budget_total_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE budget_for_orders SET total=total+new.subtotal
+WHERE id=new.budget_for_order_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.budget_total_i()
+  OWNER TO postgres;
+####################Trigger i_budget_total#######
+CREATE TRIGGER i_budget_total
+  AFTER INSERT
+  ON public.budgets
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.budget_total_i();
+##################### Trigger function budget_total_u##########
+CREATE OR REPLACE FUNCTION public.budget_total_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE budget_for_orders SET total = (total-old.subtotal)+new.subtotal
+
+WHERE id=new.budget_for_order_id;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.budget_total_u()
+  OWNER TO postgres;
+####################Trigger u_budget_total###############
+CREATE TRIGGER u_budget_total
+  BEFORE UPDATE
+  ON public.budgets
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.budget_total_u();
+

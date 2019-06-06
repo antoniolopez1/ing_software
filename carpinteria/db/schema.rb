@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_015841) do
+ActiveRecord::Schema.define(version: 2019_06_06_032357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,8 @@ ActiveRecord::Schema.define(version: 2019_06_04_015841) do
     t.text "observation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_budget_for_orders_on_customer_id"
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -260,6 +262,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_015841) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "budget_for_orders", "customers"
   add_foreign_key "budgets", "budget_for_orders"
   add_foreign_key "budgets", "furnitures"
   add_foreign_key "employee_payments", "salaries"
