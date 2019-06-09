@@ -5,30 +5,31 @@
 <li> <%= m %></li> 
 <% end %>
 </ul>
-<p>
-<%= f.label "Total" %> </br>
-<%= f.text_field :total %>
-</p>
+
 <p>
 <%= f.label "Importe" %> </br>
-<%= f.text_field :amount %>
+<%= f.number_field :amount%>
 </p>
 <p>
 <%= f.label "Estado" %> </br>
 <%= f.text_field :status %>
 </p>
-<p>
+<!--p>
 <%= f.label "Saldo" %> </br>
 <%= f.text_field :balance %>
-</p>
+</p-->
 <p>
 <%= f.label "Pedido" %> </br>
 <%= f.text_field :order_id %>
 </p>
-<p>
+<!--p>
 <%= f.label "cliente" %> </br>
 <%= f.text_field :customer_id %>
-</p>
+</p-->
+<!--p>
+<%= f.label "Total" %> </br>
+<%= f.text_field :total %>
+</p-->
 <p>
 <%= f.submit "Enviar" %>
 </p>
