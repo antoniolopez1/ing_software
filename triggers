@@ -330,4 +330,45 @@ CREATE TRIGGER u_budget_total
   ON public.budgets
   FOR EACH ROW
   EXECUTE PROCEDURE public.budget_total_u();
+###################Trigger function sale_charge_i #########
+CREATE OR REPLACE FUNCTION public.sale_charge_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE sales SET balance=new.balance, amount=amount+new.amount
+WHERE id=new.sale_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.sale_charge_i()
+  OWNER TO postgres;
+#######################Trigger i_balance_sale###############
+CREATE TRIGGER i_balance_sale
+  AFTER INSERT
+  ON public.sales_charges
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.sale_charge_i();
+###################Trigger function sale_charge_u #############
+CREATE OR REPLACE FUNCTION public.sale_charge_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE sales SET balance = (old.amount+old.balance)-new.amount,
+amount=(old.amount+old.balance)-new.amount
+WHERE id=new.sale_id;
+new.balance=(old.amount+old.balance)-new.amount;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.sale_charge_u()
+  OWNER TO postgres;
+#####################trigger u_balance_sale#############
+CREATE TRIGGER u_balance_sale
+  BEFORE UPDATE
+  ON public.sales_charges
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.sale_charge_u();
+
 
