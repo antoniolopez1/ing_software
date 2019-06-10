@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
-
+  #rutas para cobros de ventas
+  get 'sales_charge/index'
+  get 'sales_charge/new'
+  post 'sales_charge/create'
+  get 'sales_charge/:id/edit', to: 'sales_charge#edit', as: 'sales_charge_edit'
+  patch 'sales_charge/:id/update', to: 'sales_charge#update', as: 'sales_charge_update'
+  delete 'sales_charge/:id/destroy', to: 'sales_charge#destroy', as: 'sales_charge_destroy'
   devise_for :users
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   #rutas para detalles venta para los tablones

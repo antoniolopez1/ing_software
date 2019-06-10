@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_06_032357) do
+ActiveRecord::Schema.define(version: 2019_06_09_231407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -200,6 +200,17 @@ ActiveRecord::Schema.define(version: 2019_06_06_032357) do
     t.index ["order_id"], name: "index_sales_on_order_id"
   end
 
+  create_table "sales_charges", force: :cascade do |t|
+    t.bigint "sale_id"
+    t.bigint "customer_id"
+    t.float "amount"
+    t.float "balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_sales_charges_on_customer_id"
+    t.index ["sale_id"], name: "index_sales_charges_on_sale_id"
+  end
+
   create_table "u_purchase_details", force: :cascade do |t|
     t.bigint "purchase_id"
     t.bigint "utilities_type_id"
@@ -279,6 +290,8 @@ ActiveRecord::Schema.define(version: 2019_06_06_032357) do
   add_foreign_key "salaries", "employees"
   add_foreign_key "sales", "customers"
   add_foreign_key "sales", "orders"
+  add_foreign_key "sales_charges", "customers"
+  add_foreign_key "sales_charges", "sales"
   add_foreign_key "u_purchase_details", "purchases"
   add_foreign_key "u_purchase_details", "utilities_types"
   add_foreign_key "utilities", "utilities_types"

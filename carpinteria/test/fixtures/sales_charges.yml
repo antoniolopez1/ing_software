@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale: one
+  customer: one
+  amount: 1.5
+  balance: 1.5
+
+two:
+  sale: two
+  customer: two
+  amount: 1.5
+  balance: 1.5

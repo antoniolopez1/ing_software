@@ -1,0 +1,20 @@
+<ul>
+<% 
+@sales_charge.errors.full_messages.each do |m|
+%>
+<li> <%= m %></li> 
+<% end %>
+
+</ul>
+<p>
+<%= f.label "Venta" %> </br>
+<%= f.text_field :sale_id %>
+</p>
+<p>
+<%= f.label "Importe" %> </br>
+<%= f.number_field :amount%>
+</p>
+
+<p>
+<%= f.submit "Enviar" %>
+</p>
