@@ -370,5 +370,18 @@ CREATE TRIGGER u_balance_sale
   ON public.sales_charges
   FOR EACH ROW
   EXECUTE PROCEDURE public.sale_charge_u();
+######################Trigger i_furniture_util_cost##########
+CREATE TRIGGER i_furniture_util_cost
+  AFTER INSERT
+  ON public.utilities_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.furniture_cost_i();
+######################Trigger u_furniture_util_cost##########
+CREATE TRIGGER u_furniture_util_cost
+  BEFORE UPDATE
+  ON public.utilities_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.u_furniture_cost();
+
 
 
