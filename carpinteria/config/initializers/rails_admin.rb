@@ -100,19 +100,25 @@ end
 
   #El encabezado de una columna de vista de lista se puede cambiar con el método de etiqueta familiar:
 
-  # config.model HoursHistory do
-  #   list do
-  #     field :id do
-  #       label "Codigo"
-  #     end
-  #     field :created_at do
-  #       label "Entrada"
-  #     end
-  #     field :username do
-  #       label "Usuario"
-  #     end
-  #   end
-  # end
+  config.model Customer do
+    list do
+      field :id do
+        label "Codigo"
+      end
+      field :Name do
+        label "Nombre"
+      end
+      field :Lastname do
+        label "Apellido"
+      end
+      field :Address do
+        label "Direccion"
+      end
+      field :Telephone do
+        label "Telefono"
+      end
+    end
+  end
 
 
   config.actions do
