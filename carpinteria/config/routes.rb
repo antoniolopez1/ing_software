@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'search/create'
   #rutas para cobros de ventas
   get 'sales_charge/index'
   get 'sales_charge/new'
@@ -51,6 +52,7 @@ Rails.application.routes.draw do
   #rutas para detalles de la compra
   get 'purchase_detail/index'
   get 'purchase_detail/new'
+  get 'purchase_detail/:purchase/new', to: 'purchase_detail#new', as: 'purchase_detail_new_add'
   post 'purchase_detail/create'
   get 'purchase_detail/:id/edit', to: 'purchase_detail#edit', as: 'purchase_detail_edit'
   patch 'purchase_detail/:id/update', to: 'purchase_detail#update', as: 'purchase_detail_update'
@@ -86,6 +88,7 @@ Rails.application.routes.draw do
   #rutas para employee_payment
   get 'employee_payment/index'
   get 'employee_payment/new'
+  get 'employee_payment/:salary/new', to: 'employee_payment#new', as: 'employee_payment_add_s'
   post 'employee_payment/create'
   get 'employee_payment/:id/edit', to: 'employee_payment#edit', as: 'employee_payment_edit'
   patch 'employee_payment/:id/update', to: 'employee_payment#update', as: 'employee_payment_update'
@@ -121,6 +124,7 @@ Rails.application.routes.draw do
   #rutas para salaries
   get 'salary/index'
   get 'salary/new'
+  get 'salary/:employee/new', to: 'salary#new', as: 'salary_new_eid'
   post 'salary/create'
   get 'salary/:id/edit', to: 'salary#edit', as: 'salary_edit'
   patch 'salary/:id/update', to: 'salary#update', as: 'salary_update'
@@ -131,6 +135,7 @@ Rails.application.routes.draw do
   #rutas para historial de horas
   get 'hours_history/index'
   get 'hours_history/new'
+  get 'hours_history/:employee/new', to: 'hours_history#new', as: 'hours_history_new_add'
   post 'hours_history/create'
   get 'hours_history/:id/edit', to: 'hours_history#edit', as: 'hours_history_edit'
   patch 'hours_history/:id/update', to: 'hours_history#update', as: 'hours_history_update'

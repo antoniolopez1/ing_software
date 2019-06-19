@@ -2,7 +2,7 @@ class Salary < ApplicationRecord
   has_many :employee_payment
   belongs_to :employee
 
-  validates :salary_charge_for_hours,
+  validates :charge_for_hours,
   :presence => {
     :message => "Campo obligatorio"
   },

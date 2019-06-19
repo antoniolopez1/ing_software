@@ -21,6 +21,6 @@
 //= require_tree .
 //= require rails.validations
 
-    jQuery.validator.addMethod("lettersonly", function(value, element) {
+   /* jQuery.validator.addMethod("lettersonly", function(value, element) {
       return this.optional(element) || /^[a-z]+$/i.test(value);
-    }, "Solo letras");
+    }, "Solo letras");*/

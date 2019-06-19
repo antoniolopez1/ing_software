@@ -13,6 +13,7 @@ body, html {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	color: black;
 }
 
 a {
@@ -67,7 +68,7 @@ li {
 		background: rgba(0, 0, 0, 0.5);
 		background-image: -moz-radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);
 		background-image: -webkit-radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);
-		background-image: radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);
+		/*background-image: radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);*/
 	}
 	
 	.menu li:hover ul {
@@ -77,6 +78,10 @@ li {
 	.menu li ul a {
 		position: relative;
 		font-size: 0.8em;
+		color: white;
+	}
+	.menu li ul a:hover {
+		background: rgba(20,5,5,0.75);
 	}
 	
 	.menu li ul a:hover:before {
@@ -121,4 +126,46 @@ header div .parrafo{
 	padding-bottom: 300px;
 	padding-top: 0px;
 	color: black;
+}
+.style_table {
+	border-collapse: collapse;
+	display:block;
+	overflow-x:auto;
+  width: 100%;
+}
+.style_table td, .style_table th {
+	border: 1px solid #ddd;
+  padding: 8px;
+}
+.style_table tr:nth-child(even){
+	background-color: #f0f5c4;
+}
+.style_table tr:hover {background-color: #ddd;}
+.style_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #61380B;
+  color: white;
+}
+.style_table th a {
+  color: #eef494;
+}
+.style_table th a:hover {
+  color: #94f494;
+}
+.style_table td a {
+  color: #101946;
+}
+.style_table td a:hover {
+  color: #0334ff;
+}
+.boton_redirect a{
+	color: blue; 
+	font-size: 20px;
+}
+.boton_redirect a:hover{
+	color: red; 
+	padding-left: 10px;
+	font-family: bold;
 }

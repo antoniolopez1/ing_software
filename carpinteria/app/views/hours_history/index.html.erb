@@ -1,5 +1,14 @@
 	<h1  align="center">Historial de Horas</h1>
-<table class="table ">
+	<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de personal', employee_index_path%> 
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Salarios', salary_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a pago al personal', employee_payment_index_path%> &rarr;
+</div><br>
+<table class="style_table">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
 		<TH>Fecha</TH>

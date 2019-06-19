@@ -15,7 +15,7 @@ class PurchaseController < ApplicationController
     @purchase.amount=params[:purchase][:amount]
     @purchase.balance=0
     if @purchase.save
-      redirect_to purchase_index_path
+      redirect_to purchase_detail_new_add_path(@purchase['id'])
     else
       render "new"
     end

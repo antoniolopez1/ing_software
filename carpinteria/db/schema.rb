@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_170922) do
+ActiveRecord::Schema.define(version: 2019_06_18_233021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_170922) do
     t.float "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_employee_payments_on_employee_id"
     t.index ["salary_id"], name: "index_employee_payments_on_salary_id"
   end
 
@@ -273,6 +275,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_170922) do
   add_foreign_key "budget_for_orders", "customers"
   add_foreign_key "budgets", "budget_for_orders"
   add_foreign_key "budgets", "furnitures"
+  add_foreign_key "employee_payments", "employees"
   add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"
   add_foreign_key "material_for_furnitures", "furnitures"

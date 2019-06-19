@@ -1,6 +1,7 @@
 class EmployeeController < ApplicationController
   def index
-    @employees=Employee.all
+    @employees=Employee.where(["name LIKE ? OR lastname LIKE ?","%#{params[:search]}%", "%#{params[:search]}%"])
+    
   end
 
   def new
@@ -18,7 +19,7 @@ class EmployeeController < ApplicationController
     @employee.status= params[:employee][:status]
     
     if @employee.save 
-      redirect_to  employee_index_path
+      redirect_to salary_new_eid_path(@employee['id'])
     else 
       render "new"  
     end
@@ -39,7 +40,6 @@ class EmployeeController < ApplicationController
     @employee.document= params[:employee][:document]
     @employee.speciality= params[:employee][:speciality]
     @employee.status= params[:employee][:status]
-   
     if @employee.save 
       redirect_to  employee_index_path
     else 

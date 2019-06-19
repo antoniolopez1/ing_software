@@ -6,6 +6,11 @@ class EmployeePaymentController < ApplicationController
 
   def new
     @employee_payment=EmployeePayment.new
+    @employee_payment.salary_id=params[:salary]
+    if @employee_payment.salary_id != nil
+    salary=Salary.find(@employee_payment.salary_id)
+    @employee_payment.employee_id=salary.employee_id
+    end
   end
 
   def create
@@ -14,6 +19,7 @@ class EmployeePaymentController < ApplicationController
     @employee_payment.amount=params[:employee_payment][:amount]
     salary=Salary.find(@employee_payment.salary_id)
     @employee_payment.balance=salary.accumulated-@employee_payment.amount
+    @employee_payment.employee_id=salary.employee_id
     if @employee_payment.save 
       redirect_to  employee_payment_index_path
     else 
@@ -32,9 +38,11 @@ class EmployeePaymentController < ApplicationController
     @employee_payment=EmployeePayment.find(id)
     @employee_payment.salary_id=params[:employee_payment][:salary_id]
     @employee_payment.amount=params[:employee_payment][:amount]
+    salary=Salary.find(@employee_payment.salary_id)
     #debe de recuperar el dato anterior para poder volver a restar, probar cuando se hace el trigger
     #salary=Salary.find(@employee_payment.salary_id)
     #@employee_payment.balance=salary.accumulated-@employee_payment.amount
+    @employee_payment.employee_id=salary.employee_id
     if @employee_payment.save 
       redirect_to  employee_payment_index_path
     else 

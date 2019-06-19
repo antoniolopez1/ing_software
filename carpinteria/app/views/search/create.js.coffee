@@ -1,0 +1,1 @@
+$("#resultados").append("<%= j render @employees %>")

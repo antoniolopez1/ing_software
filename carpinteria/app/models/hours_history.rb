@@ -11,7 +11,7 @@ validates_time :entry_time,
 :message => 'Rango entre las 5 a 18 hs'
 
 validates_time :departure_time,
-:between => ['5:00am', '18:00pm'],
+:between => ['5:00am', '23:00pm'],
 :message => 'Rango entre las 5 a 18 hs'
 
 end

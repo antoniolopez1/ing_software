@@ -17,11 +17,13 @@ class HoursHistoryController < ApplicationController
   end
   def index
     @hours_histories=HoursHistory.all
+
     
   end
 
   def new
     @hours_history=HoursHistory.new
+    @hours_history.employee_id=params[:employee]
   end
 
   def create
@@ -35,7 +37,7 @@ class HoursHistoryController < ApplicationController
       extra=0
     else
       dt=subtract_hours(@hours_history.departure_time,Time.new(2019, 4, 27, 17))
-      puts (dt)
+      #puts (dt)
       departure_time=hour_to_float(subtract_hours(@hours_history.departure_time, dt))
       entry_time=hour_to_float(@hours_history.entry_time)
       acumulated=departure_time-entry_time

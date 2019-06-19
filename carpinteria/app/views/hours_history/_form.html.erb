@@ -1,3 +1,9 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de asistencia', hours_history_index_path%> 
+</div><br>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de personal', employee_index_path%> 
+</div><br>
 <ul>
 <%
 @hours_history.errors.full_messages.each do |m|
@@ -6,10 +12,10 @@
 <% end %>
 </ul>
 
-<p>
+<!--p>
 <%= f.label "Fecha" %> </br>
 <%= f.date_field :created_at %>
-</p>
+</p-->
 <p>
 <%= f.label "Hora de entrada" %> </br>
 <%= f.time_field :entry_time %>
