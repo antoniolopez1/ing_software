@@ -18,8 +18,8 @@
 		<TD><%= f.created_at.strftime("%Y/%m/%d") %></TD>
 		<TD><%= f.entry_time.strftime("%T") %></TD>
 		<TD><%= f.departure_time.strftime("%T") %></TD>
-		<TD><%= f.total_hours.round(1)%></TD>
-		<TD><%= f.extra_hours.round(1)%></TD>
+		<TD><%= f.total_hours%></TD>
+		<TD><%= f.extra_hours%></TD>
 		<TD><%= f.employee.lastname %>, <%= f.employee.name %> </TD>
 
 		<TD><%= link_to 'Editar', hours_history_edit_path(f['id']) %></TD><TD>
