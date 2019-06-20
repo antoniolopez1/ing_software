@@ -1,0 +1,38 @@
+.form-elegant .font-small {
+font-size: 0.8rem; }
+
+.form-elegant .z-depth-1a {
+-webkit-box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25);
+box-shadow: 0 2px 5px 0 rgba(55, 161, 255, 0.26), 0 4px 12px 0 rgba(121, 155, 254, 0.25); }
+
+.form-elegant .z-depth-1-half,
+.form-elegant .btn:hover {
+-webkit-box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15);
+box-shadow: 0 5px 11px 0 rgba(85, 182, 255, 0.28), 0 4px 15px 0 rgba(36, 133, 255, 0.15); }
+#section{
+  align: center;
+}
+div {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  max-width:100%;      /* Aquí el tamaño máximo de tus imágenes */
+}
+img {
+  border-radius: 50%;
+}
+.card {
+  align: center;
+}
+// .header {
+//   background: url(../img/bg-header.jpeg) no-repeat center;
+//   background-size: cover;
+//   min-height: 100vh;
+// }
+.navbar-brand {
+    font-size: 24px;
+}
+#new{
+  max-width:100%;      /* Aquí el tamaño máximo de tus imágenes */
+  max-height: 100%;
+}

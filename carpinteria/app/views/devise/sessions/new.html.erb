@@ -1,21 +1,46 @@
-<h2>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+<section class="form-elegant">
 
-  <div class="field">
-    <%= f.label :Contraseña %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+  <!-- Grid row -->
+  <div class="row justify-content-center">
 
-  
+    <!-- Grid column -->
+    <div class="col-md-9 col-lg-7 col-xl-5">
 
-  <div class="actions">
-    <%= f.submit "Ingresar" %>
-  </div>
-<% end %>
+      <!--Form without header-->
+      <div class="card">
 
-<%= render "devise/shared/links" %>
+        <div class="card-body mx-4">
+
+          <!--Header-->
+          <div class="text-center">
+          <h2>Bienvenido</h2>
+          <h5>Iniciar Sesión</h5>
+             </div>
+          <div class="form-group">
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="field">
+              <div class="md-form">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, autofocus: true, autocomplete: "email" , class: "form-control" %>
+            </div>
+          </div>
+            <div class="field">
+              <div class="md-form">
+              <%= f.label :Contraseña %><br />
+              <%= f.password_field :password, autocomplete: "current-password", class: "form-control"  %>
+            </div>
+          </div>
+
+
+            <div class="actions" align="center">
+              <%= f.submit "Ingresar" , class: "btn btn-primary"%>
+            </div>
+          <% end %>
+          </div>
+          <div class="modal-footer mx-5 pt-3 mb-1">
+              </div>
+      <%= render "devise/shared/links" %></%>
+</div>
+</div>
+</section>

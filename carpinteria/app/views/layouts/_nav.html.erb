@@ -1,0 +1,62 @@
+
+       <!-- <div class="dropdown-menu dropdown-menu-right dropdown-default"
+          aria-labelledby="navbarDropdownMenuLink-333">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div> -->
+
+<!--/.Navbar -->
+<!-- <nav class="navbar navbar-light bg-light">
+       <p class="navbar-text pull-right">
+    <% if user_signed_in? %>
+      Logged in as <strong><%= current_user.email %></strong>.
+      <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+      <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+    <% else %>
+      <%= link_to "Crear Usuario", new_user_registration_path, :class => 'navbar-link'  %> |
+      <%= link_to "Ingresar", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %>
+    </nav> -->
+    <header class="header">
+       <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <a class="navbar-brand" href="#">Carpinteria</a>
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+           <span class="navbar-toggler-icon"></span>
+         </button>
+
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav mr-auto">
+             <li class="nav-item active">
+               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+             </li>
+             <li class="nav-item">
+               <a class="nav-link" href="#">Link</a>
+             </li>
+
+           </ul>
+
+   <ul class="nav-item dropdown">
+     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+       Cuenta
+     </a>
+     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+       <% if user_signed_in? %>
+<a class="dropdown-item active"<strong><%= current_user.email %></strong></a>
+    <a class="dropdown-item"   <%= link_to 'Editar Perfil', edit_user_registration_path, :class => 'navbar-link' %> </a>
+       <div class="dropdown-divider"></div>
+       <center>
+       <a class="dropdown-item"><%= link_to "Salir", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></a>
+     </center>
+     </div>
+   </ul>
+
+           <% else %>
+           <center>
+            <a class="dropdown-item"> <%= link_to "Crear Usuario", new_user_registration_path, :class => 'navbar-link'  %> </a>
+            <a class="dropdown-item"> <%= link_to "Ingresar", new_user_session_path, :class => 'navbar-link'  %> </a>
+            </center>
+           <% end %>
+         </div>
+       </nav>
+     </header>
