@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   get 'u_purchase_detail/:purchase/new', to: 'u_purchase_detail#new', as: 'u_purchase_detail_new_add'
   post 'u_purchase_detail/create'
   get 'u_purchase_detail/:id/edit', to: 'u_purchase_detail#edit', as: 'u_purchase_detail_edit'
+  get 'u_purchase_detail/:purchase/:id/edit', to: 'u_purchase_detail#edit', as: 'u_purchase_detail_edit_p'
   patch 'u_purchase_detail/:id/update', to: 'u_purchase_detail#update', as: 'u_purchase_detail_update'
   delete 'u_purchase_detail/:id/destroy', to: 'u_purchase_detail#destroy', as: 'u_purchase_detail_destroy'
   #rutas para utilities
@@ -37,17 +38,22 @@ Rails.application.routes.draw do
   #rutas para pedidos del cliente
   get 'order/index'
   get 'order/new'
+  get 'order/:budget_for_order/new', to: 'order#new', as: 'order_new_add'
   post 'order/create'
   get 'order/:id/edit', to: 'order#edit', as: 'order_edit'
   patch 'order/:id/update', to: 'order#update', as: 'order_update'
   delete 'order/:id/destroy', to: 'order#destroy', as: 'order_destroy'
   #rutas para el presupuesto por orden
   resources :budget_for_orders
+
+
   #rutas para presupuestos
   get 'budget/index'
   get 'budget/new'
+  get 'budget/:budget_for_order/new', to: 'budget#new', as: 'budget_new_add'
   post 'budget/create'
   get 'budget/:id/edit', to: 'budget#edit', as: 'budget_edit'
+  get 'budget/:budget_for_order/:id/edit', to: 'budget#edit', as: 'budget_edit_od'
   patch 'budget/:id/update', to: 'budget#update', as: 'budget_update'
   delete 'budget/:id/destroy', to: 'budget#destroy', as: 'budget_destroy'
 
@@ -57,6 +63,7 @@ Rails.application.routes.draw do
   get 'purchase_detail/:purchase/new', to: 'purchase_detail#new', as: 'purchase_detail_new_add'
   post 'purchase_detail/create'
   get 'purchase_detail/:id/edit', to: 'purchase_detail#edit', as: 'purchase_detail_edit'
+  get 'purchase_detail/:purchase/:id/edit', to: 'purchase_detail#edit', as: 'purchase_detail_edit_p'
   patch 'purchase_detail/:id/update', to: 'purchase_detail#update', as: 'purchase_detail_update'
   delete 'purchase_detail/:id/destroy', to: 'purchase_detail#destroy', as: 'purchase_detail_destroy'
   #rutas para compras 
@@ -71,6 +78,7 @@ Rails.application.routes.draw do
   #rutas para material_for_furniture
   get 'material_for_furniture/index'
   get 'material_for_furniture/new'
+  get 'material_for_furniture/:furniture/new', to: 'material_for_furniture#new', as: 'material_for_furniture_new_add'
   post 'material_for_furniture/create'
   get 'material_for_furniture/:id/edit', to: 'material_for_furniture#edit', as: 'material_for_furniture_edit'
   patch 'material_for_furniture/:id/update', to: 'material_for_furniture#update', as: 'material_for_furniture_update'
@@ -108,6 +116,7 @@ Rails.application.routes.draw do
   #rutas para utilities_for_furniture
   get 'utilities_for_furniture/index'
   get 'utilities_for_furniture/new'
+  get 'utilities_for_furniture/:furniture/new', to: 'utilities_for_furniture#new', as: 'utilities_for_furniture_new_add'
   post 'utilities_for_furniture/create'
   get 'utilities_for_furniture/:id/edit', to: 'utilities_for_furniture#edit', as: 'utilities_for_furniture_edit'
   patch 'utilities_for_furniture/:id/edit', to: 'utilities_for_furniture#update', as: 'utilities_for_furniture_update'

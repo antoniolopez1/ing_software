@@ -2,5 +2,8 @@
 
 <%= render 'form', budget_for_order: @budget_for_order %>
 
-<%= link_to 'Show', @budget_for_order %> |
-<%= link_to 'Back', budget_for_orders_path %>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista', budget_for_orders_path %>|
+<%= link_to 'Atras', budget_for_order_path(@budget_for_order) %>
+
+</div>

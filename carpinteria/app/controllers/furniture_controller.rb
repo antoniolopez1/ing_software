@@ -16,7 +16,7 @@ class FurnitureController < ApplicationController
     @furniture.price=(@furniture.cost+@furniture.profit+((@furniture.profit+@furniture.cost)*@furniture.iva)/100)
 
     if @furniture.save 
-      redirect_to  furniture_index_path
+      redirect_to  material_for_furniture_new_add_path(@furniture.id)
     else 
       render "new"  
   end

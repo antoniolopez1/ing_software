@@ -37,7 +37,7 @@
 		<TD><%= f.iva%>%</TD>
 		<TD><%= f.quantity %> </TD>
 		<TD><%= f.subtotal %></TD>
-		<TD><%= link_to 'Editar', purchase_detail_edit_path(f['id']) %></TD><TD>
+		<TD><%= link_to 'Editar', purchase_detail_edit_p_path(f['purchase_id'], f['id'])%></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
 		</TD>
 	</tr>
@@ -63,7 +63,7 @@
 		<TD><%= f.cost %></TD>
 		<TD><%= f.subtotal %></TD>
 		<TD><%= f.observation %></TD>
-		<TD><%= link_to 'Editar', u_purchase_detail_edit_path(f['id']) %></TD><TD>
+		<TD><%= link_to 'Editar', u_purchase_detail_edit_p_path(f['purchase_id'], f['id']) %></TD><TD>
 
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
 		</TD>

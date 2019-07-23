@@ -5,6 +5,7 @@ class OrderController < ApplicationController
 
   def new
     @order=Order.new
+    @order.budget_for_order_id=params[:budget_for_order]
   end
 
   def create

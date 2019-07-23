@@ -5,6 +5,7 @@ class BudgetController < ApplicationController
 
   def new
     @budget=Budget.new
+    @budget.budget_for_order_id=params[:budget_for_order]
   end
 
   def create
@@ -18,7 +19,7 @@ class BudgetController < ApplicationController
     @budget.subtotal=@budget.unit_price*@budget.quantity
     
     if @budget.save
-      redirect_to budget_index_path
+      redirect_to budget_new_add_path(@budget.budget_for_order_id)
     else
       render 'new'
     end
@@ -40,7 +41,7 @@ class BudgetController < ApplicationController
     @budget.unit_price=furniture.price
     @budget.subtotal=@budget.unit_price*@budget.quantity
     if @budget.save
-      redirect_to budget_index_path
+      redirect_to budget_for_order_path(@budget.budget_for_order_id)
     else
       render 'edit'
     end
