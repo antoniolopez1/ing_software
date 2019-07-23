@@ -16,7 +16,7 @@
 		<TH>Precio de venta</TH>
 
 	
-		<TH colspan="2"><%= link_to 'Nuevo', furniture_new_path %></TH></tr>
+		<TH colspan="3"><%= link_to 'Nuevo', furniture_new_path %></TH></tr>
 </thead>
 	<tbody>
 	<% @furnitures.each do |f| %>
@@ -27,6 +27,7 @@
 		<TD><%= f.profit %></TD>
 		<TD><%= f.iva %></TD>
 		<TD><%= f.price %></TD>
+		<TD><%= link_to 'Detalles', furniture_show_path(f['id']) %></TD>
 		<TD><%= link_to 'Editar', furniture_edit_path(f['id']) %></TD><TD>
 
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>

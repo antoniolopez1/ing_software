@@ -1,0 +1,74 @@
+<p id="notice"><%= notice %></p>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a Lista de muebles', furniture_index_path%> 
+</div><br>
+<p>
+	<strong>Codigo del mueble:</strong>
+  <%= @furniture.id %>
+  <strong>Descripción:</strong>
+  <%= @furniture.description %>
+  <strong>Costo:</strong>
+  <%= @furniture.cost%>
+  <strong>Ganancia:</strong>
+  <%= @furniture.profit %>
+  <strong>IVA:</strong>
+  <%= @furniture.iva %>
+  <strong>Precio de venta:</strong>
+  <%= @furniture.price %>
+</p>
+  <h1 align="center">Materiales de los Muebles</h1>
+<table class="style_table">
+    <thead class="thead-dark">
+  <tr><TH>Id Material</TH>
+    <TH>Id Mueble</TH>
+    <TH>Cantidad</TH>
+    <TH>Costo</TH>
+    <TH>Sub-Total</TH>
+
+
+    <TH colspan="2"><%= link_to 'Nuevo', material_for_furniture_new_path %></TH></tr>
+</thead>
+  <tbody>
+  <% @material_for_furnitures.each do |f| %>
+
+  <tr><TD><%= f.material_id %></TD>
+    <TD><%= f.furniture_id%></TD>
+    <TD><%= f.quantity %></TD>
+    <TD><%= f.cost %></TD>
+    <TD><%= f.subtotal %></TD>
+
+    <TD><%= link_to 'Editar', material_for_furniture_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+    </TD>
+  </tr>
+    <% end %>
+    </tbody>
+
+</table>
+<div class="container-div">
+<h1 align="center">Utilidades de los Muebles</h1>
+<table class="style_table">
+    <thead class="thead-light">
+  <tr><TH>Utilities</TH><TH>Furniture</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Cantidad</TH><TH>Costo</TH><TH>Sub-Total<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path %></TH></tr>
+</thead>
+  <tbody>
+  <% @utilities_for_furnitures.each do |f| %>
+
+  <tr><TD><%= f.utility_id %></TD>
+    <TD><%= f.furniture_id %></TD>
+    <TD><%= f.utility.width %></TD>
+    <TD><%= f.utility.high %></TD>
+    <TD><%= f.utility.thickness %></TD>
+    <TD><%= f.quantity %></TD>
+    <TD><%= f.cost %></TD>
+    <TD><%= f.subtotal %></TD>
+
+    <TD><%= link_to 'Editar', utilities_for_furniture_edit_path(f['id']) %></TD><TD>
+
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+    </TD>
+  </tr>
+    <% end %>
+    </tbody>
+</table>
+</div>

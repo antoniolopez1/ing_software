@@ -6,6 +6,8 @@ class OrderController < ApplicationController
   def new
     @order=Order.new
     @order.budget_for_order_id=params[:budget_for_order]
+    budget=BudgetForOrder.find(@order.budget_for_order_id)
+    @order.customer_id=budget.customer_id
   end
 
   def create

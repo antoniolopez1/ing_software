@@ -8,6 +8,13 @@ class SaleController < ApplicationController
 
   end
 
+  def show
+    id=params[:id]
+    @sale=Sale.find(id)
+    @sales_charges=SalesCharge.where(["sale_id = ?", "#{id}"])
+    
+  end
+
   def create
     @sale=Sale.new
     @sale.order_id=params[:sale][:order_id]

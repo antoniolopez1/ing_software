@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   #rutas para ventas
   get 'sale/index'
   get 'sale/new'
+  get 'sale/:id/show', to: 'sale#show', as: 'sale_show'
   post 'sale/create'
   get 'sale/:id/edit', to: 'sale#edit', as: 'sale_edit'
   patch 'sale/:id/update', to: 'sale#update', as: 'sale_update'
@@ -124,6 +125,7 @@ Rails.application.routes.draw do
    #rutas para furniture
   get 'furniture/index'
   get 'furniture/new'
+  get 'furniture/:id/show', to: 'furniture#show', as: 'furniture_show'
   post 'furniture/create'
   get 'furniture/:id/edit' , to: 'furniture#edit', as: 'furniture_edit'
   patch 'furniture/:id/edit', to: 'furniture#update', as: 'furniture_update'

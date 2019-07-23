@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de compras', purchase_index_path%> 
+</div><br>
 <ul>
 <%
 @purchase.errors.full_messages.each do |m|
@@ -7,7 +10,7 @@
 </ul>
 <p>
 <%= f.label "ID Proveedor" %> </br>
-<%= f.text_field :provider_id %>
+<%= f.collection_select :provider_id, Provider.order(:name), :id, :name %>
 </p>
 <p>
 <%= f.label "Fecha" %> </br>

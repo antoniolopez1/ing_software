@@ -6,7 +6,12 @@ class FurnitureController < ApplicationController
   def new
     @furniture=Furniture.new
   end
-
+  def show
+    id=params[:id]
+    @furniture=Furniture.find(id)
+    @material_for_furnitures=MaterialForFurniture.where(["furniture_id = ?", "#{id}"])
+    @utilities_for_furnitures=UtilitiesForFurniture.where(["furniture_id = ?", "#{id}"])
+  end
   def create
     @furniture=Furniture.new
     @furniture.description=params[:furniture][:description]
