@@ -1,4 +1,19 @@
 	<h1 align="center">Compras</h1>
+	<div class="boton_redirect">
+	<%= link_to 'Ir a Proveedores', provider_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Materiales', material_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Tablones', utility_index_path%> &rarr;
+</div><br>
+
+<%=form_tag purchase_index_path, :method => 'get', :style => 'padding-left:4em;font-family:bold;' do %>
+	<%= label_tag "Filtrar"%>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Buscar" %>
+<%end%>
 <table class="style_table">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
@@ -18,6 +33,7 @@
 		<TD><%= f.total %></TD>
 		<TD><%= f.amount %></TD>
 		<TD><%= f.balance%></TD>
+		<TD><%= link_to 'Ver Detalles', purchase_show_path(f['id']) %></TD>
 		<TD><%= link_to 'Editar', purchase_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
 		</TD>
@@ -26,3 +42,7 @@
     </tbody>
 
 </table>
+<div class="boton_redirect">
+	<%= render partial: 'shared/pagination', locals: { pagy: @pagy } %>
+</div><br>
+

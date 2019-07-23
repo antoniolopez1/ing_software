@@ -61,6 +61,7 @@ Rails.application.routes.draw do
   get 'purchase/index'
   get 'purchase/new'
   post 'purchase/create'
+  get 'purchase/:id/show', to: 'purchase#show', as: 'purchase_show'
   get 'purchase/:id/edit', to: 'purchase#edit', as: 'purchase_edit'
   patch 'purchase/:id/update', to: 'purchase#update', as: 'purchase_update'
   delete 'purchase/:id/destroy', to: 'purchase#destroy', as: 'purchase_destroy'

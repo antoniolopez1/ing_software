@@ -72,3 +72,7 @@ gem  'rails_admin', '~> 1.0'
 
 # Gema devise para crear sesiones de logueo
 gem 'devise'
+#buscador en select
+gem "selectize-rails"
+#pagination
+gem 'pagy'

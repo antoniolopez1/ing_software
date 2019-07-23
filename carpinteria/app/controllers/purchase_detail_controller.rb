@@ -19,7 +19,7 @@ class PurchaseDetailController < ApplicationController
 
     #@purchase_detail.subtotal=params[:purchase_detail][:subtotal]
     if @purchase_detail.save
-      redirect_to purchase_detail_index_path
+      redirect_to purchase_detail_new, notice: 'El detalle se ha guardado correctamente'
     else
       render 'new'
     end
@@ -42,7 +42,7 @@ class PurchaseDetailController < ApplicationController
 
     #@purchase_detail.subtotal=params[:purchase_detail][:subtotal]
     if @purchase_detail.save
-      redirect_to purchase_detail_index_path
+      redirect_to purchase_show_path(@purchase_detail.purchase_id)
     else
       render 'edit'
     end
@@ -52,6 +52,6 @@ class PurchaseDetailController < ApplicationController
     id=params[:id]
     @purchase_detail=PurchaseDetail.find(id)
     @purchase_detail.destroy
-    redirect_to purchase_detail_index_path
+    redirect_to purchase_show_path(@purchase_detail.purchase_id)
   end
 end

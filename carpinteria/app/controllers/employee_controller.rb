@@ -1,6 +1,8 @@
 class EmployeeController < ApplicationController
+  
   def index
-    @employees=Employee.where(["name LIKE ? OR lastname LIKE ?","%#{params[:search]}%", "%#{params[:search]}%"])
+   
+    @pagy, @employees= pagy(Employee.where(["name LIKE ? OR lastname LIKE ?","%#{params[:search]}%", "%#{params[:search]}%"]), page: params[:page], items: 5)
     
   end
 

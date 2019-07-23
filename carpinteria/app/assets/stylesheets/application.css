@@ -1,3 +1,4 @@
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 html {
@@ -160,12 +161,17 @@ header div .parrafo{
 .style_table td a:hover {
   color: #0334ff;
 }
+.boton_redirect{
+	color: black; 
+	font-size: 20px;
+	padding-left: 20px
+}
 .boton_redirect a{
 	color: blue; 
 	font-size: 20px;
 }
 .boton_redirect a:hover{
 	color: red; 
-	padding-left: 10px;
+	padding-left: 3px;
 	font-family: bold;
 }
