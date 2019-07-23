@@ -28,7 +28,7 @@ class UtilitiesTypesController < ApplicationController
 
     respond_to do |format|
       if @utilities_type.save
-        format.html { redirect_to @utilities_type, notice: 'Utilities type was successfully created.' }
+        format.html { redirect_to utility_new_add_type_path(@utilities_type.id), notice: 'Utilities type was successfully created.' }
         format.json { render :show, status: :created, location: @utilities_type }
       else
         format.html { render :new }

@@ -1,3 +1,7 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Es todo, volver a la Compra', purchase_show_path(params[:purchase])%> 
+</div><br>
+
 <ul>
 <% 
 @u_purchase_detail.errors.full_messages.each do |m|

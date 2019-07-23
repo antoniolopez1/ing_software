@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   #rutas para detalles venta para los tablones
   get 'u_purchase_detail/index'
   get 'u_purchase_detail/new'
+  get 'u_purchase_detail/:purchase/new', to: 'u_purchase_detail#new', as: 'u_purchase_detail_new_add'
   post 'u_purchase_detail/create'
   get 'u_purchase_detail/:id/edit', to: 'u_purchase_detail#edit', as: 'u_purchase_detail_edit'
   patch 'u_purchase_detail/:id/update', to: 'u_purchase_detail#update', as: 'u_purchase_detail_update'
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   #rutas para utilities
   get 'utility/index'
   get 'utility/new'
+  get 'utility/:type/new', to: 'utility#new', as: 'utility_new_add_type'
   post 'utility/create'
   get 'utility/:id/edit', to: 'utility#edit', as: 'utility_edit'
   patch 'utility/:id/update', to: 'utility#update', as: 'utility_update'
@@ -60,6 +62,7 @@ Rails.application.routes.draw do
   #rutas para compras 
   get 'purchase/index'
   get 'purchase/new'
+  get 'purchase/:provider/new', to: 'purchase#new', as: 'purchase_new_prid_add'
   post 'purchase/create'
   get 'purchase/:id/show', to: 'purchase#show', as: 'purchase_show'
   get 'purchase/:id/edit', to: 'purchase#edit', as: 'purchase_edit'
@@ -82,6 +85,7 @@ Rails.application.routes.draw do
    #rutas para material
   get 'material/index'
   get 'material/new'
+  get 'material/:type/new', to: 'material#new', as: 'material_add_type'
   post 'material/create'
   get 'material/:id/edit', to: 'material#edit', as: 'material_edit'
   patch 'material/:id/update', to: 'material#update', as: 'material_update'

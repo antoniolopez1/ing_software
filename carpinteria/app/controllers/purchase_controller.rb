@@ -5,6 +5,8 @@ class PurchaseController < ApplicationController
 
   def new
     @purchase=Purchase.new
+    @purchase.provider_id=params[:provider]
+    
   end
 
   def create

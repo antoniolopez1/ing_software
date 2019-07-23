@@ -1,4 +1,14 @@
-<h1>Utility#index</h1>
+<h1>Tablones</h1>
+<div class="boton_redirect">
+	<%= link_to 'Ir a la lista de Compras', purchase_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Proveedores', provider_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Materiales', material_index_path%> &rarr;
+</div><br>
+
 <table class="style_table">
 	  <thead class="thead-light">
 	<tr><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Observación</TH><TH colspan="2"><%= link_to 'Nuevo', utility_new_path %></TH></tr>

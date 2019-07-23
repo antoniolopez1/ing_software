@@ -28,7 +28,7 @@ class MaterialsTypesController < ApplicationController
 
     respond_to do |format|
       if @materials_type.save
-        format.html { redirect_to @materials_type, notice: 'Materials type was successfully created.' }
+        format.html { redirect_to material_add_type_path(@materials_type.id), notice: 'Materials type was successfully created.' }
         format.json { render :show, status: :created, location: @materials_type }
       else
         format.html { render :new }

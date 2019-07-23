@@ -1,4 +1,13 @@
 	<h1 align="center">Proveedores</h1>
+	<div class="boton_redirect">
+	<%= link_to 'Ir a Lista de Compras', purchase_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Materiales', material_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Tablones', utility_index_path%> &rarr;
+</div><br>
 <table class="style_table">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
@@ -8,7 +17,7 @@
 		<TH>Documento - RUC</TH>
 
 
-		<TH colspan="2"><%= link_to 'Nuevo', provider_new_path %></TH></tr>
+		<TH colspan="4"><%= link_to 'Nuevo', provider_new_path %></TH></tr>
 </thead>
 	<tbody>
 	<% @providers.each do |f| %>
@@ -19,7 +28,7 @@
 		<TD><%= f.telephone %></TD>
 		<TD><%= f.document %> - <%= f.ruc%></TD>
 
-
+		<TD><%= link_to 'Cargar una compra de este proveedor', purchase_new_prid_add_path(f['id']) %></TD>
 		<TD><%= link_to 'Editar', provider_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
 		</TD>

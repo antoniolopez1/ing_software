@@ -9,11 +9,7 @@
 	<%= link_to 'Ir a Tablones', utility_index_path%> &rarr;
 </div><br>
 
-<%=form_tag purchase_index_path, :method => 'get', :style => 'padding-left:4em;font-family:bold;' do %>
-	<%= label_tag "Filtrar"%>
-	<%= text_field_tag :search, params[:search] %>
-	<%= submit_tag "Buscar" %>
-<%end%>
+
 <table class="style_table">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
@@ -22,13 +18,13 @@
 		<TH>Total</TH>
 		<TH>Importe</TH>
 		<TH>Saldo</TH>
-		<TH colspan="2"><%= link_to 'Nuevo', purchase_new_path %></TH></tr>
+		<TH colspan="3"><%= link_to 'Nuevo', purchase_new_path %></TH></tr>
 </thead>
 	<tbody>
 	<% @purchases.each do |f| %>
 
 	<tr><TD><%= f.id %></TD>
-		<TD><%= f.provider_id %></TD>
+		<TD><%= f.provider.name %></TD>
 		<TD><%= f.purchase_date %> </TD>
 		<TD><%= f.total %></TD>
 		<TD><%= f.amount %></TD>

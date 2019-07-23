@@ -1,4 +1,13 @@
 	<h1 align="center">Materiales</h1>
+	<div class="boton_redirect">
+	<%= link_to 'Ir a Proveedores', provider_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a la Lista de Compras', purchase_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Tablones', utility_index_path%> &rarr;
+</div><br>
 <table class="style_table">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
@@ -15,13 +24,13 @@
 	<% @materials.each do |f| %>
 
 	<tr><TD><%= f.id %></TD>
-		<TD><%= f.materials_type_id %></TD>
-		<TD><%= f.measure_unit_id%></TD>
+		<TD><%= f.materials_type.description %></TD>
+		<TD><%= f.measure_unit.description%></TD>
 		<TD><%= f.description %></TD>
 		<TD><%= f.quantity %></TD>
 		<TD><%= f.cost %></TD>
 
-
+		
 		<TD><%= link_to 'Editar', material_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
 		</TD>

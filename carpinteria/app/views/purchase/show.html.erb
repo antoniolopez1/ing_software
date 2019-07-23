@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
-
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a Lista de Compras', purchase_index_path%> 
+</div><br>
 <p>
+	<strong>Codigo de la compra</strong>
+  <%= @purchase.id %>
   <strong>Proveedor:</strong>
   <%= @purchase.provider.name %>
   <strong>Fecha:</strong>
@@ -15,7 +19,6 @@
 <table class="style_table">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
-		<TH>Compra</TH>
 		<TH>Material</TH>
 		<TH>Precio Neto</TH>
 		<TH>IVA</TH>
@@ -23,19 +26,17 @@
 		<TH>Subtotal</TH>
 
 
-		<TH colspan="2"><%= link_to 'Nuevo', purchase_detail_new_path %></TH></tr>
+		<TH colspan="2"><%= link_to 'Nuevo', purchase_detail_new_add_path(@purchase.id) %></TH></tr>
 </thead>
 	<tbody>
 	<% @purchase_details.each do |f| %>
 
 	<tr><TD><%= f.id %></TD>
-		<TD><%= f.purchase_id %></TD>
 		<TD><%= f.material.description %></TD>
 		<TD><%= f.net_price %> </TD>
 		<TD><%= f.iva%>%</TD>
 		<TD><%= f.quantity %> </TD>
 		<TD><%= f.subtotal %></TD>
-
 		<TD><%= link_to 'Editar', purchase_detail_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
 		</TD>
@@ -44,15 +45,16 @@
     </tbody>
 
 </table>
-<strong>tablones</strong><br>
+<strong>Tablones</strong><br>
+<p>Obs: Para los tablones el iva va incluido</p>
 <table class="style_table">
 	  <thead class="thead-light">
-	<tr><TH>Compra</TH><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Subtotal</TH><TH>Observación</TH><TH colspan="2"><%= link_to 'Nuevo', u_purchase_detail_new_path %></TH></tr>
+	<tr><TH>ID</TH><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Subtotal</TH><TH>Observación</TH><TH colspan="2"><%= link_to 'Nuevo', u_purchase_detail_new_add_path(@purchase.id) %></TH></tr>
 </thead>
 
 	<tbody>
 	<% @u_purchase_details.each do |f| %>
-	<tr><TD><%= f.purchase_id %></TD>
+	<tr><TD><%= f.id %></TD>
 		<TD><%= f.utilities_type.description %></TD>
 		<TD><%= f.quantity %></TD>
 		<TD><%= f.width %></TD>

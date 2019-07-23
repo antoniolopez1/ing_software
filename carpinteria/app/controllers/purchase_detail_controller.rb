@@ -17,12 +17,11 @@ class PurchaseDetailController < ApplicationController
     @purchase_detail.iva=params[:purchase_detail][:iva]
     @purchase_detail.subtotal=(@purchase_detail.net_price+((@purchase_detail.net_price*@purchase_detail.iva)/100))*@purchase_detail.quantity
 
-    #@purchase_detail.subtotal=params[:purchase_detail][:subtotal]
-    if @purchase_detail.save
-      redirect_to purchase_detail_new, notice: 'El detalle se ha guardado correctamente'
-    else
-      render 'new'
-    end
+    #@purchase_detail.subtotal=params[:purchase_detail][:subtotal] 
+    if @purchase_detail.save 
+      redirect_to purchase_detail_new_add_path(@purchase_detail.purchase_id), notice: 'El detalle se ha guardado correctamente' 
+    else render 'new' 
+    end 
   end
 
   def edit
