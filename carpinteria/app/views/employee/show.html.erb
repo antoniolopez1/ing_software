@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong> Nombres:</strong>
+  <%= @employee.name %>
+</p>
+<p>
+  <strong> Apellidos:</strong>
+  <%= @employee.lastname %>
+</p>
+<p>
+  <strong> Dirección:</strong>
+  <%= @employee.address %>
+</p>
+<p>
+  <strong> Telefono:</strong>
+  <%= @employee.telephone %>
+</p>
+<p>
+  <strong> Documento:</strong>
+  <%= @employee.document %>
+</p>
+<p>
+  <strong> Especialidad:</strong>
+  <%= @employee.speciality %>
+</p>
+<p>
+  <strong> Estado:</strong>
+  <%= @employee.status %>
+</p>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista', employee_index_path %>|
+<%= link_to 'Editar', employee_edit_path(@employee.id) %>&rarr;
+
+</div>

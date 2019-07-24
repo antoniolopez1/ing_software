@@ -161,6 +161,7 @@ Rails.application.routes.draw do
   get 'home/index'
   #rutas para empleados
   get 'employee/index'
+  get 'empoyee/:id/show', to: 'employee#show', as: 'employee_show'
   get 'employee/new'
   post 'employee/create'
   get 'employee/:id/edit', to: 'employee#edit', as: 'employee_edit'
