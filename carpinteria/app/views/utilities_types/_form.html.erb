@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+  <%= link_to 'Volver a Lista de tablones', utility_index_path%> 
+</div><br>
 <%= form_with(model: utilities_type, local: true) do |form| %>
   <% if utilities_type.errors.any? %>
     <div id="error_explanation">

@@ -42,8 +42,8 @@
     <TD><%= f.created_at.strftime("%Y/%m/%d")%></TD>
       
     
-    <TD><%= link_to 'Editar', sales_charge_edit_path(f['id']) %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+    <TD><%= link_to 'Editar', sales_charge_edit_s_path(f['sale_id'], f['id'])%></TD><TD>
+      <%= link_to 'Borrar', sales_charge_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
     </TD>
   </tr>
     <% end %>

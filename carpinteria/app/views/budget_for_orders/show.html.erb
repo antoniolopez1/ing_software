@@ -45,7 +45,8 @@
 		
 		
 		<TD><%= link_to 'Editar', budget_edit_od_path(f['budget_for_order_id'], f['id']) %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+			<%= link_to 'Borrar', budget_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+
 		</TD>
 	</tr>
     <% end %>

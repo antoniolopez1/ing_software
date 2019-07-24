@@ -14,11 +14,11 @@
 
 <p>
 <%= f.label :Codigo_de_salario %> </br>
-<%= f.text_field :salary_id %>
+<%= f.collection_select(:salary_id, Salary.all, :id , :employee_id)  %>
 </p>
 <p>
 <%= f.label :Codigo_del_personal %> </br>
-<%= f.text_field :employee_id %>
+<%= f.collection_select(:employee_id, Employee.all, :id , :name)  %>
 </p>
 <p>
 <%= f.label :Monto%> </br>

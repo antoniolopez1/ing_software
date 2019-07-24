@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'sales_charge/new'
   post 'sales_charge/create'
   get 'sales_charge/:id/edit', to: 'sales_charge#edit', as: 'sales_charge_edit'
+  get 'sales_charge/:sale/:id/edit', to: 'sales_charge#edit', as: 'sales_charge_edit_s'
   patch 'sales_charge/:id/update', to: 'sales_charge#update', as: 'sales_charge_update'
   delete 'sales_charge/:id/destroy', to: 'sales_charge#destroy', as: 'sales_charge_destroy'
   devise_for :users
@@ -68,6 +69,7 @@ Rails.application.routes.draw do
   get 'purchase_detail/:purchase/:id/edit', to: 'purchase_detail#edit', as: 'purchase_detail_edit_p'
   patch 'purchase_detail/:id/update', to: 'purchase_detail#update', as: 'purchase_detail_update'
   delete 'purchase_detail/:id/destroy', to: 'purchase_detail#destroy', as: 'purchase_detail_destroy'
+ 
   #rutas para compras 
   get 'purchase/index'
   get 'purchase/new'
@@ -83,6 +85,7 @@ Rails.application.routes.draw do
   get 'material_for_furniture/:furniture/new', to: 'material_for_furniture#new', as: 'material_for_furniture_new_add'
   post 'material_for_furniture/create'
   get 'material_for_furniture/:id/edit', to: 'material_for_furniture#edit', as: 'material_for_furniture_edit'
+  get 'material_for_furniture/:furniture/:id/edit', to: 'material_for_furniture#edit', as: 'material_for_furniture_edit_f'
   patch 'material_for_furniture/:id/update', to: 'material_for_furniture#update', as: 'material_for_furniture_update'
   delete 'material_for_furniture/:id/destroy', to: 'material_for_furniture#destroy', as: 'material_for_furniture_destroy'
  #rutas para materials_for_furniture
