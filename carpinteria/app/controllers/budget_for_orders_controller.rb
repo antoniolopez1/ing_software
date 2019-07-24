@@ -10,8 +10,12 @@ class BudgetForOrdersController < ApplicationController
   # GET /budget_for_orders/1
   # GET /budget_for_orders/1.json
   def show
-    
-    
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "show"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /budget_for_orders/new

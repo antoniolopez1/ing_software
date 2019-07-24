@@ -76,3 +76,6 @@ gem 'devise'
 gem "selectize-rails"
 #pagination
 gem 'pagy'
+#gema para reporte en pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

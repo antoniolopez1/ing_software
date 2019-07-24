@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get 'order/index'
   get 'order/new'
   get 'order/:budget_for_order/new', to: 'order#new', as: 'order_new_add'
+  get 'order/:id/show', to: 'order#show', as: 'order_show'
   post 'order/create'
   get 'order/:id/edit', to: 'order#edit', as: 'order_edit'
   patch 'order/:id/update', to: 'order#update', as: 'order_update'
@@ -160,6 +161,7 @@ Rails.application.routes.draw do
   get 'home/index'
   #rutas para empleados
   get 'employee/index'
+  get 'empoyee/:id/show', to: 'employee#show', as: 'employee_show'
   get 'employee/new'
   post 'employee/create'
   get 'employee/:id/edit', to: 'employee#edit', as: 'employee_edit'

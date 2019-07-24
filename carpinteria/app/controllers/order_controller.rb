@@ -2,7 +2,19 @@ class OrderController < ApplicationController
   def index
     @orders=Order.all
   end
+  def show
+    id=params[:id]
+    @order=Order.find(id)
+    @budget_for_order=BudgetForOrder.where(["id = ?", @order.budget_for_order_id])
+    @budgets=Budget.where(["budget_for_order_id = ?", @order.budget_for_order_id])
 
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "show"   # Excluding ".pdf" extension.
+      end
+    end
+  end
   def new
     @order=Order.new
     @order.budget_for_order_id=params[:budget_for_order]

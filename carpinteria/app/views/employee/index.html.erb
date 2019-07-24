@@ -36,7 +36,7 @@
 		
 		<TD><%= f.speciality %></TD>
 		<TD><%= f.status %></TD>
-		<TD><%= link_to 'Detalles', employee_edit_path(f['id']) %></TD>
+		<TD><%= link_to 'Detalles', employee_show_path(f['id']) %></TD>
 		<TD><%= link_to 'Cargar Asistencia', hours_history_new_add_path(f['id']) %></TD>
 		<TD><%= link_to 'Editar', employee_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>

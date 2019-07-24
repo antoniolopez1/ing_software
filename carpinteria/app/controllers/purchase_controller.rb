@@ -1,6 +1,16 @@
 class PurchaseController < ApplicationController 
   def index 
-    @pagy,@purchases=pagy(Purchase.all.order("purchase_date DESC"), page: params[:page], items: 5) 
+    @pagy,@purchases=pagy(Purchase.all.order("purchase_date DESC"), page: params[:page], items: 5)
+    @purchases.each do |f| 
+    @purchase_details=PurchaseDetail.where(["purchase_id = ?",  f.id  ])
+    @u_purchase_details=UPurchaseDetail.where(["purchase_id = ?", f.id ])
+      end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "index"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def new

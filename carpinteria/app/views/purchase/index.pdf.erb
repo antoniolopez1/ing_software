@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Informe de Compras</h1>
+<p>
+  <% @purchases.each do |f| %>
+
+  <strong>Codigo de la compra</strong>
+  <%= f.id %><br>
+  <strong>Proveedor:</strong>
+  <%= f.provider.name %><br>
+  <strong>Fecha:</strong>
+  <%= f.purchase_date%><br>
+  <strong>Total:</strong>
+  <%= f.total %><br>
+  <strong>Importe:</strong>
+  <%= f.amount %><br>
+  <strong>Saldo:</strong>
+  <%= f.balance %><br>
+</p>
+<table class="table">
+    <thead>
+  <tr><TH>ID</TH>
+    <TH>Material</TH>
+    <TH>Precio Neto</TH>
+    <TH>IVA</TH>
+    <TH>Cantidad</TH>
+    <TH>Subtotal</TH>
+</tr>
+</thead>
+  <tbody>
+  <% @purchase_details.each do |f| %>
+
+  <tr><TD><%= f.id %></TD>
+    <TD><%= f.material.description %></TD>
+    <TD><%= f.net_price %> </TD>
+    <TD><%= f.iva%>%</TD>
+    <TD><%= f.quantity %> </TD>
+    <TD><%= f.subtotal %></TD>
+  </tr>
+    <% end %>
+    </tbody>
+
+</table>
+<strong>Tablones</strong><br>
+<p>Obs: Para los tablones el iva va incluido</p>
+<table class="style_table">
+    <thead class="thead-light">
+  <tr><TH>ID</TH><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Subtotal</TH><TH>Observación</TH></tr>
+</thead>
+
+  <tbody>
+  <% @u_purchase_details.each do |f| %>
+  <tr><TD><%= f.id %></TD>
+    <TD><%= f.utilities_type.description %></TD>
+    <TD><%= f.quantity %></TD>
+    <TD><%= f.width %></TD>
+    <TD><%= f.high %></TD>
+    <TD><%= f.thickness %></TD>
+    <TD><%= f.cost %></TD>
+    <TD><%= f.subtotal %></TD>
+    <TD><%= f.observation %></TD>
+    
+  </tr>
+    <% end %>
+    </tbody>
+</table>
+
+</table>
+<% end %>
+</body>
+</html>

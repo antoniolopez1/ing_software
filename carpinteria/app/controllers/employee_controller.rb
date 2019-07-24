@@ -5,6 +5,10 @@ class EmployeeController < ApplicationController
     @pagy, @employees= pagy(Employee.where(["name LIKE ? OR lastname LIKE ?","%#{params[:search]}%", "%#{params[:search]}%"]), page: params[:page], items: 5)
     
   end
+  def show
+    id=params[:id]
+    @employee=Employee.find(id)
+  end
 
   def new
     @employee = Employee.new

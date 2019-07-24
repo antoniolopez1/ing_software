@@ -1,6 +1,15 @@
 class SalaryController < ApplicationController
   def index
     @salaries=Salary.all
+    @salaries.each do |f|
+    @employee_payments=EmployeePayment.where(["salary_id = ?", f.id])
+    end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "index"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def new

@@ -1,5 +1,5 @@
 class Customer < ApplicationRecord
-
+has_many :budget_for_order
 
 validates :name,
 :presence => {:message => "Campo obligatorio"},
