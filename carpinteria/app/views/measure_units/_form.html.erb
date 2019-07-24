@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+  <%= link_to 'Volver a Lista de muebles', furniture_index_path%> 
+</div><br>
 <%= form_with(model: measure_unit, local: true) do |form| %>
   <% if measure_unit.errors.any? %>
     <div id="error_explanation">

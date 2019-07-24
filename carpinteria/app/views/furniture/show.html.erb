@@ -1,7 +1,10 @@
 <p id="notice"><%= notice %></p>
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a Lista de muebles', furniture_index_path%> 
-</div><br>
+  <%= link_to 'Volver a la lista', furniture_index_path %>|
+<%= link_to 'Editar', furniture_edit_path(@furniture.id) %>&rarr;
+
+</div>
 <p>
 	<strong>Codigo del mueble:</strong>
   <%= @furniture.id %>
@@ -37,9 +40,10 @@
     <TD><%= f.cost %></TD>
     <TD><%= f.subtotal %></TD>
 
-    <TD><%= link_to 'Editar', material_for_furniture_edit_path(f['id']) %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
-    </TD>
+    <TD><%= link_to 'Editar', material_for_furniture_edit_f_path(f['furniture_id'], f['id'])%>
+     </TD><TD>
+      <%= link_to 'Borrar', material_for_furniture_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+          </TD>
   </tr>
     <% end %>
     </tbody>
@@ -65,8 +69,7 @@
 
     <TD><%= link_to 'Editar', utilities_for_furniture_edit_path(f['id']) %></TD><TD>
 
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
-    </TD>
+<%= link_to 'Borrar', utilities_for_furniture_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>    </TD>
   </tr>
     <% end %>
     </tbody>

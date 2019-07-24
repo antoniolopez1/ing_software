@@ -1,4 +1,7 @@
 <!-- para mostrar errores -->
+<div class="boton_redirect">&larr;
+  <%= link_to 'Volver a Lista de clientes', customer_index_path%> 
+</div><br>
 <ul  >
 <%
 @customer.errors.full_messages.each do |m|

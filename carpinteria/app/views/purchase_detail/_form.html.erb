@@ -11,11 +11,12 @@
 </ul>
 <p>
 <%= f.label "ID Compra" %> </br>
-<%= f.text_field :purchase_id %>
+<%= f.collection_select :purchase_id, Purchase.all, :id, :id %>
 </p>
 <p>
 <%= f.label "Material" %> </br>
 <%= f.text_field :material_id %>
+<%= f.collection_select :material_id, Material.all, :id, :description %>
 </p>
 <p>
 <%= f.label "Precio Neto" %> </br>
@@ -23,7 +24,7 @@
 </p>
 <p>
 <%= f.label "IVA" %> </br>
-<%= f.text_field :iva %>
+<%= f.select :iva,options_for_select([[5],[10]]) %>
 </p>
 <!-- hacer un select al iva? ya que hay solo dos opciones
 <%= select_tag(:IVA, options_for_select([[5],[10]])) %> -->

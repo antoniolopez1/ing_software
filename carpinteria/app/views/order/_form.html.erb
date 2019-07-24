@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a Lista de pedidos', order_index_path%> 
+</div><br>
 <ul>
 <% 
 @order.errors.full_messages.each do |m|
@@ -23,11 +26,11 @@
 </p>
 <p>
 <%= f.label :budget_for_order_id %> </br>
-<%= f.text_field :budget_for_order_id %>
+<%= f.collection_select(:budget_for_order_id, BudgetForOrder.all, :id , :id)  %>
 </p>
 <p>
 <%= f.label :customer_id %> </br>
-<%= f.text_field :customer_id %>
+<%= f.collection_select(:customer_id, Customer.all, :id , :name)  %>
 </p>
 <p>
 <%= f.submit "Enviar" %>

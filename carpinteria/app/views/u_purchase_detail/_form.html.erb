@@ -12,11 +12,11 @@
 	
 <p>
 <%= f.label "Compra id" %> </br>
-<%= f.text_field :purchase_id %>
+<%= f.collection_select :purchase_id, Purchase.all, :id, :id %>
 </p>
 <p>
 <%= f.label "Material" %> </br>
-<%= f.text_field :utilities_type_id %>
+<%= f.collection_select :utilities_type_id, UtilitiesTypes.all, :id, :description %>
 </p>
 
 <p>

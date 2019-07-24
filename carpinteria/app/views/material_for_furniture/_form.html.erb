@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Es todo, volver a los detalles del mueble', furniture_show_path(params[:furniture])%>  
+</div><br>
 <ul>
 <%
 @material_for_furniture.errors.full_messages.each do |m|
@@ -22,8 +25,8 @@
 <%= f.number_field :quantity, :class => 'text_field', :step => 1  %>
 </p>
 <!--p>
-<%= f.label :Costo %> </br>
-<%= f.number_field :cost , :class => 'text_field' %>
+<% f.label :Costo %> </br>
+<% f.number_field :cost , :class => 'text_field' %>
 </p-->
 
 <p>
