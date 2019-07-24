@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Informe de presupuesto</h1>
+<p>
+  <strong>Fecha de inicio:</strong>
+  <%= @order.begin_date.strftime("%d/%m/%Y") %>
+  <br>
+  <strong>Hora:</strong>
+  <%= @order.created_at.strftime("%H:%M") %><br>
+  <strong>Fecha fin:</strong>
+  <%= @order.end_date.strftime("%d/%m/%Y") %>
+</p>
+<p>
+  <strong>Nro de Pedido:</strong>
+  <%= @order.id %><br>
+  <strong>Nro de Presupuesto:</strong>
+  <%= @order.budget_for_order_id %><br>
+  <strong>Total del presupuesto:</strong>
+  <%= @order.budget_for_order.total %>
+</p>
+
+<p>
+  <strong>Estado:</strong>
+  <%= @order.status %>
+<br>
+  <strong>Cliente:</strong>
+  <%= @order.customer.lastname %>,
+  <%= @order.customer.name %>
+<br>
+  <strong>Observación:</strong>
+  <%= @order.observation %>
+</p>
+<h3>Detalles</h3>
+<table class="table">
+    <thead>
+  <tr><TH>ID</TH>
+    <TH>Mueble</TH>
+    <TH>Precio unitario</TH>
+    <TH>Cantidad</TH>
+    <TH>Subtotal</TH>
+    <TH>Observacion</TH>
+    
+  <tbody>
+  <% @budgets.each do |f| %>
+  
+  <tr><TD><%= f.id %></TD>
+    <TD><%= f.furniture.description %></TD>
+    <TD><%= f.unit_price %></TD>
+    <TD><%= f.quantity %></TD>
+    <TD><%= f.subtotal %></TD>
+    <TD><%= f.observation %></TD>
+    <% end %>
+    </tbody>
+
+</table>
+</body>
+</html>

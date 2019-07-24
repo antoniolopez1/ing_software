@@ -53,7 +53,7 @@
         <%= link_to 'Pagos', employee_payment_index_path %>
       </li>
     </ul>
-  <li>
+  </li>
   <li>
     <a href="#">Compras</a>
     <ul>
@@ -97,7 +97,21 @@
       </li>
     </ul>
   <li>
+    <a href="#">Reportes</a>
+    <ul>
+      <li>
+        <%=link_to('Compras', purchase_index_path(format: :pdf)) %>
+      </li>
+      <li>
+        <%=link_to('Pagos de Personal', salary_index_path(format: :pdf)) %>
+      </li>
+      <li>
+        <%=link_to('Ventas', sale_index_path(format: :pdf)) %>
+      </li>
+    </ul>
+  </li>
 </ul>
+
    </aside>
    <div class="artic">
     <%= yield %>

@@ -40,6 +40,7 @@ Rails.application.routes.draw do
   get 'order/index'
   get 'order/new'
   get 'order/:budget_for_order/new', to: 'order#new', as: 'order_new_add'
+  get 'order/:id/show', to: 'order#show', as: 'order_show'
   post 'order/create'
   get 'order/:id/edit', to: 'order#edit', as: 'order_edit'
   patch 'order/:id/update', to: 'order#update', as: 'order_update'

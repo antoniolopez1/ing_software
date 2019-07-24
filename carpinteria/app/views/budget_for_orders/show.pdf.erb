@@ -1,0 +1,48 @@
+<h1>Informe de presupuestos</h1>
+<p>
+  <strong>Fecha:</strong>
+  <%= @budget_for_order.created_at.strftime("%Y/%m/%d") %>
+  <br>
+  <strong>Hora:</strong>
+  <%= @budget_for_order.created_at.strftime("%H:%M") %>
+</p>
+<p>
+  <strong>Total del presupuesto:</strong>
+  <%= @budget_for_order.total %>
+</p>
+
+<p>
+  <strong>Observation:</strong>
+  <%= @budget_for_order.observation %>
+</p>
+
+<p>
+  <strong>Cliente:</strong>
+  <%= @budget_for_order.customer_id %>,
+  <%= @budget_for_order.customer.name %>
+</p>
+<h3>Detalles</h3>
+<table class="style_table">
+    <thead class="thead-dark">
+  <tr><TH>ID</TH>
+    <TH>Nro. de Presupuesto</TH>
+    <TH>Mueble</TH>
+    <TH>Precio unitario</TH>
+    <TH>Cantidad</TH>
+    <TH>Subtotal</TH>
+    <TH>Observacion</TH>
+    
+  <tbody>
+  <% @budgets.each do |f| %>
+  
+  <tr><TD><%= f.id %></TD>
+    <TD><%= f.budget_for_order_id%></TD>
+    <TD><%= f.furniture.description %></TD>
+    <TD><%= f.unit_price %></TD>
+    <TD><%= f.quantity %></TD>
+    <TD><%= f.subtotal %></TD>
+    <TD><%= f.observation %></TD>
+    <% end %>
+    </tbody>
+
+</table>
