@@ -28,9 +28,9 @@
         <td><%= budget_for_order.observation %></td>
         <td><%= budget_for_order.customer_id %></td>
         <td><%= link_to 'A Pedidos', order_new_add_path(budget_for_order['id']) %></td>
-        <td><%= link_to 'Show', budget_for_order %></td>
-        <td><%= link_to 'Edit', edit_budget_for_order_path(budget_for_order) %></td>
-        <td><%= link_to 'Destroy', budget_for_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Detalles', budget_for_order %></td>
+        <td><%= link_to 'Editar', edit_budget_for_order_path(budget_for_order) %></td>
+        <td><%= link_to 'Borrar', budget_for_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
