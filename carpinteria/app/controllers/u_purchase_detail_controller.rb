@@ -5,6 +5,7 @@ class UPurchaseDetailController < ApplicationController
 
   def new
     @u_purchase_detail=UPurchaseDetail.new
+    @u_purchase_detail.purchase_id=params[:purchase]
   end
 
   def create
@@ -20,7 +21,7 @@ class UPurchaseDetailController < ApplicationController
    # @u_purchase_detail.subtotal=params[:u_purchase_detail][:subtotal]
     @u_purchase_detail.subtotal=@u_purchase_detail.cost*@u_purchase_detail.quantity
     if @u_purchase_detail.save
-      redirect_to u_purchase_detail_index_path
+      redirect_to u_purchase_detail_new_add_path(@u_purchase_detail.purchase_id), notice: 'El detalle se ha guardado correctamente' 
     else
       render 'new'
     end
@@ -34,7 +35,7 @@ class UPurchaseDetailController < ApplicationController
   def update
     id=params[:id]
     @u_purchase_detail=UPurchaseDetail.find(id)
-     @u_purchase_detail.purchase_id=params[:u_purchase_detail][:purchase_id]
+    @u_purchase_detail.purchase_id=params[:u_purchase_detail][:purchase_id]
     @u_purchase_detail.utilities_type_id=params[:u_purchase_detail][:utilities_type_id]
     @u_purchase_detail.quantity=params[:u_purchase_detail][:quantity]
     @u_purchase_detail.width=params[:u_purchase_detail][:width]
@@ -45,7 +46,7 @@ class UPurchaseDetailController < ApplicationController
     #@u_purchase_detail.subtotal=params[:u_purchase_detail][:subtotal]
     @u_purchase_detail.subtotal=@u_purchase_detail.cost*@u_purchase_detail.quantity
     if @u_purchase_detail.save
-      redirect_to u_purchase_detail_index_path
+      redirect_to purchase_show_path(@purchase_detail.purchase_id)
     else
       render 'edit'
     end

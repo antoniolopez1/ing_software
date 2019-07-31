@@ -1,5 +1,11 @@
-<h1>Order#index</h1>
-<table class="table ">
+<h1 align="center">Pedidos</h1>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Clientes', customer_index_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+	<%= link_to 'Ir a Ventas', sale_index_path%> &rarr;
+</div><br>
+<table class="style_table">
 	  <thead class="thead-dark">
 
 	<tr><TH>ID</TH>
@@ -11,7 +17,7 @@
 		<TH>Presupuesto</TH>
 		
 		
-		<TH colspan="2"><%= link_to 'Nuevo', order_new_path %></TH></tr>
+		<TH colspan="3"></TH></tr>
 </thead>
 	<tbody>
 	<% @orders.each do |f| %>
@@ -23,7 +29,7 @@
 		<TD><%= f.end_date %></TD>
 		<TD><%= f.observation %></TD>
 		<TD><%= f.budget_for_order.total%></TD>
-		
+		<TD><%=link_to('Generar Reporte', order_show_path(f['id'],format: :pdf)) %></TD>
 		
 		<TD><%= link_to 'Editar', order_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>

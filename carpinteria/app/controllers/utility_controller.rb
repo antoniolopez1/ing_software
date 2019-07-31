@@ -5,6 +5,7 @@ class UtilityController < ApplicationController
 
   def new
     @utility=Utility.new
+    @utility.utilities_type_id=params[:type]
   end
 
   def create

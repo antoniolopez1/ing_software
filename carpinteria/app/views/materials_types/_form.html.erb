@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+  <%= link_to 'Volver a la lista de materiales', material_index_path%> 
+</div><br>
 <%= form_with(model: materials_type, local: true) do |form| %>
   <% if materials_type.errors.any? %>
     <div id="error_explanation">

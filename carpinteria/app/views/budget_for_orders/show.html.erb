@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Total:</strong>
+  <strong>Total del presupuesto:</strong>
   <%= @budget_for_order.total %>
 </p>
 
@@ -12,8 +12,44 @@
 
 <p>
   <strong>Customer:</strong>
-  <%= @budget_for_order.customer.lastname %>
+  <%= @budget_for_order.customer.lastname %>, 
+  <%= @budget_for_order.customer.name %>
 </p>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista', budget_for_orders_path %>|
+<%= link_to 'Editar', edit_budget_for_order_path(@budget_for_order) %>&rarr;
 
-<%= link_to 'Edit', edit_budget_for_order_path(@budget_for_order) %> |
-<%= link_to 'Back', budget_for_orders_path %>
+</div>
+<table class="style_table">
+	  <thead class="thead-dark">
+	<tr><TH>ID</TH>
+		<TH>Presupuesto para pedido</TH>
+		<TH>Mueble</TH>
+		<TH>Precio unitario</TH>
+		<TH>Cantidad</TH>
+		<TH>Subtotal</TH>
+		<TH>Observacion</TH>
+		
+		<TH colspan="2"><%= link_to 'Nuevo', budget_new_add_path(@budget_for_order.id) %></TH></tr>
+</thead>
+	<tbody>
+	<% @budgets.each do |f| %>
+	
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.budget_for_order.observation%></TD>
+		<TD><%= f.furniture.description %></TD>
+		<TD><%= f.unit_price %></TD>
+		<TD><%= f.quantity %></TD>
+		<TD><%= f.subtotal %></TD>
+		<TD><%= f.observation %></TD>
+		
+		
+		<TD><%= link_to 'Editar', budget_edit_od_path(f['budget_for_order_id'], f['id']) %></TD><TD>
+			<%= link_to 'Borrar', budget_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>

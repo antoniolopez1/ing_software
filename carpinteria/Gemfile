@@ -72,3 +72,10 @@ gem  'rails_admin', '~> 1.0'
 
 # Gema devise para crear sesiones de logueo
 gem 'devise'
+#buscador en select
+gem "selectize-rails"
+#pagination
+gem 'pagy'
+#gema para reporte en pdf
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'

@@ -1,3 +1,7 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de ventas', sale_index_path%> 
+	
+</div><br>
 <ul>
 <% 
 @sale.errors.full_messages.each do |m|
@@ -21,6 +25,7 @@
 <p>
 <%= f.label "Pedido" %> </br>
 <%= f.text_field :order_id %>
+<%= f.collection_select :order_id, Order.all, :id, :id %>
 </p>
 <!--p>
 <%= f.label "cliente" %> </br>

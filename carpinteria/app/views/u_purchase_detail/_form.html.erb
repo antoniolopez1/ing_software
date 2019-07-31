@@ -1,3 +1,7 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Es todo, volver a la Compra', purchase_show_path(params[:purchase])%> 
+</div><br>
+
 <ul>
 <% 
 @u_purchase_detail.errors.full_messages.each do |m|
@@ -8,11 +12,11 @@
 	
 <p>
 <%= f.label "Compra id" %> </br>
-<%= f.text_field :purchase_id %>
+<%= f.collection_select :purchase_id, Purchase.all, :id, :id %>
 </p>
 <p>
 <%= f.label "Material" %> </br>
-<%= f.text_field :utilities_type_id %>
+<%= f.collection_select :utilities_type_id, UtilitiesTypes.all, :id, :description %>
 </p>
 
 <p>

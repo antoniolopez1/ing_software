@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Informe de Salarios</h1>
+
+<p>
+	<% @salaries.each do |salary| %>
+  <h2>Personal</h2>
+  <strong>Nro. de salario</strong>
+  <%= salary.id %><br>
+	<strong>Apellidos y nombres</strong>
+  <%= salary.employee.lastname %>, <%= salary.employee.name %><br>
+  <strong>Bonificación por hora:</strong>
+  <%= salary.charge_for_hours %><br>
+  <strong>Acumulado:</strong>
+  <%= salary.accumulated %><br>
+  <strong>Horas trabajadas:</strong>
+  <%= salary.total_hours %><br>
+  <strong>Horas extras:</strong>
+  <%= salary.total_extra_hours %><br>
+</p>
+<h2>Pagos de Salarios</h2>
+<table class="table">
+    <thead>
+  <tr>
+    <TH>ID</TH>
+    <TH>Importe</TH>
+    <TH>Saldo</TH>
+    <TH>Fecha</TH>
+  </tr>
+</thead>
+  <tbody>
+  <% @employee_payments.each do |f| %>
+
+  <tr><TD><%= f.id %></TD>
+    <TD><%= f.amount %></TD>
+    <TD><%= f.balance %></TD>
+    <TD><%= f.created_at.strftime("%Y/%m/%d") %></TD>
+  </tr>
+    <% end %>
+    </tbody>
+
+</table>
+ <% end %>

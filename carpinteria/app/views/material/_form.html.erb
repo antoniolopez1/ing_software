@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a Lista de Materiales', material_index_path%> 
+</div><br>
 <ul>
 <%
 @material.errors.full_messages.each do |m|
@@ -10,7 +13,11 @@
 <p>
 <%= f.label :ID_Tipo_de_Material %> </br>
 <%= f.collection_select(:materials_type_id, MaterialsType.all, :id , :description)  %>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Nuevo tipo de material', new_materials_type_path%> 
+</div><br>
 </p>
+
 
 <p>
 <%= f.label :ID_Unidad_de_Medida %> </br>

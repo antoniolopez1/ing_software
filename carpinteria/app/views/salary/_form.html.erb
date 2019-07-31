@@ -1,3 +1,10 @@
+
+<script>
+    $('#list-employees').selectize({
+    create: true,
+    sortField: 'text'
+});
+  </script>   
 <div class="boton_redirect">&larr;
 	<%= link_to 'Volver a la lista de salarios', salary_index_path%> 
 </div><br>
@@ -15,7 +22,7 @@
 
 <p>
 <%= f.label "ID Personal" %> </br>
-<%= f.text_field :employee_id%>
+<%= f.collection_select :employee_id, Employee.order(:name), :id, :name, {id: 'list-employees'} %>
 </p>
 <p>
 <%= f.label "Bonificación por hora" %> </br>

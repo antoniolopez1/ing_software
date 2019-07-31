@@ -5,7 +5,7 @@ class UtilitiesForFurnitureController < ApplicationController
 
   def new
       @utilities_for_furniture=UtilitiesForFurniture.new
-
+      @utilities_for_furniture.furniture_id=params[:furniture]
   end
 
   def create

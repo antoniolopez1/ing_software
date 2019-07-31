@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+  <%= link_to 'Volver a la lista de presupuesto', budget_for_orders_path%> 
+</div><br>
 <%= form_with(model: budget_for_order, local: true) do |form| %>
   <% if budget_for_order.errors.any? %>
     <div id="error_explanation">
@@ -12,12 +15,12 @@
   <% end %>
 
   <!--div class="field">
-    <%= form.label :total %>
-    <%= form.text_field :total %>
+    <% form.label :total %>
+    <% form.text_field :total %>
   </div-->
   <div class="field">
     <%= form.label :customer_id %>
-    <%= form.text_field :customer_id %>
+    <%= form.collection_select(:customer_id, Customer.all, :id , :name)  %>
   </div>
   <div class="field">
     <%= form.label :observation %>

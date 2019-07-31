@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Es todo, volver a los detalles de la venta', sale_show_path(params[:sale])%> 
+</div><br>
 <ul>
 <% 
 @sales_charge.errors.full_messages.each do |m|
@@ -8,7 +11,8 @@
 </ul>
 <p>
 <%= f.label "Venta" %> </br>
-<%= f.text_field :sale_id %>
+<%= f.collection_select :sale_id, Sale.all, :id, :id %>
+
 </p>
 <p>
 <%= f.label "Importe" %> </br>

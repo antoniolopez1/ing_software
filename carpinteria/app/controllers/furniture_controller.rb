@@ -6,7 +6,12 @@ class FurnitureController < ApplicationController
   def new
     @furniture=Furniture.new
   end
-
+  def show
+    id=params[:id]
+    @furniture=Furniture.find(id)
+    @material_for_furnitures=MaterialForFurniture.where(["furniture_id = ?", "#{id}"])
+    @utilities_for_furnitures=UtilitiesForFurniture.where(["furniture_id = ?", "#{id}"])
+  end
   def create
     @furniture=Furniture.new
     @furniture.description=params[:furniture][:description]
@@ -16,7 +21,7 @@ class FurnitureController < ApplicationController
     @furniture.price=(@furniture.cost+@furniture.profit+((@furniture.profit+@furniture.cost)*@furniture.iva)/100)
 
     if @furniture.save 
-      redirect_to  furniture_index_path
+      redirect_to  material_for_furniture_new_add_path(@furniture.id)
     else 
       render "new"  
   end

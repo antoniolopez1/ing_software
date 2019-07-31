@@ -6,7 +6,7 @@ class MaterialForFurnitureController < ApplicationController
 
   def new
         @material_for_furniture=MaterialForFurniture.new
-
+        @material_for_furniture.furniture_id=params[:furniture]
   end
 
   def create
@@ -20,7 +20,7 @@ class MaterialForFurnitureController < ApplicationController
     #@material_for_furniture.cost=params[:material_for_furniture][:cost]
 
     if @material_for_furniture.save 
-      redirect_to  material_for_furniture_index_path
+      redirect_to  material_for_furniture_new_add_path(@material_for_furniture.furniture_id)
     else 
       render "new"  
     end

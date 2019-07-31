@@ -8,7 +8,9 @@
 <div class="boton_redirect">
 	<%= link_to 'Ir a pago al personal', employee_payment_index_path%> &rarr;
 </div><br>
-<%=form_tag employee_index_path, :method => 'get', :style => 'padding-left:10em;' do %>
+
+<%=form_tag employee_index_path, :method => 'get', :style => 'padding-left:4em;font-family:bold;' do %>
+	<%= label_tag "Filtrar"%>
 	<%= text_field_tag :search, params[:search] %>
 	<%= submit_tag "Buscar" %>
 <%end%>
@@ -34,7 +36,7 @@
 		
 		<TD><%= f.speciality %></TD>
 		<TD><%= f.status %></TD>
-		<TD><%= link_to 'Detalles', employee_edit_path(f['id']) %></TD>
+		<TD><%= link_to 'Detalles', employee_show_path(f['id']) %></TD>
 		<TD><%= link_to 'Cargar Asistencia', hours_history_new_add_path(f['id']) %></TD>
 		<TD><%= link_to 'Editar', employee_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
@@ -44,3 +46,7 @@
     </tbody>
 
 </table>
+<br>
+<div class="boton_redirect">
+	<%= render partial: 'shared/pagination', locals: { pagy: @pagy } %>
+</div><br>

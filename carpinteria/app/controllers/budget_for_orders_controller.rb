@@ -4,12 +4,18 @@ class BudgetForOrdersController < ApplicationController
   # GET /budget_for_orders
   # GET /budget_for_orders.json
   def index
-    @budget_for_orders = BudgetForOrder.all
+    @budget_for_orders = BudgetForOrder.all.order("created_at DESC")
   end
 
   # GET /budget_for_orders/1
   # GET /budget_for_orders/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "show"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   # GET /budget_for_orders/new
@@ -28,7 +34,7 @@ class BudgetForOrdersController < ApplicationController
     @budget_for_order.total=0
     respond_to do |format|
       if @budget_for_order.save
-        format.html { redirect_to @budget_for_order, notice: 'Budget for order was successfully created.' }
+        format.html { redirect_to budget_new_add_path(@budget_for_order.id), notice: 'Favor de agregar los detalles' }
         format.json { render :show, status: :created, location: @budget_for_order }
       else
         format.html { render :new }
@@ -65,6 +71,7 @@ class BudgetForOrdersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_budget_for_order
       @budget_for_order = BudgetForOrder.find(params[:id])
+      @budgets=Budget.where(["budget_for_order_id = ?", "#{params[:id]}"])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

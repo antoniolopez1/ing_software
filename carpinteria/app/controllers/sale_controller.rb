@@ -1,11 +1,27 @@
 class SaleController < ApplicationController
   def index
     @sales=Sale.all
+    @sales.each do |f|
+    @sales_charges=SalesCharge.where(["sale_id = ?", f.id])
+    end
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "index"   # Excluding ".pdf" extension.
+      end
+    end
   end
 
   def new
     @sale=Sale.new
 
+  end
+
+  def show
+    id=params[:id]
+    @sale=Sale.find(id)
+    @sales_charges=SalesCharge.where(["sale_id = ?", "#{id}"])
+    
   end
 
   def create

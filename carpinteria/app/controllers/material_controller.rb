@@ -5,7 +5,7 @@ class MaterialController < ApplicationController
 
   def new
     @material=Material.new
-
+    @material.materials_type_id=params[:type]
   end
 
   def create

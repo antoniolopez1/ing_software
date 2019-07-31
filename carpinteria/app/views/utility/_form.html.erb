@@ -1,3 +1,7 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a Lista de Tablones', utility_index_path%> 
+</div><br>
+
 <ul>
 <% 
 @utility.errors.full_messages.each do |m|
@@ -9,8 +13,11 @@
 
 <p>
 <%= e.label :utilities_type_id %> </br>
-<!--%= e.collection_select(:utilities_type_id, Utility.all, :id , :description)  %-->
-<%= e.text_field :utilities_type_id %>
+<%= e.collection_select(:utilities_type_id, UtilitiesType.all, :id , :description)  %>
+<!--%= e.text_field :utilities_type_id %-->
+<div class="boton_redirect">&larr;
+	<%= link_to 'Nuevo tipo de tablon', new_utilities_type_path%> 
+</div><br>
 </p>
 <p>
 <%= e.label :quantity %> </br>

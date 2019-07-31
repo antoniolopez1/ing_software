@@ -1,4 +1,5 @@
 class MaterialsType < ApplicationRecord
+  has_many :material
   validates :description,
   format: {
   with: /\A[ÁÉÍÓÚÑA-Z\. ]+\z/,

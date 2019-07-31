@@ -1,6 +1,12 @@
 <div class="container-div">
 	<h1  align="center">Muebles</h1>
-<table class="table ">
+	<div class="boton_redirect">
+  <%= link_to 'Ir a la lista de presupuestos', budget_for_orders_path%> &rarr;
+</div><br>
+<div class="boton_redirect">
+  <%= link_to 'Ir a Pedidos', order_index_path%> &rarr;
+</div><br>
+<table class="style_table">
 	  <thead class="thead-light">
 	<tr><TH>ID</TH>
 		<TH>Descripción</TH>
@@ -10,7 +16,7 @@
 		<TH>Precio de venta</TH>
 
 	
-		<TH colspan="2"><%= link_to 'Nuevo', furniture_new_path %></TH></tr>
+		<TH colspan="3"><%= link_to 'Nuevo', furniture_new_path %></TH></tr>
 </thead>
 	<tbody>
 	<% @furnitures.each do |f| %>
@@ -21,6 +27,7 @@
 		<TD><%= f.profit %></TD>
 		<TD><%= f.iva %></TD>
 		<TD><%= f.price %></TD>
+		<TD><%= link_to 'Detalles', furniture_show_path(f['id']) %></TD>
 		<TD><%= link_to 'Editar', furniture_edit_path(f['id']) %></TD><TD>
 
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>

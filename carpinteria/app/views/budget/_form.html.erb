@@ -1,4 +1,6 @@
-
+<div class="boton_redirect">&larr;
+  <%= link_to 'Es todo, volver al Presupuesto del pedido', budget_for_order_path(params[:budget_for_order])%> 
+</div><br>
 <ul>
 <% 
 @budget.errors.full_messages.each do |m|
@@ -11,7 +13,8 @@
   <div class="col-sm-4 ">
     <p >
 <%= f.label :Mueble %> </br>
-<%= f.text_field :furniture_id %>
+<%= f.collection_select(:furniture_id, Furniture.all, :id , :description)  %>
+
   </p>
   <p >
 <%= f.label "Presupuesto para pedido" %> </br>
@@ -29,21 +32,10 @@
 </p>
 
   </div>
-  <div class="col-sm-4 ">
-  	<p>
-<%= f.label "Precio unitario" %> </br>
-<%= f.text_field :unit_price %>
-</p>
-	<p>
-<%= f.label :Subtotal%> </br>
-<%= f.text_field :subtotal %>
-</p>
-</div>
-
 
     
 </div> 
 
 <p>
 <%= f.submit "Enviar"  %>
-</p>2
+</p>

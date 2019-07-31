@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>Informe de Ventas</h1>
+<p>
+	<% @sales.each do |sale| %>
+  <strong>Estado de la venta</strong>
+  <%= sale.status %><br>
+	<strong>Codigo</strong>
+  <%= sale.id %><br>
+  <strong>Cliente:</strong>
+  <%= sale.customer.name %><br>
+  <strong>Nro. del pedido:</strong>
+  <%= sale.order %><br>
+  <strong>Fecha:</strong>
+  <%= sale.created_at %><br>
+  <strong>Total:</strong>
+  <%= sale.total %><br>
+  <strong>Importe:</strong>
+  <%= sale.amount %><br>
+  <strong>Saldo:</strong>
+  <%= sale.balance %>
+</p>
+<h2>Pagos de las ventas</h2>
+<table class="table">
+    <thead>
+  <tr><TH>ID</TH>
+    <TH>Cliente</TH>
+    <TH>Nro de venta</TH>
+    <TH>Importe</TH>
+    <TH>Saldo</TH>
+    <TH>Fecha</TH>
+    </tr>
+</thead>
+  <tbody>
+  <% @sales_charges.each do |f| %>
+  
+  <tr><TD><%= f.id %></TD>
+    <TD><%= f.customer.lastname %>, <%= f.customer.name %> </TD>
+    <TD><%= f.sale_id %></TD>
+    <TD><%= f.amount %></TD>
+    <TD><%= f.balance%></TD>
+    <TD><%= f.created_at.strftime("%Y/%m/%d")%></TD>
+      
+    
+    
+  </tr>
+    <% end %>
+    </tbody>
+
+</table>
+ <% end %>

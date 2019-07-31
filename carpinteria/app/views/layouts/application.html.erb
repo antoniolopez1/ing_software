@@ -7,11 +7,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-
-    
-
-    
+     
   </head>
 
   <body>
@@ -57,7 +53,7 @@
         <%= link_to 'Pagos', employee_payment_index_path %>
       </li>
     </ul>
-  <li>
+  </li>
   <li>
     <a href="#">Compras</a>
     <ul>
@@ -73,9 +69,7 @@
       <li>
         <%= link_to 'Tablones', utility_index_path %>
       </li>
-      <li>
-        <%= link_to 'Tipos de tablones', utilities_types_path %>
-      </li>
+      
     </ul>
   <li>
   <li>
@@ -103,7 +97,21 @@
       </li>
     </ul>
   <li>
+    <a href="#">Reportes</a>
+    <ul>
+      <li>
+        <%=link_to('Compras', purchase_index_path(format: :pdf)) %>
+      </li>
+      <li>
+        <%=link_to('Salarios', salary_index_path(format: :pdf)) %>
+      </li>
+      <li>
+        <%=link_to('Ventas', sale_index_path(format: :pdf)) %>
+      </li>
+    </ul>
+  </li>
 </ul>
+
    </aside>
    <div class="artic">
     <%= yield %>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'sales_charge/new'
   post 'sales_charge/create'
   get 'sales_charge/:id/edit', to: 'sales_charge#edit', as: 'sales_charge_edit'
+  get 'sales_charge/:sale/:id/edit', to: 'sales_charge#edit', as: 'sales_charge_edit_s'
   patch 'sales_charge/:id/update', to: 'sales_charge#update', as: 'sales_charge_update'
   delete 'sales_charge/:id/destroy', to: 'sales_charge#destroy', as: 'sales_charge_destroy'
   devise_for :users
@@ -12,13 +13,16 @@ Rails.application.routes.draw do
   #rutas para detalles venta para los tablones
   get 'u_purchase_detail/index'
   get 'u_purchase_detail/new'
+  get 'u_purchase_detail/:purchase/new', to: 'u_purchase_detail#new', as: 'u_purchase_detail_new_add'
   post 'u_purchase_detail/create'
   get 'u_purchase_detail/:id/edit', to: 'u_purchase_detail#edit', as: 'u_purchase_detail_edit'
+  get 'u_purchase_detail/:purchase/:id/edit', to: 'u_purchase_detail#edit', as: 'u_purchase_detail_edit_p'
   patch 'u_purchase_detail/:id/update', to: 'u_purchase_detail#update', as: 'u_purchase_detail_update'
   delete 'u_purchase_detail/:id/destroy', to: 'u_purchase_detail#destroy', as: 'u_purchase_detail_destroy'
   #rutas para utilities
   get 'utility/index'
   get 'utility/new'
+  get 'utility/:type/new', to: 'utility#new', as: 'utility_new_add_type'
   post 'utility/create'
   get 'utility/:id/edit', to: 'utility#edit', as: 'utility_edit'
   patch 'utility/:id/update', to: 'utility#update', as: 'utility_update'
@@ -28,6 +32,7 @@ Rails.application.routes.draw do
   #rutas para ventas
   get 'sale/index'
   get 'sale/new'
+  get 'sale/:id/show', to: 'sale#show', as: 'sale_show'
   post 'sale/create'
   get 'sale/:id/edit', to: 'sale#edit', as: 'sale_edit'
   patch 'sale/:id/update', to: 'sale#update', as: 'sale_update'
@@ -35,17 +40,23 @@ Rails.application.routes.draw do
   #rutas para pedidos del cliente
   get 'order/index'
   get 'order/new'
+  get 'order/:budget_for_order/new', to: 'order#new', as: 'order_new_add'
+  get 'order/:id/show', to: 'order#show', as: 'order_show'
   post 'order/create'
   get 'order/:id/edit', to: 'order#edit', as: 'order_edit'
   patch 'order/:id/update', to: 'order#update', as: 'order_update'
   delete 'order/:id/destroy', to: 'order#destroy', as: 'order_destroy'
   #rutas para el presupuesto por orden
   resources :budget_for_orders
+
+
   #rutas para presupuestos
   get 'budget/index'
   get 'budget/new'
+  get 'budget/:budget_for_order/new', to: 'budget#new', as: 'budget_new_add'
   post 'budget/create'
   get 'budget/:id/edit', to: 'budget#edit', as: 'budget_edit'
+  get 'budget/:budget_for_order/:id/edit', to: 'budget#edit', as: 'budget_edit_od'
   patch 'budget/:id/update', to: 'budget#update', as: 'budget_update'
   delete 'budget/:id/destroy', to: 'budget#destroy', as: 'budget_destroy'
 
@@ -55,20 +66,26 @@ Rails.application.routes.draw do
   get 'purchase_detail/:purchase/new', to: 'purchase_detail#new', as: 'purchase_detail_new_add'
   post 'purchase_detail/create'
   get 'purchase_detail/:id/edit', to: 'purchase_detail#edit', as: 'purchase_detail_edit'
+  get 'purchase_detail/:purchase/:id/edit', to: 'purchase_detail#edit', as: 'purchase_detail_edit_p'
   patch 'purchase_detail/:id/update', to: 'purchase_detail#update', as: 'purchase_detail_update'
   delete 'purchase_detail/:id/destroy', to: 'purchase_detail#destroy', as: 'purchase_detail_destroy'
+ 
   #rutas para compras 
   get 'purchase/index'
   get 'purchase/new'
+  get 'purchase/:provider/new', to: 'purchase#new', as: 'purchase_new_prid_add'
   post 'purchase/create'
+  get 'purchase/:id/show', to: 'purchase#show', as: 'purchase_show'
   get 'purchase/:id/edit', to: 'purchase#edit', as: 'purchase_edit'
   patch 'purchase/:id/update', to: 'purchase#update', as: 'purchase_update'
   delete 'purchase/:id/destroy', to: 'purchase#destroy', as: 'purchase_destroy'
   #rutas para material_for_furniture
   get 'material_for_furniture/index'
   get 'material_for_furniture/new'
+  get 'material_for_furniture/:furniture/new', to: 'material_for_furniture#new', as: 'material_for_furniture_new_add'
   post 'material_for_furniture/create'
   get 'material_for_furniture/:id/edit', to: 'material_for_furniture#edit', as: 'material_for_furniture_edit'
+  get 'material_for_furniture/:furniture/:id/edit', to: 'material_for_furniture#edit', as: 'material_for_furniture_edit_f'
   patch 'material_for_furniture/:id/update', to: 'material_for_furniture#update', as: 'material_for_furniture_update'
   delete 'material_for_furniture/:id/destroy', to: 'material_for_furniture#destroy', as: 'material_for_furniture_destroy'
  #rutas para materials_for_furniture
@@ -81,6 +98,7 @@ Rails.application.routes.draw do
    #rutas para material
   get 'material/index'
   get 'material/new'
+  get 'material/:type/new', to: 'material#new', as: 'material_add_type'
   post 'material/create'
   get 'material/:id/edit', to: 'material#edit', as: 'material_edit'
   patch 'material/:id/update', to: 'material#update', as: 'material_update'
@@ -103,6 +121,7 @@ Rails.application.routes.draw do
   #rutas para utilities_for_furniture
   get 'utilities_for_furniture/index'
   get 'utilities_for_furniture/new'
+  get 'utilities_for_furniture/:furniture/new', to: 'utilities_for_furniture#new', as: 'utilities_for_furniture_new_add'
   post 'utilities_for_furniture/create'
   get 'utilities_for_furniture/:id/edit', to: 'utilities_for_furniture#edit', as: 'utilities_for_furniture_edit'
   patch 'utilities_for_furniture/:id/edit', to: 'utilities_for_furniture#update', as: 'utilities_for_furniture_update'
@@ -110,6 +129,7 @@ Rails.application.routes.draw do
    #rutas para furniture
   get 'furniture/index'
   get 'furniture/new'
+  get 'furniture/:id/show', to: 'furniture#show', as: 'furniture_show'
   post 'furniture/create'
   get 'furniture/:id/edit' , to: 'furniture#edit', as: 'furniture_edit'
   patch 'furniture/:id/edit', to: 'furniture#update', as: 'furniture_update'
@@ -144,6 +164,7 @@ Rails.application.routes.draw do
   get 'home/index'
   #rutas para empleados
   get 'employee/index'
+  get 'empoyee/:id/show', to: 'employee#show', as: 'employee_show'
   get 'employee/new'
   post 'employee/create'
   get 'employee/:id/edit', to: 'employee#edit', as: 'employee_edit'
