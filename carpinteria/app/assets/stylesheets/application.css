@@ -1,0 +1,171 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+html {
+	
+	min-height: 100%;
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	color: #FFF;
+}
+
+body, html {
+	background: #333 url(https://static.vecteezy.com/system/resources/previews/000/122/061/non_2x/wood-plank-vector-background.jpg) 0 0 repeat;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	color: black;
+}
+
+a {
+	color: rgba(255, 255, 255, 0.6);
+	text-decoration: none;
+}
+
+	a:hover, li:hover > a {
+		color: #FFF;
+	}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+li {
+	margin: 0;
+	padding: 0;
+}
+
+.menu {
+	border-left: 1px solid #FFF;
+	border-right: 1px solid #FFF;
+	background: rgba(0, 0, 0, 0.5);
+	float: left;
+	font-size: 1.5em;
+	min-height: 100%;
+	margin-left: 0.3em;
+
+}
+
+.menu li {
+	position: relative;
+	z-index: 1;
+}
+
+.menu li a {
+	display: block;
+	padding: 0.5em 1em;
+	white-space: nowrap;
+}
+
+	.menu li ul {
+		position: absolute;
+		overflow: hidden;
+		display: none;
+		left: 100%;
+		top: 0.5em;
+		float: none;
+		background: rgba(0, 0, 0, 0.5);
+		background-image: -moz-radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);
+		background-image: -webkit-radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);
+		/*background-image: radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);*/
+	}
+	
+	.menu li:hover ul {
+		display: block;
+	}
+	
+	.menu li ul a {
+		position: relative;
+		font-size: 0.8em;
+		color: white;
+	}
+	.menu li ul a:hover {
+		background: rgba(20,5,5,0.75);
+	}
+	
+	.menu li ul a:hover:before {
+		content: "";
+		display: block;
+		width: 1em;
+		height: 1em;
+		background: rgba(0,0,0,0.75);
+		border: 1px solid #FFF;
+		position: absolute;
+		top: 0.5em;
+		left: -0.75em;
+		-moz-transform: rotate(45deg);
+	}
+	.content {
+		text-align: center;
+	}
+	header div{
+  padding-top: 10px;
+  text-align: center;
+  background-color: #61380B;
+  color: white;
+  font-size: 30px;
+  max-height: 80px;
+}
+header div .titulo{
+	padding-top: 0px;
+  color: white;
+  font-size: 30px;
+}
+header div .parrafo{
+  padding-top: 0px;
+  padding-right: 30px;
+  margin-bottom: 10px;
+  text-align: right;
+  font-size: 15px
+}
+.artic{
+	background-color: white;
+	margin-left: 220px;
+	margin-right: 1em;
+	padding-bottom: 300px;
+	padding-top: 0px;
+	color: black;
+}
+.style_table {
+	border-collapse: collapse;
+	display:block;
+	overflow-x:auto;
+  width: 100%;
+}
+.style_table td, .style_table th {
+	border: 1px solid #ddd;
+  padding: 8px;
+}
+.style_table tr:nth-child(even){
+	background-color: #f0f5c4;
+}
+.style_table tr:hover {background-color: #ddd;}
+.style_table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #61380B;
+  color: white;
+}
+.style_table th a {
+  color: #eef494;
+}
+.style_table th a:hover {
+  color: #94f494;
+}
+.style_table td a {
+  color: #101946;
+}
+.style_table td a:hover {
+  color: #0334ff;
+}
+.boton_redirect a{
+	color: blue; 
+	font-size: 20px;
+}
+.boton_redirect a:hover{
+	color: red; 
+	padding-left: 10px;
+	font-family: bold;
+}

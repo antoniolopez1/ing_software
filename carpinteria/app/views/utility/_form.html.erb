@@ -8,8 +8,9 @@
 </ul>
 
 <p>
-<%= e.label :utility_type_id %> </br>
-<%= e.collection_select(:utility_type_id, Utility.all, :id , :description)  %>
+<%= e.label :utilities_type_id %> </br>
+<!--%= e.collection_select(:utilities_type_id, Utility.all, :id , :description)  %-->
+<%= e.text_field :utilities_type_id %>
 </p>
 <p>
 <%= e.label :quantity %> </br>

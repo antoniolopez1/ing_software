@@ -5,16 +5,21 @@ class SaleController < ApplicationController
 
   def new
     @sale=Sale.new
+
   end
 
   def create
     @sale=Sale.new
-    @sale.total=params[:sale][:total]
+    @sale.order_id=params[:sale][:order_id]
+    order=Order.find(@sale.order_id)
+    budget=BudgetForOrder.find(order.budget_for_order_id)
+    @sale.total=budget.total
+    @sale.customer_id=order.customer_id
     @sale.amount=params[:sale][:amount]
     @sale.status=params[:sale][:status]
-    @sale.balance=params[:sale][:balance]
-    @sale.order_id=params[:sale][:order_id]
-    @sale.customer_id=params[:sale][:customer_id]
+    @sale.balance=@sale.total-@sale.amount
+   
+    
     if @sale.save
       redirect_to sale_index_path
     else
@@ -30,12 +35,14 @@ class SaleController < ApplicationController
   def update
     id=params[:id]
     @sale=Sale.find(id)
-    @sale.total=params[:sale][:total]
+    @sale.order_id=params[:sale][:order_id]
+    order=Order.find(@sale.order_id)
+    budget=BudgetForOrder.find(order.budget_for_order_id)
+    @sale.total=budget.total
+    @sale.customer_id=order.customer_id
     @sale.amount=params[:sale][:amount]
     @sale.status=params[:sale][:status]
-    @sale.balance=params[:sale][:balance]
-    @sale.order_id=params[:sale][:order_id]
-    @sale.customer_id=params[:sale][:customer_id]
+    @sale.balance=@sale.total-@sale.amount
     if @sale.save
       redirect_to sale_index_path
     else

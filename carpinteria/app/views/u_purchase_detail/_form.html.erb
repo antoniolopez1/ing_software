@@ -12,7 +12,7 @@
 </p>
 <p>
 <%= f.label "Material" %> </br>
-<%= f.text_field :utility_id %>
+<%= f.text_field :utilities_type_id %>
 </p>
 
 <p>
@@ -20,27 +20,30 @@
 <%= f.text_field :quantity %>
 </p>
 <p>
-	<%= e.label :width %>
-	<%= e.number_field :width, :class => 'text_field', :step => 0.5 %>
+	<%= f.label :width %>
+	<%= f.number_field :width, :class => 'text_field', :step => 0.5 %>
 </p>
 <p>
-	<%= e.label :high %>
-	<%= e.number_field :high, :class => 'text_field', :step => 0.5 %>
+	<%= f.label :high %>
+	<%= f.number_field :high, :class => 'text_field', :step => 0.5 %>
 </p>
 	<p>
-	<%= e.label :thickness %>
-	<%= e.number_field :thickness, :class => 'text_field', :step => 0.5 %>
+	<%= f.label :thickness %>
+	<%= f.number_field :thickness, :class => 'text_field', :step => 0.5 %>
 </p>
 <p>
-	<%= e.label :cost %>
-	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 %>
+	<%= f.label :cost %>
+	<%= f.number_field :cost, :class => 'text_field', :step => 0.5 %>
 </p>
 
 <!--p>
 <%= f.label "Subtotal" %> </br>
 <%= f.text_field :subtotal %>
 </p-->
-
+<p>
+	<%= f.label :Observation %>
+	<%= f.text_field :observation %>
+</p>
 <p>
 <%= f.submit "Enviar" %>
 </p>

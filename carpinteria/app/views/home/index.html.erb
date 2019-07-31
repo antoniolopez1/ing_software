@@ -1,1 +1,9 @@
-<h1>Sistema para Carpinteria</h1>
+<%= form_tag search_create_path, method: :get, remote: true, id: "search_form" do%>
+	<%= text_field_tag :keyword, nil, placeholder: "que estas buscando?"%>
+	<%= content_tag :button, type: :submit do%>
+		Buscar
+	<% end %>
+	<%end%>
+	<div id="resultados">
+		
+	</div>

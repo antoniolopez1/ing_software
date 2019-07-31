@@ -1,3 +1,9 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de asistencia', hours_history_index_path%> 
+</div><br>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de personal', employee_index_path%> 
+</div><br>
 <ul>
 <%
 @hours_history.errors.full_messages.each do |m|

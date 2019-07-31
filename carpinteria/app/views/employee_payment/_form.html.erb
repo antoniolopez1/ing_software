@@ -1,3 +1,9 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de pago al personal', employee_payment_index_path%> 
+</div><br>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de salarios', salary_index_path%> 
+</div><br>
 <ul>
 <%
 @employee_payment.errors.full_messages.each do |m|
@@ -7,8 +13,13 @@
 </ul>
 
 <p>
-<%= f.label :ID_de salario %> </br>
+
+<%= f.label :Codigo_de_salario %> </br>
 <%= f.text_field :salary_id %>
+</p>
+<p>
+<%= f.label :Codigo_del_personal %> </br>
+<%= f.text_field :employee_id %>
 </p>
 <p>
 <%= f.label :Monto%> </br>

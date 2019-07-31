@@ -5,6 +5,7 @@ class PurchaseDetailController < ApplicationController
 
   def new
     @purchase_detail=PurchaseDetail.new
+    @purchase_detail.purchase_id=params[:purchase]
   end
 
   def create

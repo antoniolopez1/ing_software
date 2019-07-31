@@ -1,3 +1,10 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de salarios', salary_index_path%> 
+</div><br>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de personal', employee_index_path%> 
+</div><br>
+
 <ul>
 <%
 @salary.errors.full_messages.each do |m|
@@ -8,7 +15,7 @@
 
 <p>
 <%= f.label "ID Personal" %> </br>
-<%= f.text_field :employee_id %>
+<%= f.text_field :employee_id%>
 </p>
 <p>
 <%= f.label "Bonificación por hora" %> </br>

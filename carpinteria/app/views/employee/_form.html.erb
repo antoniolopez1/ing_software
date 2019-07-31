@@ -1,3 +1,6 @@
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de personal', employee_index_path%> 
+</div><br>
 <ul>
 <%
 @employee.errors.full_messages.each do |m|
@@ -34,8 +37,12 @@
   <%= f.label :Estado %>&nbsp&nbsp&nbsp&nbsp&nbsp
   <%= f.check_box :status, {}, "ACTIVO", "INACTIVO"%>&nbsp&nbspACTIVO </br>
 <p>
+	
+	
 </p>
 
 <p>
 <%= f.submit "Enviar" %>
 </p>
+	
+	

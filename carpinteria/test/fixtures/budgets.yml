@@ -6,6 +6,7 @@ one:
   unit_price: 1.5
   subtotal: 1.5
   furniture: one
+  budget_for_order: one
 
 two:
   observation: MyText
@@ -13,3 +14,4 @@ two:
   unit_price: 1.5
   subtotal: 1.5
   furniture: two
+  budget_for_order: two

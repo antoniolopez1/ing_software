@@ -1,0 +1,30 @@
+<h1>SalesCharge#index</h1>
+<table class="table ">
+	  <thead class="thead-dark">
+	<tr><TH>ID</TH>
+		<TH>Cliente</TH>
+		<TH>Nro de venta</TH>
+		<TH>Importe</TH>
+		<TH>Saldo</TH>
+		<TH>Fecha</TH>
+		<TH colspan="2"><%= link_to 'Nuevo', sales_charge_new_path %></TH></tr>
+</thead>
+	<tbody>
+	<% @sales_charges.each do |f| %>
+	
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.customer.lastname %>, <%= f.customer.name %> </TD>
+		<TD><%= f.sale_id %></TD>
+		<TD><%= f.amount %></TD>
+		<TD><%= f.balance%></TD>
+		<TD><%= f.created_at.strftime("%Y/%m/%d")%></TD>
+			
+		
+		<TD><%= link_to 'Editar', sales_charge_edit_path(f['id']) %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		</TD>
+	</tr>
+    <% end %>
+    </tbody>
+
+</table>

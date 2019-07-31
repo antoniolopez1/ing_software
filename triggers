@@ -167,6 +167,221 @@ CREATE TRIGGER bu_purchase_detail_material
   ON public.purchase_details
   FOR EACH ROW
   EXECUTE PROCEDURE public.material_quantity_u();
+###############################Trigger Function utilities_details_i#####
+CREATE OR REPLACE FUNCTION public.utilities_details_i()
+  RETURNS trigger AS
+$BODY$begin
+
+insert into utilities (utilities_type_id, quantity, width, high, thickness, cost, observation, created_at, updated_at)
+ values (new.utilities_type_id, new.quantity, new.width, new.high, new.thickness, new.cost, new.observation, new.created_at, new.updated_at);
+
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.utilities_details_i()
+  OWNER TO postgres;
+################Trigger i_utility###########
+CREATE TRIGGER i_utility
+  AFTER INSERT
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.utilities_details_i();
+###############Trigger function utilities_details_u####
+CREATE OR REPLACE FUNCTION public.utilities_details_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE utilities SET utilities_type_id=new.utilities_type_id, quantity=new.quantity, width=new.width, high=new.high, thickness=new.thickness, cost=new.cost, observation=new.observation, updated_at=new.updated_at
+WHERE created_at=old.created_at;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.utilities_details_u()
+  OWNER TO postgres;
+####################Trigger u_utility###############
+CREATE TRIGGER u_utility
+  BEFORE UPDATE
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.utilities_details_u();
+#####################Trigger function purchase_utilities_i#######
+CREATE OR REPLACE FUNCTION public.purchase_utilities_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE purchases SET total=total+new.subtotal, balance=(total+new.subtotal)-amount
+WHERE id=new.purchase_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.purchase_utilities_i()
+  OWNER TO postgres;
+#######################Trigger i_utility_total###################
+
+CREATE TRIGGER i_utility_total
+  AFTER INSERT
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.purchase_utilities_i();
+#######################Trigger function purchase_utilities_u#######
+CREATE OR REPLACE FUNCTION public.purchase_utilities_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE purchases SET total = (total-old.subtotal)+new.subtotal, 
+balance = ((total-old.subtotal)+new.subtotal)-amount
+
+WHERE id=new.purchase_id;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.purchase_utilities_u()
+  OWNER TO postgres;
+###################Trigger u_utility_total##################
+
+CREATE TRIGGER u_utility_total
+  BEFORE UPDATE
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.purchase_utilities_u();
+
+##################Trigger function furniture_cost_i##################
+CREATE OR REPLACE FUNCTION public.furniture_cost_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE furnitures SET cost=cost+new.subtotal, price=profit+(cost+new.subtotal)+(((profit+(cost+new.subtotal))*iva)/100)
+WHERE id=new.furniture_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.furniture_cost_i()
+  OWNER TO postgres;
+#######################Trigger i_cost_furniture#########
+CREATE TRIGGER i_cost_furniture
+  AFTER INSERT
+  ON public.material_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.furniture_cost_i();
+#######################Trigger function u_furniture_cost#######
+CREATE OR REPLACE FUNCTION public.u_furniture_cost()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE furnitures SET cost = (cost-old.subtotal)+new.subtotal, 
+price = profit+((cost-old.subtotal)+new.subtotal)+(((profit+((cost-old.subtotal)+new.subtotal))*iva)/100)
+
+WHERE id=new.furniture_id;
+end if;
+return new;
+end
+$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.u_furniture_cost()
+  OWNER TO postgres;
+#######################Trigger u_cost_furniture#############
+CREATE TRIGGER u_cost_furniture
+  BEFORE UPDATE
+  ON public.material_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.u_furniture_cost();
+#######################Trigger function budget_total_i######
+CREATE OR REPLACE FUNCTION public.budget_total_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE budget_for_orders SET total=total+new.subtotal
+WHERE id=new.budget_for_order_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.budget_total_i()
+  OWNER TO postgres;
+####################Trigger i_budget_total#######
+CREATE TRIGGER i_budget_total
+  AFTER INSERT
+  ON public.budgets
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.budget_total_i();
+##################### Trigger function budget_total_u##########
+CREATE OR REPLACE FUNCTION public.budget_total_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE budget_for_orders SET total = (total-old.subtotal)+new.subtotal
+
+WHERE id=new.budget_for_order_id;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.budget_total_u()
+  OWNER TO postgres;
+####################Trigger u_budget_total###############
+CREATE TRIGGER u_budget_total
+  BEFORE UPDATE
+  ON public.budgets
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.budget_total_u();
+###################Trigger function sale_charge_i #########
+CREATE OR REPLACE FUNCTION public.sale_charge_i()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE sales SET balance=new.balance, amount=amount+new.amount
+WHERE id=new.sale_id;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.sale_charge_i()
+  OWNER TO postgres;
+#######################Trigger i_balance_sale###############
+CREATE TRIGGER i_balance_sale
+  AFTER INSERT
+  ON public.sales_charges
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.sale_charge_i();
+###################Trigger function sale_charge_u #############
+CREATE OR REPLACE FUNCTION public.sale_charge_u()
+  RETURNS trigger AS
+$BODY$begin
+if new <> old THEN
+UPDATE sales SET balance = (old.amount+old.balance)-new.amount,
+amount=(old.amount+old.balance)-new.amount
+WHERE id=new.sale_id;
+new.balance=(old.amount+old.balance)-new.amount;
+end if;
+return new;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+ALTER FUNCTION public.sale_charge_u()
+  OWNER TO postgres;
+#####################trigger u_balance_sale#############
+CREATE TRIGGER u_balance_sale
+  BEFORE UPDATE
+  ON public.sales_charges
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.sale_charge_u();
+######################Trigger i_furniture_util_cost##########
+CREATE TRIGGER i_furniture_util_cost
+  AFTER INSERT
+  ON public.utilities_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.furniture_cost_i();
+######################Trigger u_furniture_util_cost##########
+CREATE TRIGGER u_furniture_util_cost
+  BEFORE UPDATE
+  ON public.utilities_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.u_furniture_cost();
 
 
 

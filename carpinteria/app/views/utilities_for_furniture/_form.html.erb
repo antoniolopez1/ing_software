@@ -9,28 +9,22 @@
 
 <p>
 <%= e.label :"ID Utilidad" %> </br>
-<%= e.collection_select(:utility_id, Utility.all, :id , :description)  %>
+<%= e.collection_select(:utility_id, Utility.all, :id , :observation)  %>
 </p>
 <p>
 <%= e.label :"ID Mueble" %> </br>
 <%= e.collection_select(:furniture_id, Furniture.all, :id , :description)  %>
 </p>
+
 <p>
-	<%= e.label :Ancho %>
-	<%= e.number_field :width, :class => 'text_field', :step => 0.5 %>
+	<%= e.label :Cantidad %>
+	<%= e.number_field :quantity, :class => 'text_field', :step => 0.5 %>
 </p>
-<p>
-	<%= e.label :Alto %>
-	<%= e.number_field :high, :class => 'text_field', :step => 0.5 %>
-</p>
-	<p>
-	<%= e.label :Espesor %>
-	<%= e.number_field :thickness, :class => 'text_field', :step => 0.5 %>
-</p>
-	<p>
+	<!--p>
 	<%= e.label :Costo %>
 	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 %>
-</p>
+</p-->
+
 <p>
 <%= e.submit "Enviar", class: 'btn btn-primary' %>
 </p>

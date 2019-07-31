@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_26_205437) do
+ActiveRecord::Schema.define(version: 2019_06_18_233021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,10 +18,10 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
   create_table "budget_for_orders", force: :cascade do |t|
     t.float "total"
     t.text "observation"
-    t.bigint "budget_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["budget_id"], name: "index_budget_for_orders_on_budget_id"
+    t.bigint "customer_id"
+    t.index ["customer_id"], name: "index_budget_for_orders_on_customer_id"
   end
 
   create_table "budgets", force: :cascade do |t|
@@ -30,8 +30,10 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
     t.float "unit_price"
     t.float "subtotal"
     t.bigint "furniture_id"
+    t.bigint "budget_for_order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["budget_for_order_id"], name: "index_budgets_on_budget_for_order_id"
     t.index ["furniture_id"], name: "index_budgets_on_furniture_id"
   end
 
@@ -54,6 +56,8 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
     t.float "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "employee_id"
+    t.index ["employee_id"], name: "index_employee_payments_on_employee_id"
     t.index ["salary_id"], name: "index_employee_payments_on_salary_id"
   end
 
@@ -93,6 +97,7 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
   create_table "material_for_furnitures", force: :cascade do |t|
     t.integer "quantity"
     t.float "cost"
+    t.float "subtotal"
     t.bigint "material_id"
     t.bigint "furniture_id"
     t.datetime "created_at", null: false
@@ -197,19 +202,31 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
     t.index ["order_id"], name: "index_sales_on_order_id"
   end
 
+  create_table "sales_charges", force: :cascade do |t|
+    t.bigint "sale_id"
+    t.bigint "customer_id"
+    t.float "amount"
+    t.float "balance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_sales_charges_on_customer_id"
+    t.index ["sale_id"], name: "index_sales_charges_on_sale_id"
+  end
+
   create_table "u_purchase_details", force: :cascade do |t|
     t.bigint "purchase_id"
-    t.bigint "utility_id"
+    t.bigint "utilities_type_id"
     t.integer "quantity"
     t.float "width"
     t.float "high"
     t.float "thickness"
     t.float "cost"
     t.float "subtotal"
+    t.text "observation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["purchase_id"], name: "index_u_purchase_details_on_purchase_id"
-    t.index ["utility_id"], name: "index_u_purchase_details_on_utility_id"
+    t.index ["utilities_type_id"], name: "index_u_purchase_details_on_utilities_type_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -238,10 +255,9 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
   end
 
   create_table "utilities_for_furnitures", force: :cascade do |t|
-    t.float "width"
-    t.float "high"
-    t.float "thickness"
     t.float "cost"
+    t.float "subtotal"
+    t.integer "quantity"
     t.bigint "utility_id"
     t.bigint "furniture_id"
     t.datetime "created_at", null: false
@@ -256,8 +272,10 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "budget_for_orders", "budgets"
+  add_foreign_key "budget_for_orders", "customers"
+  add_foreign_key "budgets", "budget_for_orders"
   add_foreign_key "budgets", "furnitures"
+  add_foreign_key "employee_payments", "employees"
   add_foreign_key "employee_payments", "salaries"
   add_foreign_key "hours_histories", "employees"
   add_foreign_key "material_for_furnitures", "furnitures"
@@ -272,8 +290,10 @@ ActiveRecord::Schema.define(version: 2019_05_26_205437) do
   add_foreign_key "salaries", "employees"
   add_foreign_key "sales", "customers"
   add_foreign_key "sales", "orders"
+  add_foreign_key "sales_charges", "customers"
+  add_foreign_key "sales_charges", "sales"
   add_foreign_key "u_purchase_details", "purchases"
-  add_foreign_key "u_purchase_details", "utilities"
+  add_foreign_key "u_purchase_details", "utilities_types"
   add_foreign_key "utilities", "utilities_types"
   add_foreign_key "utilities_for_furnitures", "furnitures"
   add_foreign_key "utilities_for_furnitures", "utilities"

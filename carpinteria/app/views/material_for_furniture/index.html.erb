@@ -5,6 +5,7 @@
 		<TH>Id Mueble</TH>
 		<TH>Cantidad</TH>
 		<TH>Costo</TH>
+		<TH>Sub-Total</TH>
 
 
 		<TH colspan="2"><%= link_to 'Nuevo', material_for_furniture_new_path %></TH></tr>
@@ -16,7 +17,7 @@
 		<TD><%= f.furniture_id%></TD>
 		<TD><%= f.quantity %></TD>
 		<TD><%= f.cost %></TD>
-
+		<TD><%= f.subtotal %></TD>
 
 		<TD><%= link_to 'Editar', material_for_furniture_edit_path(f['id']) %></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>

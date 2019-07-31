@@ -2,7 +2,8 @@
 	<h1  align="center">Muebles</h1>
 <table class="table ">
 	  <thead class="thead-light">
-	<tr><TH>Descripción</TH>
+	<tr><TH>ID</TH>
+		<TH>Descripción</TH>
 		<TH>Costo</TH>
 		<TH>Ganancia</TH>
 		<TH>IVA</TH>
@@ -14,7 +15,8 @@
 	<tbody>
 	<% @furnitures.each do |f| %>
 
-	<tr><TD><%= f.description %></TD>
+	<tr><TD><%= f.id %></TD>
+		<TD><%= f.description %></TD>
 		<TD><%= f.cost %></TD>
 		<TD><%= f.profit %></TD>
 		<TD><%= f.iva %></TD>

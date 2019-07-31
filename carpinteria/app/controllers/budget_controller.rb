@@ -9,11 +9,14 @@ class BudgetController < ApplicationController
 
   def create
     @budget=Budget.new
+    @budget.budget_for_order_id=params[:budget][:budget_for_order_id]
+    @budget.furniture_id=params[:budget][:furniture_id]
     @budget.observation=params[:budget][:observation]
     @budget.quantity=params[:budget][:quantity]
-    @budget.unit_price=params[:budget][:unit_price]
-    @budget.subtotal=params[:budget][:subtotal]
-    @budget.furniture_id=params[:budget][:furniture_id]
+    furniture=Furniture.find(@budget.furniture_id)
+    @budget.unit_price=furniture.price
+    @budget.subtotal=@budget.unit_price*@budget.quantity
+    
     if @budget.save
       redirect_to budget_index_path
     else
@@ -29,11 +32,13 @@ class BudgetController < ApplicationController
   def update
     id=params[:id]
     @budget=Budget.find(id)
-     @budget.observation=params[:budget][:observation]
-    @budget.quantity=params[:budget][:quantity]
-    @budget.unit_price=params[:budget][:unit_price]
-    @budget.subtotal=params[:budget][:subtotal]
+    @budget.budget_for_order_id=params[:budget][:budget_for_order_id]
     @budget.furniture_id=params[:budget][:furniture_id]
+    @budget.observation=params[:budget][:observation]
+    @budget.quantity=params[:budget][:quantity]
+    furniture=Furniture.find(@budget.furniture_id)
+    @budget.unit_price=furniture.price
+    @budget.subtotal=@budget.unit_price*@budget.quantity
     if @budget.save
       redirect_to budget_index_path
     else

@@ -6,6 +6,7 @@ class CreateBudgets < ActiveRecord::Migration[5.2]
       t.float :unit_price
       t.float :subtotal
       t.references :furniture, foreign_key: true
+      t.references :budget_for_order, foreign_key: true
 
       t.timestamps
     end

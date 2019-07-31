@@ -1,6 +1,6 @@
 class CustomerController < ApplicationController
   def index
-    @customers=Customer.all
+    @customers=Customer.where(["name LIKE ? OR lastname LIKE ?","%#{params[:search]}%", "%#{params[:search]}%"])
   end
 
   def new

@@ -5,6 +5,7 @@ class SalaryController < ApplicationController
 
   def new
     @salary=Salary.new
+    @salary.employee_id=params[:employee]
   end
 
   def create

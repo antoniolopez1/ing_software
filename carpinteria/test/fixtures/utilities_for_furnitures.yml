@@ -5,6 +5,8 @@ one:
   high: 1.5
   thickness: 1.5
   cost: 1.5
+  subtotal: 1.5
+  quantity: 1
   utility: one
   furniture: one
 
@@ -13,5 +15,7 @@ two:
   high: 1.5
   thickness: 1.5
   cost: 1.5
+  subtotal: 1.5
+  quantity: 1
   utility: two
   furniture: two

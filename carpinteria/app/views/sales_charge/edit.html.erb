@@ -1,0 +1,8 @@
+<h1>SalesCharge#edit</h1>
+<div class="container-div">
+	<h1>Editar cobro de venta</h1>
+
+	<%= form_for @sales_charge, :url => { :action => :update } do |f| %>
+	<%= render "form", f: f %>
+	<% end %>
+</div>
