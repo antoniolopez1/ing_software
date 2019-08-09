@@ -1,6 +1,8 @@
+<div class="container-fluid">
+
 	<h1 align="center">Salarios</h1>
 	<div class="boton_redirect">&larr;
-	<%= link_to 'Volver a la lista de personal', employee_index_path%> 
+	<%= link_to 'Volver a la lista de personal', employee_index_path%>
 </div><br>
 <div class="boton_redirect">
 	<%= link_to 'Ir a Asistencia', hours_history_index_path%> &rarr;
@@ -8,7 +10,7 @@
 <div class="boton_redirect">
 	<%= link_to 'Ir a pago al personal', employee_payment_index_path%> &rarr;
 </div><br>
-<table class="style_table">
+<table class="table table-hover">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
 		<TH>Personal</TH>
@@ -16,7 +18,7 @@
 		<TH>Acumulado</TH>
 		<TH>Horas trabajadas</TH>
 		<TH>Horas extras</TH>
-		<TH colspan="3"><%= link_to 'Nuevo', salary_new_path %></TH></tr>
+		<TH colspan="3"><%= link_to 'Nuevo', salary_new_path, class:"btn btn-seccess" %></TH></tr>
 </thead>
 	<tbody>
 	<% @salaries.each do |f| %>
@@ -28,12 +30,13 @@
 		<TD><%= f.total_hours%></TD>
 		<TD><%= f.total_extra_hours %></TD>
 
-		<TD><%= link_to 'Abonar Salario', employee_payment_add_s_path(f['id']) %></TD>
-		<TD><%= link_to 'Editar', salary_edit_path(f['id']) %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		<TD><%= link_to 'Abonar Salario', employee_payment_add_s_path(f['id']), class:"btn btn-link" %></TD>
+		<TD><%= link_to 'Editar', salary_edit_path(f['id']) , class:"btn btn-link" %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
 		</TD>
 	</tr>
     <% end %>
     </tbody>
 
 </table>
+</div>

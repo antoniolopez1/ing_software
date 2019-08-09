@@ -1,6 +1,9 @@
 <!-- para mostrar errores -->
+<div class="container">
+<div class="enter">
+
 <div class="boton_redirect">&larr;
-  <%= link_to 'Volver a Lista de clientes', customer_index_path%> 
+  <%= link_to 'Volver a Lista de clientes', customer_index_path%>
 </div><br>
 <ul  >
 <%
@@ -12,45 +15,43 @@
 
 
 <!-- formulario -->
- <div class="row" align="center">
-  <div class="col-sm-4 ">
+
   	<p >
 <%= f.label :Nombres %> </br>
-<%= f.text_field :name %>
+<%= f.text_field :name, class: "form-control" %>
 	</p>
 	<p>
 <%= f.label :Apellidos %> </br>
-<%= f.text_field :lastname %>
+<%= f.text_field :lastname, class: "form-control" %>
 </p>
 
-  </div>
-  <div class="col-sm-4 ">
-  	<p>
+
 <%= f.label :Teléfono %> </br>
-<%= f.text_field :telephone %>
-</p>
+<%= f.text_field :telephone , class: "form-control"%>
+
 	<p>
 <%= f.label :Dirección%> </br>
-<%= f.text_field :address %>
+<%= f.text_field :address, class: "form-control" %>
 </p>
 
 
-  </div>
-  <div class="col-sm-4 ">
 
 <p>
-<%= f.label :"Documento-"%>RUC  </br>
+<%= f.label :"Documento -"%> RUC  </br>
 <%= f.text_field :document, size: "13"%>
 <%= f.label :" - " %>
 <%= f.text_field :ruc, size: "1" %>
 </p>
 <p>
 <%= f.label :Observaciones %> </br>
-<%= f.text_area :observation %>
+<%= f.text_area :observation , class: "form-control"%>
 </p>
-  </div>
+
+
+  <p>
+  <%= f.submit "Enviar" , class: 'btn btn-primary mb-2 form-control' %>
+  </p>
 </div>
 
-<p>
-<%= f.submit "Enviar"  %>
-</p>
+</div>
+</div>

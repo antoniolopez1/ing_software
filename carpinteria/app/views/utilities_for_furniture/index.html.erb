@@ -1,8 +1,10 @@
+<div class="container-fluid">
+
 <div class="container-div">
 <h1 align="center">Utilidades de los Muebles</h1>
-<table class="style_table">
+<table class="table table-hover">
 	  <thead class="thead-light">
-	<tr><TH>Utilities</TH><TH>Furniture</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Cantidad</TH><TH>Costo</TH><TH>Sub-Total<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path %></TH></tr>
+	<tr><TH>Utilities</TH><TH>Furniture</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Cantidad</TH><TH>Costo</TH><TH>Sub-Total<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path, class:"btn btn-success" %></TH></tr>
 </thead>
 	<tbody>
 	<% @utilities_for_furnitures.each do |f| %>
@@ -16,12 +18,13 @@
 		<TD><%= f.cost %></TD>
 		<TD><%= f.subtotal %></TD>
 
-		<TD><%= link_to 'Editar', utilities_for_furniture_edit_path(f['id']) %></TD><TD>
+		<TD><%= link_to 'Editar', utilities_for_furniture_edit_path(f['id']) , class:"btn btn-link"%></TD><TD>
 
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class:"btn btn-danger"%>
 		</TD>
 	</tr>
     <% end %>
     </tbody>
 </table>
+</div>
 </div>

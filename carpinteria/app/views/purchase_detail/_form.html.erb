@@ -1,5 +1,9 @@
+<div class="container-fluid">
+	<div class="enter">
+
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Es todo, volver a la Compra', purchase_show_path(params[:purchase])%> 
+	<%= link_to 'Es todo, volver a la Compra', purchase_show_path(params[:purchase])%>
 </div><br>
 
 <ul>
@@ -20,7 +24,7 @@
 </p>
 <p>
 <%= f.label "Precio Neto" %> </br>
-<%= f.text_field :net_price %>
+<%= f.text_field :net_price , class:"form-control"%>
 </p>
 <p>
 <%= f.label "IVA" %> </br>
@@ -37,9 +41,11 @@
 </p>
 <!--p>
 <%= f.label "Subtotal" %> </br>
-<%= f.text_field :subtotal %>
+<%= f.text_field :subtotal , class:"form-control"%>
 </p-->
 
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar", class:"form-control btn btn-primary" %>
 </p>
+</div>
+</div>

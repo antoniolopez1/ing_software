@@ -1,5 +1,9 @@
+<div class="container-fluid">
+	<div class="enter">
+
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a Lista de Proveedores', provider_index_path%> 
+	<%= link_to 'Volver a Lista de Proveedores', provider_index_path%>
 </div><br>
 <ul>
 <%
@@ -11,15 +15,15 @@
 
 <p>
 <%= f.label :Nombre %> </br>
-<%= f.text_field :name %>
+<%= f.text_field :name, class:"form-control" %>
 </p>
 <p>
 <%= f.label :Dirección %> </br>
-<%= f.text_field :address %>
+<%= f.text_field :address , class:"form-control"%>
 </p>
 <p>
 <%= f.label :Teléfono %> </br>
-<%= f.text_field :telephone %>
+<%= f.text_field :telephone, class:"form-control" %>
 </p>
 
 <p>
@@ -29,5 +33,7 @@
 <%= f.text_field :ruc, size: "1" %>
 </p>
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar", class:"form-control btn btn-primary" %>
 </p>
+</div>
+</div>

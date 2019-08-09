@@ -1,3 +1,5 @@
+<div class="container-fluid">
+
 <h1 align="center">Lista de personal</h1>
 <div class="boton_redirect">
 	<%= link_to 'Ir a Salarios', salary_index_path%> &rarr;
@@ -12,9 +14,9 @@
 <%=form_tag employee_index_path, :method => 'get', :style => 'padding-left:4em;font-family:bold;' do %>
 	<%= label_tag "Filtrar"%>
 	<%= text_field_tag :search, params[:search] %>
-	<%= submit_tag "Buscar" %>
+	<%= submit_tag "Buscar", class:"btn btn-primary" %>
 <%end%>
-<table class="style_table">
+<table class="table table-hover">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
 		<TH>Nombres</TH>
@@ -22,8 +24,8 @@
 		<TH>Teléfono</TH>
 		<TH>Especialidad</TH>
 		<TH>Estado</TH>
-		
-		<TH colspan="4"><%= link_to 'Nuevo', employee_new_path %></TH></tr>
+
+		<TH colspan="4"><%= link_to 'Nuevo', employee_new_path , class: "btn btn-success"%></TH></tr>
 </thead>
 	<tbody>
 	<% @employees.each do |f| %>
@@ -33,13 +35,13 @@
 		<TD><%= f.lastname %></TD>
 		<!--TD><%= f.address %></TD-->
 		<TD><%= f.telephone %></TD>
-		
+
 		<TD><%= f.speciality %></TD>
 		<TD><%= f.status %></TD>
-		<TD><%= link_to 'Detalles', employee_show_path(f['id']) %></TD>
-		<TD><%= link_to 'Cargar Asistencia', hours_history_new_add_path(f['id']) %></TD>
+		<TD><%= link_to 'Detalles', employee_show_path(f['id']), class: "btn btn-link" %></TD>
+		<TD><%= link_to 'Cargar Asistencia', hours_history_new_add_path(f['id']) , class: "btn btn-link"%></TD>
 		<TD><%= link_to 'Editar', employee_edit_path(f['id']) %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+<%# <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class: "btn btn-danger"%>
 		</TD>
 	</tr>
     <% end %>
@@ -47,6 +49,9 @@
 
 </table>
 <br>
+<footer>
 <div class="boton_redirect">
 	<%= render partial: 'shared/pagination', locals: { pagy: @pagy } %>
 </div><br>
+</footer>
+</div>

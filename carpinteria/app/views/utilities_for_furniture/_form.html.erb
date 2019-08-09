@@ -1,5 +1,8 @@
+<div class="container-fluid">
+	<div class="enter">
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a Lista de muebles', furniture_index_path%> 
+	<%= link_to 'Volver a Lista de muebles', furniture_index_path%>
 </div><br>
 <ul>
 <%
@@ -21,13 +24,15 @@
 
 <p>
 	<%= e.label :Cantidad %>
-	<%= e.number_field :quantity, :class => 'text_field', :step => 0.5 %>
+	<%= e.number_field :quantity, :class => 'text_field', :step => 0.5, class:"form-control" %>
 </p>
 	<!--p>
 	<%= e.label :Costo %>
-	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 %>
+	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 , class:"form-control"%>
 </p-->
 
 <p>
-<%= e.submit "Enviar", class: 'btn btn-primary' %>
+<%= e.submit "Enviar", class: 'btn btn-primary form-control' %>
 </p>
+</div>
+</div>

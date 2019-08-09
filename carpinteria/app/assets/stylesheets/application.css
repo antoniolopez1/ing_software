@@ -2,7 +2,7 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
 
 html {
-	
+
 	min-height: 100%;
 	font-family: "Open Sans", sans-serif;
 	font-weight: 300;
@@ -13,7 +13,7 @@ body, html {
 	background: #333 url(https://static.vecteezy.com/system/resources/previews/000/122/061/non_2x/wood-plank-vector-background.jpg) 0 0 repeat;
 	height: 100%;
 	margin: 0;
-	padding: 0;
+	padding: -0;
 	color: black;
 }
 
@@ -35,6 +35,10 @@ ul {
 li {
 	margin: 0;
 	padding: 0;
+}
+.enter{
+	width: 50%;
+	margin: 0 auto;
 }
 
 .menu {
@@ -71,11 +75,11 @@ li {
 		background-image: -webkit-radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);
 		/*background-image: radial-gradient(0 50%, ellipse  farthest-side, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.5) 33%, rgba(0,0,0,0) 100%);*/
 	}
-	
+
 	.menu li:hover ul {
 		display: block;
 	}
-	
+
 	.menu li ul a {
 		position: relative;
 		font-size: 0.8em;
@@ -84,7 +88,7 @@ li {
 	.menu li ul a:hover {
 		background: rgba(20,5,5,0.75);
 	}
-	
+
 	.menu li ul a:hover:before {
 		content: "";
 		display: block;
@@ -99,11 +103,12 @@ li {
 	}
 	.content {
 		text-align: center;
+		margin: -0;
 	}
 	header div{
   padding-top: 10px;
   text-align: center;
-  background-color: #61380B;
+  background-color: #834120;
   color: white;
   font-size: 30px;
   max-height: 80px;
@@ -112,6 +117,7 @@ header div .titulo{
 	padding-top: 0px;
   color: white;
   font-size: 30px;
+	font-family: serif;
 }
 header div .parrafo{
   padding-top: 0px;
@@ -133,6 +139,7 @@ header div .parrafo{
 	display:block;
 	overflow-x:auto;
   width: 100%;
+	margin-left: 50px;
 }
 .style_table td, .style_table th {
 	border: 1px solid #ddd;
@@ -146,32 +153,43 @@ header div .parrafo{
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #61380B;
+  background-color: #834120;
   color: white;
+
+
 }
 .style_table th a {
   color: #eef494;
+	margin: 50px;
+
 }
 .style_table th a:hover {
   color: #94f494;
+	margin: 50px;
+
 }
 .style_table td a {
   color: #101946;
+	margin: 50px;
+	text-align: center;
+
 }
 .style_table td a:hover {
   color: #0334ff;
+	margin: 50px;
+
 }
 .boton_redirect{
-	color: black; 
+	color: black;
 	font-size: 20px;
 	padding-left: 20px
 }
 .boton_redirect a{
-	color: blue; 
+	color: blue;
 	font-size: 20px;
 }
 .boton_redirect a:hover{
-	color: red; 
+	color: #af1818;
 	padding-left: 3px;
 	font-family: bold;
 }

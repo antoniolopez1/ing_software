@@ -1,47 +1,52 @@
+<div class="container-fluid">
+<div class="enter">
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a Lista de Tablones', utility_index_path%> 
+	<%= link_to 'Volver a Lista de Tablones', utility_index_path%>
 </div><br>
 
 <ul>
-<% 
+<%
 @utility.errors.full_messages.each do |m|
 
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
 <p>
-<%= e.label :utilities_type_id %> </br>
+<%= e.label :tipo_utilidad %> </br>
 <%= e.collection_select(:utilities_type_id, UtilitiesType.all, :id , :description)  %>
 <!--%= e.text_field :utilities_type_id %-->
 <div class="boton_redirect">&larr;
-	<%= link_to 'Nuevo tipo de tablon', new_utilities_type_path%> 
+	<%= link_to 'Nuevo tipo de tablon', new_utilities_type_path%>
 </div><br>
 </p>
 <p>
-<%= e.label :quantity %> </br>
-<%= e.text_field :quantity  %>
+<%= e.label :cantidad %> </br>
+<%= e.text_field :quantity  , class:"form-control" %>
 </p>
 <p>
-	<%= e.label :width %>
-	<%= e.number_field :width, :class => 'text_field', :step => 0.5 %>
+	<%= e.label :ancho %>
+	<%= e.number_field :width, :class => 'text_field', :step => 0.5 , class:"form-control" %>
 <p>
 <p>
-	<%= e.label :high %>
-	<%= e.number_field :high, :class => 'text_field', :step => 0.5 %>
+	<%= e.label :alto %>
+	<%= e.number_field :high, :class => 'text_field', :step => 0.5 , class:"form-control" %>
 <p>
 	<p>
-	<%= e.label :thickness %>
-	<%= e.number_field :thickness, :class => 'text_field', :step => 0.5 %>
+	<%= e.label :espesor %>
+	<%= e.number_field :thickness, :class => 'text_field', :step => 0.5 , class:"form-control" %>
 <p>
 	<p>
-	<%= e.label :cost %>
-	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 %>
+	<%= e.label :costo %>
+	<%= e.number_field :cost, :class => 'text_field', :step => 0.5 , class:"form-control" %>
 	<p>
 	<p>
-	<%= e.label :observation %> </br>
-	<%= e.text_field :observation  %>
+	<%= e.label :observación %> </br>
+	<%= e.text_field :observation , class:"form-control" %>
 	</p>
-<%= e.submit "Enviar", class: 'btn btn-primary' %>
+<%= e.submit "Enviar", class: 'btn btn-primary form-control' %>
 </p>
+</div>
+</div>

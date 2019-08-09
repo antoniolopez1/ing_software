@@ -1,8 +1,11 @@
+<div class="container-fluid">
+	<div class="enter">
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a la lista de pago al personal', employee_payment_index_path%> 
+	<%= link_to 'Volver a la lista de pago al personal', employee_payment_index_path%>
 </div><br>
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a la lista de salarios', salary_index_path%> 
+	<%= link_to 'Volver a la lista de salarios', salary_index_path%>
 </div><br>
 <ul>
 <%
@@ -25,5 +28,7 @@
 <%= f.text_field :amount %>
 </p>
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar" , class:"btn btn-primary form-control"%>
 </p>
+</div>
+</div>

@@ -1,3 +1,6 @@
+<div class="container-fluid">
+
+
 <p id="notice"><%= notice %></p>
 
 <h1 align="center">Presupuestos</h1>
@@ -7,7 +10,7 @@
 <div class="boton_redirect">
   <%= link_to 'Ir a Pedidos', order_index_path%> &rarr;
 </div><br>
-<table class="style_table">
+<table class="table table-hover">
   <thead>
     <tr>
       <th>ID</th>
@@ -15,7 +18,7 @@
       <th>Total</th>
       <th>Observation</th>
       <th>Cliente</th>
-      <th colspan="4"><%= link_to 'Nuevo', new_budget_for_order_path %></th>
+      <th colspan="4"><%= link_to 'Nuevo', new_budget_for_order_path, class:"btn btn-success" %></th>
     </tr>
   </thead>
 
@@ -27,10 +30,10 @@
         <td><%= budget_for_order.total %></td>
         <td><%= budget_for_order.observation %></td>
         <td><%= budget_for_order.customer_id %></td>
-        <td><%= link_to 'A Pedidos', order_new_add_path(budget_for_order['id']) %></td>
-        <td><%= link_to 'Detalles', budget_for_order %></td>
-        <td><%= link_to 'Editar', edit_budget_for_order_path(budget_for_order) %></td>
-        <td><%= link_to 'Borrar', budget_for_order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'A Pedidos', order_new_add_path(budget_for_order['id']) , class:"btn btn-link"%></td>
+        <td><%= link_to 'Detalles', budget_for_order , class:"btn btn-link" %></td>
+        <td><%= link_to 'Editar', edit_budget_for_order_path(budget_for_order), class:"btn btn-link" %></td>
+        <td><%= link_to 'Borrar', budget_for_order, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -39,3 +42,4 @@
 <br>
 
 
+</div>

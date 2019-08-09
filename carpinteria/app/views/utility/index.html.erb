@@ -1,4 +1,6 @@
-<h1>Tablones</h1>
+<div class="container-fluid">
+
+<h1 align="center">Tablones</h1>
 <div class="boton_redirect">
 	<%= link_to 'Ir a la lista de Compras', purchase_index_path%> &rarr;
 </div><br>
@@ -9,9 +11,9 @@
 	<%= link_to 'Ir a Materiales', material_index_path%> &rarr;
 </div><br>
 
-<table class="style_table">
+<table class="table table-hover">
 	  <thead class="thead-light">
-	<tr><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Observación</TH><TH colspan="2"><%= link_to 'Nuevo', utility_new_path %></TH></tr>
+	<tr><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Observación</TH><TH colspan="2"><%= link_to 'Nuevo', utility_new_path , class:"btn btn-success"%></TH></tr>
 </thead>
 
 	<tbody>
@@ -24,12 +26,13 @@
 		<TD><%= f.thickness %></TD>
 		<TD><%= f.cost %></TD>
 		<TD><%= f.observation %></TD>
-		<TD><%= link_to 'Editar', utility_edit_path(f['id']) %></TD><TD>
+		<TD><%= link_to 'Editar', utility_edit_path(f['id']), class:"btn btn-link" %></TD><TD>
 
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
 		</TD>
 	</tr>
     <% end %>
     </tbody>
 </table>
+</div>
 </div>

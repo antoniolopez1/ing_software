@@ -1,7 +1,11 @@
+<div class="container-fluid">
+
 <p id="notice"><%= notice %></p>
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a Lista de Compras', purchase_index_path%> 
+	<%= link_to 'Volver a Lista de Compras', purchase_index_path%>
 </div><br>
+<div class="enter">
+
 <p>
 	<strong>Codigo de la compra</strong>
   <%= @purchase.id %>
@@ -16,7 +20,9 @@
   <strong>Saldo:</strong>
   <%= @purchase.balance %>
 </p>
-<table class="style_table">
+</div>
+
+<table class="table table-hover">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
 		<TH>Material</TH>
@@ -26,7 +32,7 @@
 		<TH>Subtotal</TH>
 
 
-		<TH colspan="2"><%= link_to 'Nuevo', purchase_detail_new_add_path(@purchase.id) %></TH></tr>
+		<TH colspan="2"><%= link_to 'Nuevo', purchase_detail_new_add_path(@purchase.id), class:"btn btn-success" %></TH></tr>
 </thead>
 	<tbody>
 	<% @purchase_details.each do |f| %>
@@ -37,8 +43,8 @@
 		<TD><%= f.iva%>%</TD>
 		<TD><%= f.quantity %> </TD>
 		<TD><%= f.subtotal %></TD>
-		<TD><%= link_to 'Editar', purchase_detail_edit_p_path(f['purchase_id'], f['id'])%></TD><TD>
-<%= link_to 'Borrar', purchase_detail_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		<TD><%= link_to 'Editar', purchase_detail_edit_p_path(f['purchase_id'], f['id']), class: "btn btn-link"%></TD><TD>
+<%= link_to 'Borrar', purchase_detail_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
 		</TD>
 	</tr>
     <% end %>
@@ -47,9 +53,9 @@
 </table>
 <strong>Tablones</strong><br>
 <p>Obs: Para los tablones el iva va incluido</p>
-<table class="style_table">
+<table class="table table-hover">
 	  <thead class="thead-light">
-	<tr><TH>ID</TH><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Subtotal</TH><TH>Observación</TH><TH colspan="2"><%= link_to 'Nuevo', u_purchase_detail_new_add_path(@purchase.id) %></TH></tr>
+	<tr><TH>ID</TH><TH>Tipo</TH><TH>Cantidad</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Costo</TH><TH>Subtotal</TH><TH>Observación</TH><TH colspan="2"><%= link_to 'Nuevo', u_purchase_detail_new_add_path(@purchase.id), class:"btn btn-success" %></TH></tr>
 </thead>
 
 	<tbody>
@@ -63,10 +69,11 @@
 		<TD><%= f.cost %></TD>
 		<TD><%= f.subtotal %></TD>
 		<TD><%= f.observation %></TD>
-		<TD><%= link_to 'Editar', u_purchase_detail_edit_p_path(f['purchase_id'], f['id']) %></TD><TD>
+		<TD><%= link_to 'Editar', u_purchase_detail_edit_p_path(f['purchase_id'], f['id']), class:"btn btn-link" %></TD><TD>
 
-<%= link_to 'Borrar', u_purchase_detail_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+<%= link_to 'Borrar', u_purchase_detail_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
 	</tr>
     <% end %>
     </tbody>
 </table>
+</div>
