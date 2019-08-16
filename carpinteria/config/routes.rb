@@ -69,8 +69,8 @@ Rails.application.routes.draw do
   get 'purchase_detail/:purchase/:id/edit', to: 'purchase_detail#edit', as: 'purchase_detail_edit_p'
   patch 'purchase_detail/:id/update', to: 'purchase_detail#update', as: 'purchase_detail_update'
   delete 'purchase_detail/:id/destroy', to: 'purchase_detail#destroy', as: 'purchase_detail_destroy'
- 
-  #rutas para compras 
+
+  #rutas para compras
   get 'purchase/index'
   get 'purchase/new'
   get 'purchase/:provider/new', to: 'purchase#new', as: 'purchase_new_prid_add'

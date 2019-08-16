@@ -1,5 +1,8 @@
+<div class="container-fluid">
+	<div class="enter">
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a Lista de Materiales', material_index_path%> 
+	<%= link_to 'Volver a Lista de Materiales', material_index_path%>
 </div><br>
 <ul>
 <%
@@ -11,22 +14,22 @@
 
 
 <p>
-<%= f.label :ID_Tipo_de_Material %> </br>
+<%= f.label :Tipo_de_Material %> </br>
 <%= f.collection_select(:materials_type_id, MaterialsType.all, :id , :description)  %>
 <div class="boton_redirect">&larr;
-	<%= link_to 'Nuevo tipo de material', new_materials_type_path%> 
+	<%= link_to 'Nuevo tipo de material', new_materials_type_path%>
 </div><br>
 </p>
 
 
 <p>
-<%= f.label :ID_Unidad_de_Medida %> </br>
+<%= f.label :Unidad_de_Medida %> </br>
 <%= f.collection_select(:measure_unit_id, MeasureUnit.all, :id , :description)  %>
 </p>
 
 <p>
 <%= f.label :Descripción %> </br>
-<%= f.text_field :description %>
+<%= f.text_field :description , class:"form-control"%>
 </p>
 <p>
 <%= f.label :Cantidad %> </br>
@@ -38,5 +41,7 @@
 </p>
 
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar", class:"form-control btn btn-primary" %>
 </p>
+</div>
+</div>

@@ -1,5 +1,9 @@
+<div class="container-fluid">
+	<div class="enter">
+
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a la lista de compras', purchase_index_path%> 
+	<%= link_to 'Volver a la lista de compras', purchase_index_path%>
 </div><br>
 <ul>
 <%
@@ -18,8 +22,10 @@
 </p>
 <p>
 <%= f.label "Importe" %> </br>
-<%= f.text_field :amount %>
+<%= f.text_field :amount, class:"form-control" %>
 </p>
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar" , class:"form-control btn btn-primary"%>
 </p>
+</div>
+</div>

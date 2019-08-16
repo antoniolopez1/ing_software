@@ -1,11 +1,13 @@
+<div class="container-fluid">
+
 <div class="boton_redirect">&larr;
-  <%= link_to 'Es todo, volver al Presupuesto del pedido', budget_for_order_path(params[:budget_for_order])%> 
+  <%= link_to 'Es todo, volver al Presupuesto del pedido', budget_for_order_path(params[:budget_for_order])%>
 </div><br>
 <ul>
-<% 
+<%
 @budget.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
@@ -13,29 +15,32 @@
   <div class="col-sm-4 ">
     <p >
 <%= f.label :Mueble %> </br>
-<%= f.collection_select(:furniture_id, Furniture.all, :id , :description)  %>
+<%= f.collection_select(:furniture_id, Furniture.all, :id , :description, class:"form-control")  %>
 
   </p>
   <p >
 <%= f.label "Presupuesto para pedido" %> </br>
-<%= f.text_field :budget_for_order_id%>
+<%= f.text_field :budget_for_order_id, class: "form-control"%>
   </p>
   </div>
   <div class="col-sm-4 ">
   	<p >
 <%= f.label :Observación %> </br>
-<%= f.text_field :observation %>
+<%= f.text_field :observation , class: "form-control"%>
 	</p>
 	<p>
 <%= f.label :Cantidad %> </br>
-<%= f.text_field :quantity %>
+<%= f.text_field :quantity , class:"form-control"%>
 </p>
 
   </div>
 
-    
-</div> 
+
+</div>
 
 <p>
-<%= f.submit "Enviar"  %>
+    <div class="col-sm-8 ">
+<%= f.submit "Enviar" , class:"btn btn-primary form-control " %>
 </p>
+</div>
+</div>

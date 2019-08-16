@@ -1,3 +1,6 @@
+<div class="container-fluid">
+
+
 <h1 align="center">Pedidos</h1>
 <div class="boton_redirect">
 	<%= link_to 'Ir a Clientes', customer_index_path%> &rarr;
@@ -5,7 +8,7 @@
 <div class="boton_redirect">
 	<%= link_to 'Ir a Ventas', sale_index_path%> &rarr;
 </div><br>
-<table class="style_table">
+<table class="table table-hover">
 	  <thead class="thead-dark">
 
 	<tr><TH>ID</TH>
@@ -15,13 +18,13 @@
 		<TH>Fecha de entrega</TH>
 		<TH>Observación</TH>
 		<TH>Presupuesto</TH>
-		
-		
+
+
 		<TH colspan="3"></TH></tr>
 </thead>
 	<tbody>
 	<% @orders.each do |f| %>
-	
+
 	<tr><TD><%= f.id %></TD>
 		<TD><%= f.status %></TD>
 		<TD><%= f.customer.name %></TD>
@@ -29,13 +32,14 @@
 		<TD><%= f.end_date %></TD>
 		<TD><%= f.observation %></TD>
 		<TD><%= f.budget_for_order.total%></TD>
-		<TD><%=link_to('Generar Reporte', order_show_path(f['id'],format: :pdf)) %></TD>
-		
-		<TD><%= link_to 'Editar', order_edit_path(f['id']) %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		<TD><%=link_to('Generar Reporte', order_show_path(f['id'],format: :pdf) , class: "btn btn-link") %></TD>
+
+		<TD><%= link_to 'Editar', order_edit_path(f['id']) , class: "btn btn-link" %></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class: "btn btn-danger" %>
 		</TD>
 	</tr>
     <% end %>
     </tbody>
 
 </table>
+</div>

@@ -1,5 +1,9 @@
+<div class="container-fluid">
+  <div class="enter">
+
+
 <div class="boton_redirect">&larr;
-  <%= link_to 'Volver a la lista de materiales', material_index_path%> 
+  <%= link_to 'Volver a la lista de materiales', material_index_path%>
 </div><br>
 <%= form_with(model: materials_type, local: true) do |form| %>
   <% if materials_type.errors.any? %>
@@ -16,10 +20,12 @@
 
   <div class="field">
     <%= form.label :Descripción %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description, class:"form-control" %>
   </div>
-
+<br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Crear tipo de material", class:"form-control btn btn-primary" %>
   </div>
 <% end %>
+</div>
+</div>

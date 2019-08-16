@@ -1,3 +1,5 @@
+<div class="container-fluid">
+
 	<h1 align="center">Compras</h1>
 	<div class="boton_redirect">
 	<%= link_to 'Ir a Proveedores', provider_index_path%> &rarr;
@@ -10,7 +12,7 @@
 </div><br>
 
 
-<table class="style_table">
+<table class="table table-hover">
 	  <thead class="thead-dark">
 	<tr><TH>ID</TH>
 		<TH>Proveedor</TH>
@@ -18,7 +20,7 @@
 		<TH>Total</TH>
 		<TH>Importe</TH>
 		<TH>Saldo</TH>
-		<TH colspan="3"><%= link_to 'Nuevo', purchase_new_path %></TH></tr>
+		<TH colspan="3"><%= link_to 'Nuevo', purchase_new_path, class:"btn btn-success" %></TH></tr>
 </thead>
 	<tbody>
 	<% @purchases.each do |f| %>
@@ -29,9 +31,9 @@
 		<TD><%= f.total %></TD>
 		<TD><%= f.amount %></TD>
 		<TD><%= f.balance%></TD>
-		<TD><%= link_to 'Ver Detalles', purchase_show_path(f['id']) %></TD>
-		<TD><%= link_to 'Editar', purchase_edit_path(f['id']) %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		<TD><%= link_to 'Ver Detalles', purchase_show_path(f['id']), class:"btn btn-link" %></TD>
+		<TD><%= link_to 'Editar', purchase_edit_path(f['id']) , class: "btn btn-link"%></TD><TD>
+<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
 		</TD>
 	</tr>
     <% end %>
@@ -41,4 +43,4 @@
 <div class="boton_redirect">
 	<%= render partial: 'shared/pagination', locals: { pagy: @pagy } %>
 </div><br>
-
+</div>

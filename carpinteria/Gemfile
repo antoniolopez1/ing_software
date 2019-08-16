@@ -63,7 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jquery-rails'
 gem 'rails-i18n', '~> 5.1' # For 5.0.x, 5.1.x and 5.2.x
 gem 'client_side_validations'
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.3.1'
 
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
 
@@ -79,3 +79,7 @@ gem 'pagy'
 #gema para reporte en pdf
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+#otras gemas
+gem 'devise-i18n-views'
+gem 'devise-bootstrap-views', '~> 0.0.7'
+gem 'bootstrap-sass-rails', '~> 3.1'

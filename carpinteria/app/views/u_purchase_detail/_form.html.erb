@@ -1,53 +1,58 @@
+<div class="container-fluid">
+<div class="enter">
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Es todo, volver a la Compra', purchase_show_path(params[:purchase])%> 
+	<%= link_to 'Es todo, volver a la Compra', purchase_show_path(params[:purchase])%>
 </div><br>
 
 <ul>
-<% 
+<%
 @u_purchase_detail.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
-	
+
 <p>
 <%= f.label "Compra id" %> </br>
 <%= f.collection_select :purchase_id, Purchase.all, :id, :id %>
 </p>
 <p>
 <%= f.label "Material" %> </br>
-<%= f.collection_select :utilities_type_id, UtilitiesTypes.all, :id, :description %>
+<%= f.collection_select :utilities_type_id, UtilitiesType.all, :id, :description %>
 </p>
 
 <p>
 <%= f.label "Cantidad" %> </br>
-<%= f.text_field :quantity %>
+<%= f.text_field :quantity, class:"form-control" %>
 </p>
 <p>
-	<%= f.label :width %>
-	<%= f.number_field :width, :class => 'text_field', :step => 0.5 %>
+	<%= f.label :ancho %>
+	<%= f.number_field :width, :class => 'text_field', :step => 0.5, class:"form-control" %>
 </p>
 <p>
-	<%= f.label :high %>
-	<%= f.number_field :high, :class => 'text_field', :step => 0.5 %>
+	<%= f.label :alto %>
+	<%= f.number_field :high, :class => 'text_field', :step => 0.5 , class:"form-control" %>
 </p>
 	<p>
-	<%= f.label :thickness %>
-	<%= f.number_field :thickness, :class => 'text_field', :step => 0.5 %>
+	<%= f.label :espesor %>
+	<%= f.number_field :thickness, :class => 'text_field', :step => 0.5 , class:"form-control" %>
 </p>
 <p>
-	<%= f.label :cost %>
-	<%= f.number_field :cost, :class => 'text_field', :step => 0.5 %>
+	<%= f.label :costo %>
+	<%= f.number_field :cost, :class => 'text_field', :step => 0.5 , class:"form-control" %>
 </p>
 
 <!--p>
 <%= f.label "Subtotal" %> </br>
-<%= f.text_field :subtotal %>
+<%= f.text_field :subtotal, class:"form-control" %>
 </p-->
 <p>
-	<%= f.label :Observation %>
-	<%= f.text_field :observation %>
+	<%= f.label :Observación %>
+	<%= f.text_field :observation , class:"form-control" %>
 </p>
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar", class:"form-control btn btn-primary" %>
 </p>
+</div>
+</div>

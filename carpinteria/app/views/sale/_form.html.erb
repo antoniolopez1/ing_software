@@ -1,40 +1,47 @@
+<div class="container-fluid">
+
+<div class="col-xs-6">
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a la lista de ventas', sale_index_path%> 
-	
+	<%= link_to 'Volver a la lista de ventas', sale_index_path%>
+
 </div><br>
 <ul>
-<% 
+<%
 @sale.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 
+
+
 <p>
 <%= f.label "Importe" %> </br>
-<%= f.number_field :amount%>
+<%= f.number_field :amount, class: "form-control"%>
 </p>
 <p>
 <%= f.label "Estado" %> </br>
-<%= f.text_field :status %>
+<%= f.text_field :status, class: "form-control" %>
 </p>
 <!--p>
 <%= f.label "Saldo" %> </br>
-<%= f.text_field :balance %>
+<%= f.text_field :balance, class: "form-control" %>
 </p-->
 <p>
 <%= f.label "Pedido" %> </br>
-<%= f.text_field :order_id %>
-<%= f.collection_select :order_id, Order.all, :id, :id %>
+<%= f.text_field :order_id , class: "form-control"%>
+<%= f.collection_select :order_id, Order.all, :id, :id , class: "form-control"%>
 </p>
 <!--p>
 <%= f.label "cliente" %> </br>
-<%= f.text_field :customer_id %>
+<%= f.text_field :customer_id , class: "form-control"%>
 </p-->
 <!--p>
 <%= f.label "Total" %> </br>
-<%= f.text_field :total %>
+<%= f.text_field :total , class: "form-control"%>
 </p-->
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar", class: "btn btn-primary form-control" %>
 </p>
+</div>
+</div>

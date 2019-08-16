@@ -1,37 +1,43 @@
+<div class="container-fluid">
+	<div class="enter">
+
+
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a Lista de pedidos', order_index_path%> 
+	<%= link_to 'Volver a Lista de pedidos', order_index_path%>
 </div><br>
 <ul>
-<% 
+<%
 @order.errors.full_messages.each do |m|
 %>
-<li> <%= m %></li> 
+<li> <%= m %></li>
 <% end %>
 </ul>
 <p>
-<%= f.label :begin_date %> </br>
+<%= f.label "Fecha de Inicio" %> </br>
 <%= f.date_field :begin_date %>
 </p>
 <p>
-<%= f.label :end_date %> </br>
+<%= f.label "Fecha Final" %> </br>
 <%= f.date_field :end_date %>
 </p>
 <p>
-<%= f.label :status %> </br>
-<%= f.text_field :status %>
+<%= f.label :estado %> </br>
+<%= f.text_field :status , class:"form-control"%>
 </p>
 <p>
-<%= f.label :observation %> </br>
-<%= f.text_field :observation %>
+<%= f.label :observación %> </br>
+<%= f.text_field :observation , class:"form-control"%>
 </p>
 <p>
-<%= f.label :budget_for_order_id %> </br>
+<%= f.label "Presupuesto por pedido" %> </br>
 <%= f.collection_select(:budget_for_order_id, BudgetForOrder.all, :id , :id)  %>
 </p>
 <p>
-<%= f.label :customer_id %> </br>
+<%= f.label :cliente %> </br>
 <%= f.collection_select(:customer_id, Customer.all, :id , :name)  %>
 </p>
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar" , class:"form-control btn btn-primary"%>
 </p>
+</div>
+</div>
