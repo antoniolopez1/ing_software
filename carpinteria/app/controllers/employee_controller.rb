@@ -56,7 +56,9 @@ class EmployeeController < ApplicationController
   def destroy
     id=params[:id]
     employee= Employee.find(id)
-    employee.destroy
+    employee.status= "INACTIVO"
+    employee.save
+    #employee.destroy
     redirect_to  employee_index_path
   end
 end

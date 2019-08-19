@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   #rutas para cobros de ventas
   get 'sales_charge/index'
   get 'sales_charge/new'
+  get 'sales_charge/:sale/new', to: 'sales_charge#new', as: 'sales_charge_new_add'
   post 'sales_charge/create'
   get 'sales_charge/:id/edit', to: 'sales_charge#edit', as: 'sales_charge_edit'
   get 'sales_charge/:sale/:id/edit', to: 'sales_charge#edit', as: 'sales_charge_edit_s'
