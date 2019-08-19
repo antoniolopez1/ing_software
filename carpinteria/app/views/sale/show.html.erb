@@ -34,7 +34,7 @@
     <TH>Importe</TH>
     <TH>Saldo</TH>
     <TH>Fecha</TH>
-    <TH colspan="2"><%= link_to 'Nuevo', sales_charge_new_path , class:"btn btn-success"%></TH></tr>
+    <TH colspan="2"><%= link_to 'Nuevo', sales_charge_new_add_path(@sale.id) , class:"btn btn-success"%></TH></tr>
 </thead>
   <tbody>
   <% @sales_charges.each do |f| %>

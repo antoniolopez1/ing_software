@@ -19,7 +19,6 @@
 </p>
 <p>
 <%= f.label "Material" %> </br>
-<%= f.text_field :material_id %>
 <%= f.collection_select :material_id, Material.all, :id, :description %>
 </p>
 <p>

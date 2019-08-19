@@ -17,9 +17,11 @@
   <strong>Cliente:</strong>
   <%= sale.customer.name %><br>
   <strong>Nro. del pedido:</strong>
-  <%= sale.order %><br>
+  <%= sale.order_id %><br>
   <strong>Fecha:</strong>
-  <%= sale.created_at %><br>
+  <%= sale.created_at.strftime("%Y/%m/%d") %><br>
+  <strong>Hora:</strong>
+  <%= sale.created_at.strftime("%T") %><br>
   <strong>Total:</strong>
   <%= sale.total %><br>
   <strong>Importe:</strong>
