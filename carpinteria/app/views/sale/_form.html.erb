@@ -16,7 +16,7 @@
 
 
 <p>
-<%= f.label "Importe" %> </br>
+<%= f.label "Importe de entrega" %> </br>
 <%= f.number_field :amount, class: "form-control"%>
 </p>
 <p>
@@ -29,7 +29,6 @@
 </p-->
 <p>
 <%= f.label "Pedido" %> </br>
-<%= f.text_field :order_id , class: "form-control"%>
 <%= f.collection_select :order_id, Order.all, :id, :id , class: "form-control"%>
 </p>
 <!--p>

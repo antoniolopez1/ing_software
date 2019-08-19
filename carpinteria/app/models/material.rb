@@ -9,7 +9,7 @@ message: "Solo letras o pasar a mayúsculas" },
 :presence => {:message => "Campo obligatorio"},
 :uniqueness => {:message => "El valor %{value} ya existe"},
 length: {
-  maximum: 25,
+  maximum: 50,
   message: "No es una descripción del material válido"
  }
  validates :quantity,
