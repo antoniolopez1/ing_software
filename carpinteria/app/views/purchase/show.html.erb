@@ -17,11 +17,11 @@
   <strong>Fecha:</strong>
   <%= @purchase.purchase_date %>
   <strong>Total:</strong>
-  <%= @purchase.total %>
+  <%= @purchase.total %> Gs.
   <strong>Importe:</strong>
-  <%= @purchase.amount %>
+  <%= @purchase.amount %> Gs.
   <strong>Saldo:</strong>
-  <%= @purchase.balance %>
+  <%= @purchase.balance %> Gs.
 </p>
 </div>
 
@@ -42,10 +42,10 @@
 
 	<tr><TD><%= f.id %></TD>
 		<TD><%= f.material.description %></TD>
-		<TD><%= f.net_price %> </TD>
+		<TD><%= f.net_price %> Gs. </TD>
 		<TD><%= f.iva%>%</TD>
 		<TD><%= f.quantity %> </TD>
-		<TD><%= f.subtotal %></TD>
+		<TD><%= f.subtotal %> Gs.</TD>
 		<TD><%= link_to 'Editar', purchase_detail_edit_p_path(f['purchase_id'], f['id']), class: "btn btn-link"%></TD><TD>
 <%= link_to 'Borrar', purchase_detail_destroy_path(f['id']), :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
 		</TD>
@@ -69,8 +69,8 @@
 		<TD><%= f.width %></TD>
 		<TD><%= f.high %></TD>
 		<TD><%= f.thickness %></TD>
-		<TD><%= f.cost %></TD>
-		<TD><%= f.subtotal %></TD>
+		<TD><%= f.cost %> Gs.</TD>
+		<TD><%= f.subtotal %> Gs.</TD>
 		<TD><%= f.observation %></TD>
 		<TD><%= link_to 'Editar', u_purchase_detail_edit_p_path(f['purchase_id'], f['id']), class:"btn btn-link" %></TD><TD>
 

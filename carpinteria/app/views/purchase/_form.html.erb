@@ -14,7 +14,7 @@
 <% end %>
 </ul>
 <p>
-<%= f.label "ID Proveedor" %> </br>
+<%= f.label "Proveedor" %> </br>
 <%= f.collection_select :provider_id, Provider.order(:name), :id, :name %>
 </p>
 <p>

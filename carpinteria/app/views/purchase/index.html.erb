@@ -28,9 +28,9 @@
 	<tr><TD><%= f.id %></TD>
 		<TD><%= f.provider.name %></TD>
 		<TD><%= f.purchase_date %> </TD>
-		<TD><%= f.total %></TD>
-		<TD><%= f.amount %></TD>
-		<TD><%= f.balance%></TD>
+		<TD><%= f.total %> Gs.</TD>
+		<TD><%= f.amount %> Gs.</TD>
+		<TD><%= f.balance%> Gs.</TD>
 		<TD><%= link_to 'Ver Detalles', purchase_show_path(f['id']), class:"btn btn-link" %></TD>
 		<TD><%= link_to 'Editar', purchase_edit_path(f['id']) , class: "btn btn-link"%></TD><TD>
 <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>

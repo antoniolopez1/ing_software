@@ -13,19 +13,19 @@
   <strong>Cliente:</strong>
   <%= @sale.customer.name %>
   <strong>Nro. del pedido:</strong>
-  <%= @sale.order %>
+  <%= @sale.order_id %>
   <strong>Fecha:</strong>
   <%= @sale.created_at %>
   <strong>Total:</strong>
-  <%= @sale.total %>
+  <%= @sale.total %> Gs.
   <strong>Importe:</strong>
-  <%= @sale.amount %>
+  <%= @sale.amount %> Gs.
   <strong>Saldo:</strong>
-  <%= @sale.balance %>
+  <%= @sale.balance %> Gs.
 </p>
 
 </div>
-<h1 aling="center">Pagos de las ventas</h1>
+<h1 align="center">Pagos de las ventas</h1>
 <table class="table table-hover">
     <thead class="thead-dark">
   <tr><TH>ID</TH>
@@ -42,8 +42,8 @@
   <tr><TD><%= f.id %></TD>
     <TD><%= f.customer.lastname %>, <%= f.customer.name %> </TD>
     <TD><%= f.sale_id %></TD>
-    <TD><%= f.amount %></TD>
-    <TD><%= f.balance%></TD>
+    <TD><%= f.amount %> Gs.</TD>
+    <TD><%= f.balance%> Gs.</TD>
     <TD><%= f.created_at.strftime("%Y/%m/%d")%></TD>
 
 

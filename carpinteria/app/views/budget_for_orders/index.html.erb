@@ -16,7 +16,7 @@
       <th>ID</th>
       <th>Fecha</th>
       <th>Total</th>
-      <th>Observation</th>
+      <th>Observación</th>
       <th>Cliente</th>
       <th colspan="4"><%= link_to 'Nuevo', new_budget_for_order_path, class:"btn btn-success" %></th>
     </tr>
@@ -27,9 +27,9 @@
       <tr>
         <td><%= budget_for_order.id %></td>
         <td><%= budget_for_order.created_at.strftime("%Y/%m/%d") %></td>
-        <td><%= budget_for_order.total %></td>
+        <td><%= budget_for_order.total %> Gs.</td>
         <td><%= budget_for_order.observation %></td>
-        <td><%= budget_for_order.customer_id %></td>
+        <td><%= budget_for_order.customer.name%> </td>
         <td><%= link_to 'A Pedidos', order_new_add_path(budget_for_order['id']) , class:"btn btn-link"%></td>
         <td><%= link_to 'Detalles', budget_for_order , class:"btn btn-link" %></td>
         <td><%= link_to 'Editar', edit_budget_for_order_path(budget_for_order), class:"btn btn-link" %></td>

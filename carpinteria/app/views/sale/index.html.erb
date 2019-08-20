@@ -26,9 +26,9 @@
 		<TD><%= f.customer.lastname %>, <%= f.customer.name %> </TD>
 		<TD><%= f.order_id %></TD>
 		<TD><%= f.status %></TD>
-		<TD><%= f.total%></TD>
-		<TD><%= f.amount%></TD>
-		<TD><%= f.balance %></TD>
+		<TD><%= f.total%> Gs.</TD>
+		<TD><%= f.amount%> Gs.</TD>
+		<TD><%= f.balance %> Gs.</TD>
 
 		<TD><%= link_to 'Detalles', sale_show_path(f['id']) , class: "btn btn-link" %></TD>
 		<TD><%= link_to 'Editar', sale_edit_path(f['id']) , class: "btn btn-link" %></TD><TD>

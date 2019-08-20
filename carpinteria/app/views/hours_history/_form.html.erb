@@ -29,7 +29,7 @@
 <%= f.time_field :departure_time %>
 </p>
 <p>
-<%= f.label "ID Personal" %> </br>
+<%= f.label "Personal" %> </br>
 <%= f.collection_select(:employee_id, Employee.all, :id , :name, :disabled => true )  %>
 </p>
 

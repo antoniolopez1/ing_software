@@ -15,20 +15,20 @@
   <strong>Descripción:</strong>
   <%= @furniture.description %>
   <strong>Costo:</strong>
-  <%= @furniture.cost%>
+  <%= @furniture.cost%> Gs.
   <strong>Ganancia:</strong>
-  <%= @furniture.profit %>
+  <%= @furniture.profit %> Gs.
   <strong>IVA:</strong>
-  <%= @furniture.iva %>
+  <%= @furniture.iva %> %
   <strong>Precio de venta:</strong>
-  <%= @furniture.price %>
+  <%= @furniture.price %> Gs.
 </div>
 
 </p>
   <h1 align="center">Materiales de los Muebles</h1>
 <table class="table table-hover">
     <thead class="thead-dark">
-  <tr><TH>Id Material</TH>
+  <tr><TH>Material</TH>
     <TH>Cantidad</TH>
     <TH>Costo</TH>
     <TH>Sub-Total</TH>
@@ -41,8 +41,8 @@
 
   <tr><TD><%= f.material.description %></TD>
     <TD><%= f.quantity %></TD>
-    <TD><%= f.cost %></TD>
-    <TD><%= f.subtotal %></TD>
+    <TD><%= f.cost %> Gs.</TD>
+    <TD><%= f.subtotal %> Gs.</TD>
 
     <TD><%= link_to 'Editar', material_for_furniture_edit_f_path(f['furniture_id'], f['id']), class:"btn btn-link"%>
      </TD><TD>
@@ -57,7 +57,7 @@
 <h1 align="center">Utilidades de los Muebles</h1>
 <table class="table table-hover">
     <thead class="thead-light">
-  <tr><TH>Utilities</TH><TH>Furniture</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Cantidad</TH><TH>Costo</TH><TH>Sub-Total<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path , class:"btn btn-success"%></TH></tr>
+  <tr><TH>Utilidades</TH><TH>Mueble</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Cantidad</TH><TH>Costo</TH><TH>Sub-Total<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path , class:"btn btn-success"%></TH></tr>
 </thead>
   <tbody>
   <% @utilities_for_furnitures.each do |f| %>
@@ -67,8 +67,8 @@
     <TD><%= f.utility.high %>cm</TD>
     <TD><%= f.utility.thickness %>pulgadas</TD>
     <TD><%= f.quantity %></TD>
-    <TD><%= f.cost %></TD>
-    <TD><%= f.subtotal %></TD>
+    <TD><%= f.cost %> Gs.</TD>
+    <TD><%= f.subtotal %> Gs.</TD>
 
     <TD><%= link_to 'Editar', utilities_for_furniture_edit_path(f['id']), class:"btn btn-link" %></TD><TD>
 
