@@ -1,6 +1,11 @@
-<div class="boton_redirect">&larr;
-	<%# <%= link_to 'Es todo, volver a los detalles del mueble', furniture_show_path(params[:furniture])%>   %>
+<div class="container-fluid">
+	<div class="enter">
+
+
+ <div class="boton_redirect">&larr;
+	 <%= link_to 'Volver a Lista de muebles', furniture_index_path%>
 </div><br>
+<br>
 <ul>
 <%
 @material_for_furniture.errors.full_messages.each do |m|
@@ -22,13 +27,15 @@
 
 <p>
 <%= f.label :Cantidad %> </br>
-<%= f.number_field :quantity, :class => 'text_field', :step => 1  %>
+<%= f.number_field :quantity, :class => 'text_field', :step => 1 , class:"form-control" %>
 </p>
 <!--p>
 <% f.label :Costo %> </br>
-<% f.number_field :cost , :class => 'text_field' %>
+<% f.number_field :cost , :class => 'text_field', class:"form-control" %>
 </p-->
 
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar", class:"form-control btn btn-primary" %>
 </p>
+</div>
+</div>

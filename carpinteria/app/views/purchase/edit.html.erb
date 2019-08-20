@@ -1,5 +1,8 @@
 	<h1 align="center">Editar Compra</h1>
 <div class="container-div">
+	<div class="boton_redirect">&larr;
+		<%= link_to 'Volver a detalles de compras', purchase_show_path(@purchase.id)%>
+	</div><br>
 	<%= form_for @purchase, :url => { :action => :update } do |f| %>
 	<%= render "form", f: f %>
 	<% end %>

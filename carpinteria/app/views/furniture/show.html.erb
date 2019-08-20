@@ -29,7 +29,6 @@
 <table class="table table-hover">
     <thead class="thead-dark">
   <tr><TH>Id Material</TH>
-    <TH>Id Mueble</TH>
     <TH>Cantidad</TH>
     <TH>Costo</TH>
     <TH>Sub-Total</TH>
@@ -40,8 +39,7 @@
   <tbody>
   <% @material_for_furnitures.each do |f| %>
 
-  <tr><TD><%= f.material_id %></TD>
-    <TD><%= f.furniture_id%></TD>
+  <tr><TD><%= f.material.description %></TD>
     <TD><%= f.quantity %></TD>
     <TD><%= f.cost %></TD>
     <TD><%= f.subtotal %></TD>
@@ -63,12 +61,11 @@
 </thead>
   <tbody>
   <% @utilities_for_furnitures.each do |f| %>
-
-  <tr><TD><%= f.utility_id %></TD>
-    <TD><%= f.furniture_id %></TD>
-    <TD><%= f.utility.width %></TD>
-    <TD><%= f.utility.high %></TD>
-    <TD><%= f.utility.thickness %></TD>
+<!-- tiene que contatenar la observation de tablones-->
+  <tr><TD><%= f.utility.observation %>se</TD>
+    <TD><%= f.utility.width %>cm</TD>
+    <TD><%= f.utility.high %>cm</TD>
+    <TD><%= f.utility.thickness %>pulgadas</TD>
     <TD><%= f.quantity %></TD>
     <TD><%= f.cost %></TD>
     <TD><%= f.subtotal %></TD>

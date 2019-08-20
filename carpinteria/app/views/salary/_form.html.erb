@@ -1,15 +1,18 @@
+<div class="container-fluid">
+  <div class="enter">
+
 
 <script>
     $('#list-employees').selectize({
     create: true,
     sortField: 'text'
 });
-  </script>   
+  </script>
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a la lista de salarios', salary_index_path%> 
+	<%= link_to 'Volver a la lista de salarios', salary_index_path%>
 </div><br>
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a la lista de personal', employee_index_path%> 
+	<%= link_to 'Volver a la lista de personal', employee_index_path%>
 </div><br>
 
 <ul>
@@ -29,5 +32,7 @@
 <%= f.text_field :charge_for_hours %>
 </p>
 <p>
-<%= f.submit "Enviar" %>
+<%= f.submit "Enviar" , class: "form-control btn btn-primary"%>
 </p>
+</div>
+</div>

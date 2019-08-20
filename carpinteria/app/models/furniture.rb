@@ -7,11 +7,11 @@ class Furniture < ApplicationRecord
   :presence => {:message => "Campo obligatorio"},
   :uniqueness => {:message => "El valor %{value} ya existe"},
   length: {
-    maximum: 25, allow_blank: false,
+    maximum: 100, allow_blank: false,
     message: "No es una descripción mueble válida"
    }
 
-   
+
    validates :profit,
    numericality: {
      greater_than: 99,

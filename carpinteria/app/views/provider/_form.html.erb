@@ -5,14 +5,19 @@
 <div class="boton_redirect">&larr;
 	<%= link_to 'Volver a Lista de Proveedores', provider_index_path%>
 </div><br>
+	<div class="red">
 <ul>
+
+
 <%
 @provider.errors.full_messages.each do |m|
 %>
 <li> <%= m %></li>
 <% end %>
-</ul>
 
+</ul>
+</div>
+<br>
 <p>
 <%= f.label :Nombre %> </br>
 <%= f.text_field :name, class:"form-control" %>

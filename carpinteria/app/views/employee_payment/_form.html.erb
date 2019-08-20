@@ -18,7 +18,6 @@
 <p>
 <%= f.label :Codigo_de_salario %> </br>
 <%= f.collection_select(:salary_id, Salary.all, :id , :employee_id)  %>
-</p>
 <p>
 <%= f.label :Codigo_del_personal %> </br>
 <%= f.collection_select(:employee_id, Employee.all, :id , :name)  %>

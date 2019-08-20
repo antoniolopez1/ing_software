@@ -19,10 +19,10 @@ class MaterialForFurnitureController < ApplicationController
     @material_for_furniture.subtotal=@material_for_furniture.cost*@material_for_furniture.quantity
     #@material_for_furniture.cost=params[:material_for_furniture][:cost]
 
-    if @material_for_furniture.save 
-      redirect_to  material_for_furniture_new_add_path(@material_for_furniture.furniture_id)
-    else 
-      render "new"  
+    if @material_for_furniture.save
+      redirect_to  material_for_furniture_index_path
+    else
+      render "new"
     end
   end
 
@@ -43,10 +43,10 @@ class MaterialForFurnitureController < ApplicationController
     @material_for_furniture.subtotal=@material_for_furniture.cost*@material_for_furniture.quantity
     #@material_for_furniture.cost=params[:material_for_furniture][:cost]
 
-      if @material_for_furniture.save 
+      if @material_for_furniture.save
       redirect_to  material_for_furniture_index_path
-    else 
-      render "edit"  
+    else
+      render "edit"
     end
   end
 

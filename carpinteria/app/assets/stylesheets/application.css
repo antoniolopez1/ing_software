@@ -41,6 +41,9 @@ li {
 	margin: 0 auto;
 }
 
+.red{
+	color: #e70700;
+}
 .menu {
 	border-left: 1px solid #FFF;
 	border-right: 1px solid #FFF;

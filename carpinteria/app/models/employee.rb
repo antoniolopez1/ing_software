@@ -2,8 +2,6 @@ class Employee < ApplicationRecord
 	has_many :hours_history
 	has_one :salary
 
-
-
 	validates :name,
 	:presence => {:message => "Campo obligatorio"},
 	format: { with: /\A[ÁÉÍÓÚÑA-Z\. ]+\z/,
