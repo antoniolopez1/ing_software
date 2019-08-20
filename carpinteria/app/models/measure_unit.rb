@@ -1,6 +1,6 @@
 class MyValidator < ActiveModel::Validator
       def validate(record)
-        unless record.description.ends_with? 's'
+        unless record.description.ends_with? 'S'
           record.errors.add :description, "Debe estar en plural"
         end
       end

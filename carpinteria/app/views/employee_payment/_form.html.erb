@@ -16,6 +16,7 @@
 </ul>
 
 <p>
+
 <%= f.label :Codigo_de_salario %> </br>
 <%= f.collection_select(:salary_id, Salary.all, :id , :employee_id)  %>
 <p>

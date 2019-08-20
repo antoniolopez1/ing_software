@@ -30,6 +30,8 @@
 	<tbody>
 	<% @employees.each do |f| %>
 
+	
+
 	<tr><TD><%= f.id %></TD>
 		<TD><%= f.name %></TD>
 		<TD><%= f.lastname %></TD>
@@ -40,8 +42,8 @@
 		<TD><%= f.status %></TD>
 		<TD><%= link_to 'Detalles', employee_show_path(f['id']), class: "btn btn-link" %></TD>
 		<TD><%= link_to 'Cargar Asistencia', hours_history_new_add_path(f['id']) , class: "btn btn-link"%></TD>
-		<TD><%= link_to 'Editar', employee_edit_path(f['id']) %></TD><TD>
-<%# <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class: "btn btn-danger"%>
+		<TD><%= link_to 'Editar', employee_edit_path(f['id']), class: "btn btn-link" %></TD><TD>
+ <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class: "btn btn-danger"%>
 		</TD>
 	</tr>
     <% end %>

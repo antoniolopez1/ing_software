@@ -37,15 +37,6 @@ length: {
   message: "No es un número de documento válido"
  }
 
- validates :ruc,
- numericality: {
-   only_integer: true,
-   greater_than: 0,
-   less_than: 10,
-   :message => "Dígito del RUC no válido"
- }
-
-
 
 validates :observation,
 format: {
