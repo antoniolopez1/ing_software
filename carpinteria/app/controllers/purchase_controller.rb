@@ -16,7 +16,10 @@ class PurchaseController < ApplicationController
   def new
     @purchase=Purchase.new
     @purchase.provider_id=params[:provider]
-    
+    if params[:provider]!=nil
+      provider_id=params[:provider]
+      @provider=Provider.find(provider_id)
+    end
   end
 
   def create

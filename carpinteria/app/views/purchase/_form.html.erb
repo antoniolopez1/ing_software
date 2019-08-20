@@ -13,10 +13,14 @@
 <li> <%= m %></li>
 <% end %>
 </ul>
-<p>
+<%if params[:provider]==nil%>
 <%= f.label "Proveedor" %> </br>
 <%= f.collection_select :provider_id, Provider.order(:name), :id, :name %>
-</p>
+<%else  %>
+<%= f.label "Proveedor" %> </br>
+<%= @provider.name%>
+<%end  %>
+
 <p>
 <%= f.label "Fecha" %> </br>
 <%= f.date_field :purchase_date %>
