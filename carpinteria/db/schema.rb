@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_18_233021) do
+ActiveRecord::Schema.define(version: 2019_08_20_210719) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,11 +111,10 @@ ActiveRecord::Schema.define(version: 2019_06_18_233021) do
     t.integer "quantity"
     t.float "cost"
     t.bigint "materials_type_id"
-    t.bigint "measure_unit_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "measure_unit"
     t.index ["materials_type_id"], name: "index_materials_on_materials_type_id"
-    t.index ["measure_unit_id"], name: "index_materials_on_measure_unit_id"
   end
 
   create_table "materials_types", force: :cascade do |t|
@@ -281,7 +280,6 @@ ActiveRecord::Schema.define(version: 2019_06_18_233021) do
   add_foreign_key "material_for_furnitures", "furnitures"
   add_foreign_key "material_for_furnitures", "materials"
   add_foreign_key "materials", "materials_types"
-  add_foreign_key "materials", "measure_units"
   add_foreign_key "orders", "budget_for_orders"
   add_foreign_key "orders", "customers"
   add_foreign_key "purchase_details", "materials"

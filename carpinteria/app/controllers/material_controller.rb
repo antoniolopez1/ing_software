@@ -11,7 +11,7 @@ class MaterialController < ApplicationController
   def create
     @material=Material.new
     @material.materials_type_id=params[:material][:materials_type_id]
-    @material.measure_unit_id=params[:material][:measure_unit_id]
+    @material.measure_unit_id=params[:material][:measure_unit]
     @material.description=params[:material][:description]
     @material.quantity=params[:material][:quantity]
     @material.cost=params[:material][:cost]
@@ -34,7 +34,7 @@ class MaterialController < ApplicationController
     id=params[:id]
     @material= Material.find(id)
     @material.materials_type_id=params[:material][:materials_type_id]
-    @material.measure_unit_id=params[:material][:measure_unit_id]
+    @material.measure_unit_id=params[:material][:measure_unit]
     @material.description=params[:material][:description]
     @material.quantity=params[:material][:quantity]
     @material.cost=params[:material][:cost]

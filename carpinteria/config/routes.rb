@@ -151,7 +151,6 @@ Rails.application.routes.draw do
   patch 'salary/:id/update', to: 'salary#update', as: 'salary_update'
   delete 'salary/:id/destroy', to: 'salary#destroy', as: 'salary_destroy'
   #rutas de scaffold
-  resources :measure_units
   resources :materials_types
   #rutas para historial de horas
   get 'hours_history/index'
