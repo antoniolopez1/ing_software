@@ -15,7 +15,17 @@
 <% end %>
 </ul>
 <div class="col-md-6 .col-md-offset-3">
+	<p>
+		<% if params[:employee]==nil%>
+			<%= f.label "Personal" %> </br>
+			<%= f.collection_select(:employee_id, Employee.all, :id , :name, :disabled => true )  %>
+		<% else%>
+			<%= f.label "Personal" %> </br>
+			<%= @employee.lastname%>, <%= @employee.name%>
+			<%= f.hidden_field :employee_id %>
+		<% end%>
 
+	</p>
 <!--p>
 <%= f.label "Fecha" %> </br>
 <%= f.date_field :created_at %>
@@ -28,10 +38,7 @@
 <%= f.label "Hora de salida" %> </br>
 <%= f.time_field :departure_time %>
 </p>
-<p>
-<%= f.label "Personal" %> </br>
-<%= f.collection_select(:employee_id, Employee.all, :id , :name, :disabled => true )  %>
-</p>
+
 
 <p>
 <%= f.submit "Enviar" , class:"btn btn-primary"%>

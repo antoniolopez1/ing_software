@@ -3,7 +3,10 @@
 
 
 <div class="boton_redirect">&larr;
-	<%= link_to 'Volver a la lista de compras', purchase_index_path%>
+	<%= link_to 'Volver a la lista de Compras', purchase_index_path%>
+</div><br>
+<div class="boton_redirect">&larr;
+	<%= link_to 'Volver a la lista de Proveedores', provider_index_path%>
 </div><br>
 
 <ul>
@@ -19,6 +22,7 @@
 <%else  %>
 <%= f.label "Proveedor" %> </br>
 <%= @provider.name%>
+<%= f.hidden_field :provider_id %>
 <%end  %>
 
 <p>

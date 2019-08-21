@@ -1,7 +1,7 @@
-class PurchaseController < ApplicationController 
-  def index 
+class PurchaseController < ApplicationController
+  def index
     @pagy,@purchases=pagy(Purchase.all.order("purchase_date DESC"), page: params[:page], items: 5)
-    @purchases.each do |f| 
+    @purchases.each do |f|
     @purchase_details=PurchaseDetail.where(["purchase_id = ?",  f.id  ])
     @u_purchase_details=UPurchaseDetail.where(["purchase_id = ?", f.id ])
       end
@@ -19,11 +19,17 @@ class PurchaseController < ApplicationController
     if params[:provider]!=nil
       provider_id=params[:provider]
       @provider=Provider.find(provider_id)
+      @provider_id=@purchase.provider_id
     end
   end
 
   def create
     @purchase=Purchase.new
+    if params[:provider]==nil
+      @purchase.provider_id=params[:purchase][:provider_id]
+    else
+      @purchase.provider_id=@provider_id
+    end
     @purchase.provider_id=params[:purchase][:provider_id]
     @purchase.purchase_date=params[:purchase][:purchase_date]
     @purchase.total=0

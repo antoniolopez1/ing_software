@@ -7,7 +7,7 @@ class HoursHistoryController < ApplicationController
     return hora+minuto
   end
   def subtract_hours(time,time2)
-    
+
     hora=time.strftime("%H").to_f
     minuto=time.strftime("%M").to_f
     hora1=hora-(time2.strftime("%H").to_f)
@@ -18,12 +18,18 @@ class HoursHistoryController < ApplicationController
   def index
     @hours_histories=HoursHistory.all
 
-    
+
   end
 
   def new
     @hours_history=HoursHistory.new
     @hours_history.employee_id=params[:employee]
+
+    if params[:employee]!=nil
+      employee_id=params[:employee]
+      @employee=Employee.find(employee_id)
+      @employee_id=@hours_history.employee_id
+    end
   end
 
   def create
@@ -45,11 +51,17 @@ class HoursHistoryController < ApplicationController
     end
     @hours_history.total_hours= acumulated
     @hours_history.extra_hours= extra
-    @hours_history.employee_id=params[:hours_history][:employee_id]
+    if params[:employee]==nil
+      @hours_history.employee_id=params[:hours_history][:employee_id]
+    else
+      @hours_history.employee_id=@employee_id
+      @purchase.provider_id=@provider_id
+    end
+
     if @hours_history.save
       redirect_to  hours_history_index_path
-    else 
-      render "new"  
+    else
+      render "new"
     end
   end
 
@@ -81,8 +93,8 @@ class HoursHistoryController < ApplicationController
     @hours_history.employee_id=params[:hours_history][:employee_id]
     if @hours_history.save
       redirect_to  hours_history_index_path
-    else 
-      render "new"  
+    else
+      render "new"
     end
   end
 
