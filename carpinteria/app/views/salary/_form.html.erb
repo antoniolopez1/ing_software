@@ -22,10 +22,19 @@
 <li> <%= m %></li>
 <% end %>
 </ul>
-
 <p>
-<%= f.label "ID Personal" %> </br>
-<%= f.collection_select :employee_id, Employee.order(:name), :id, :name, {id: 'list-employees'} %>
+		<% if params[:employee]==nil%>
+			<%= f.label "Personal" %> </br>
+			<%= f.collection_select :employee_id, Employee.order(:name), :id, :name, {id: 'list-employees'} %>
+		<% else%>
+			<%= f.label "Personal" %> </br>
+			<%= @employee.lastname%>, <%= @employee.name%>
+			<%= f.hidden_field :employee_id %>
+		<% end%>
+
+	</p>
+<p>
+
 </p>
 <p>
 <%= f.label "Bonificación por hora" %> </br>

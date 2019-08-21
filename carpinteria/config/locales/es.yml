@@ -1,4 +1,8 @@
 es:
+  activerecord:
+        attributes:
+          salary:
+            charge_for_hours: "Bonificación por hora"
   pagy:
 
     item_name:
@@ -165,3 +169,4 @@ es:
         default_col_sep: ","
         col_sep: "Separador de columnas"
         col_sep_help: "Deje en blanco para el de defecto ('%{value}')" # value is default_col_sep
+  

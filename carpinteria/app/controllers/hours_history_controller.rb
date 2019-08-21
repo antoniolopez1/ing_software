@@ -55,7 +55,6 @@ class HoursHistoryController < ApplicationController
       @hours_history.employee_id=params[:hours_history][:employee_id]
     else
       @hours_history.employee_id=@employee_id
-      @purchase.provider_id=@provider_id
     end
 
     if @hours_history.save

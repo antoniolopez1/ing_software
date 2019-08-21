@@ -15,11 +15,21 @@ class SalaryController < ApplicationController
   def new
     @salary=Salary.new
     @salary.employee_id=params[:employee]
+    if params[:employee]!=nil
+      employee_id=params[:employee]
+      @employee=Employee.find(employee_id)
+      @employee_id=@salary.employee_id
+    end
   end
 
   def create
     @salary=Salary.new
-    @salary.employee_id=params[:salary][:employee_id]
+    if params[:employee]==nil
+      @salary.employee_id=params[:salary][:employee_id]
+    else
+      @salary.employee_id=@employee_id
+    end
+    
     @salary.charge_for_hours=params[:salary][:charge_for_hours]
     @salary.accumulated=0
     @salary.total_hours=0
