@@ -22,7 +22,7 @@
 </p>
 <p>
 <%= f.label :estado %> </br>
-<%= f.text_field :status , class:"form-control", :required => true%>
+<%= f.select :status,options_for_select([["PENDIENTE"],["EN PROCESO"],["TERMINADO"], ["ENTREGADO"]]), class: "form-control" %>
 </p>
 <p>
 <%= f.label :observación %> </br>

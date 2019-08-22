@@ -22,7 +22,7 @@
 </p>
 <p>
 <%= f.label "Estado" %> </br>
-<%= f.text_field :status, class: "form-control", :required => true %>
+<%= f.select :status,options_for_select([["PENDIENTE DE PAGO"],["PAGADO COMPLETO"]]), class: "form-control" %>
 </p>
 <!--p>
 <%= f.label "Saldo" %> </br>
