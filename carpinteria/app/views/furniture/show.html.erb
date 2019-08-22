@@ -34,7 +34,7 @@
     <TH>Sub-Total</TH>
 
 
-    <TH colspan="2"><%= link_to 'Nuevo', material_for_furniture_new_path , class:"btn btn-success"%></TH></tr>
+    <TH colspan="2"><%= link_to 'Nuevo', material_for_furniture_new_add_path(@furniture.id) , class:"btn btn-success"%></TH></tr>
 </thead>
   <tbody>
   <% @material_for_furnitures.each do |f| %>
@@ -57,7 +57,7 @@
 <h1 align="center">Utilidades de los Muebles</h1>
 <table class="table table-hover">
     <thead class="thead-light">
-  <tr><TH>Utilidades</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Cantidad</TH><TH>Costo</TH><TH>Sub-Total<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_path , class:"btn btn-success"%></TH></tr>
+  <tr><TH>Utilidades</TH><TH>Ancho</TH><TH>Alto</TH><TH>Espesor</TH><TH>Cantidad</TH><TH>Costo</TH><TH>Sub-Total<TH colspan="2"><%= link_to 'Nuevo', utilities_for_furniture_new_add_path(@furniture.id) , class:"btn btn-success"%></TH></tr>
 </thead>
   <tbody>
   <% @utilities_for_furnitures.each do |f| %>
