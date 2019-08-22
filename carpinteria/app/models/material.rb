@@ -1,6 +1,6 @@
 class Material < ApplicationRecord
 belongs_to :materials_type
-belongs_to :measure_unit
+
 
 validates :description,
 format: {

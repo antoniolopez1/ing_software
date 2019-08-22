@@ -7,7 +7,7 @@
 <%= form_with(model: budget_for_order, local: true) do |form| %>
   <% if budget_for_order.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(budget_for_order.errors.count, "error") %> prohibited this budget_for_order from being saved:</h2>
+      
 
       <ul>
       <% budget_for_order.errors.full_messages.each do |message| %>
