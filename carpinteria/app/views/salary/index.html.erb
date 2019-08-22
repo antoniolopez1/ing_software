@@ -1,5 +1,4 @@
 <div class="container-fluid">
-
 	<h1 align="center">Salarios</h1>
 	<div class="boton_redirect">&larr;
 	<%= link_to 'Volver a la lista de personal', employee_index_path%>
@@ -18,7 +17,7 @@
 		<TH>Acumulado</TH>
 		<TH>Horas trabajadas</TH>
 		<TH>Horas extras</TH>
-		<TH colspan="3"><%= link_to 'Nuevo', salary_new_path, class:"btn btn-seccess" %></TH></tr>
+		<TH colspan="3"></TH></tr>
 </thead>
 	<tbody>
 	<% @salaries.each do |f| %>

@@ -2,7 +2,7 @@ class EmployeeController < ApplicationController
   
   def index
    
-    @pagy, @employees= pagy(Employee.where(["name LIKE ? OR lastname LIKE ?","%#{params[:search]}%", "%#{params[:search]}%"]), page: params[:page], items: 5)
+    @pagy, @employees= pagy(Employee.where(["name LIKE ? OR lastname LIKE ?","%#{params[:search]}%", "%#{params[:search]}%"]).order("status ASC"), page: params[:page], items: 5)
     
   end
   def show

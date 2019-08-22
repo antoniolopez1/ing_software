@@ -41,7 +41,11 @@
 		<TD><%= f.speciality %></TD>
 		<TD><%= f.status %></TD>
 		<TD><%= link_to 'Detalles', employee_show_path(f['id']), class: "btn btn-link" %></TD>
+			<%if f.status=="ACTIVO"%>			
 		<TD><%= link_to 'Cargar Asistencia', hours_history_new_add_path(f['id']) , class: "btn btn-link"%></TD>
+			<%else%>
+			<TD>Cargar Asistencia</TD>	
+			<%end%>	
 		<TD><%= link_to 'Editar', employee_edit_path(f['id']), class: "btn btn-link" %></TD><TD>
  <%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class: "btn btn-danger"%>
 		</TD>

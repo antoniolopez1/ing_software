@@ -16,7 +16,7 @@ class HoursHistoryController < ApplicationController
     return nueva_hora
   end
   def index
-    @hours_histories=HoursHistory.all
+    @hours_histories=HoursHistory.all.order("created_at DESC")
 
 
   end
