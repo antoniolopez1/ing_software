@@ -383,5 +383,152 @@ CREATE TRIGGER u_furniture_util_cost
   FOR EACH ROW
   EXECUTE PROCEDURE public.u_furniture_cost();
 
+############################################
+#################################################
+################################################
 
+############################################
+#################################################
+################################################
+
+############################################
+#################################################
+################################################
+TRIGGERS DELETE
+######################################################
+CREATE OR REPLACE FUNCTION public.accumulated_hour_d()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE salaries SET total_hours = total_hours - old.total_hours, total_extra_hours = total_extra_hours - old.extra_hours, accumulated=(charge_for_hours*(total_hours - old.total_hours))+((total_extra_hours-old.extra_hours)*20000)
+WHERE employee_id=old.employee_id;
+return old;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+####################################################
+CREATE OR REPLACE FUNCTION public.balance_acumulated_d()
+  RETURNS trigger AS
+$BODY$begin
+
+UPDATE salaries SET accumulated = old.balance, total_extra_hours = 0, total_hours=old.balance/charge_for_hours
+WHERE id=old.salary_id;
+return old;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+  ###################################################
+  CREATE OR REPLACE FUNCTION public.budget_total_d()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE budget_for_orders SET total=total-old.subtotal
+WHERE id=old.budget_for_order_id;
+return old;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+  ####################################################
+  CREATE OR REPLACE FUNCTION public.furniture_cost_d()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE furnitures SET cost=cost-old.subtotal, price=profit+(cost-old.subtotal)+(((profit+(cost-old.subtotal))*iva)/100)
+WHERE id=old.furniture_id;
+return old;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+  #####################################################
+  CREATE OR REPLACE FUNCTION public.material_quantity_d()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE materials SET quantity=quantity-old.quantity, cost=((old.net_price*old.iva)/100)+old.net_price
+WHERE id=old.material_id;
+return old;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+#####################################################
+CREATE OR REPLACE FUNCTION public.purchase_total_d()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE purchases SET total=total-old.subtotal, balance=(total-old.subtotal)-amount
+WHERE id=old.purchase_id;
+return old;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+  #####################################################
+  CREATE OR REPLACE FUNCTION public.purchase_utilities_d()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE purchases SET total=total-old.subtotal, balance=(total-old.subtotal)-amount
+WHERE id=old.purchase_id;
+return old;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+  ######################################################
+  CREATE OR REPLACE FUNCTION public.sale_charge_d()
+  RETURNS trigger AS
+$BODY$begin
+UPDATE sales SET balance=old.balance - old.amount, amount=amount-old.amount
+WHERE id=old.sale_id;
+return old;
+end$BODY$
+  LANGUAGE plpgsql VOLATILE
+  COST 100;
+  ######################################################
+  CREATE TRIGGER d_budget_total
+  BEFORE DELETE
+  ON public.budgets
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.budget_total_d();
+#######################################################
+CREATE TRIGGER bd_balance
+  BEFORE DELETE
+  ON public.employee_payments
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.balance_acumulated_d();
+
+  #####################################################
+  CREATE TRIGGER bd_hours
+  BEFORE DELETE
+  ON public.hours_histories
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.accumulated_hour_d();
+#########################################################
+CREATE TRIGGER d_cost_furniture
+  BEFORE DELETE
+  ON public.material_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.furniture_cost_d();
+#########################################################
+CREATE TRIGGER bd_purchase_detail
+  BEFORE DELETE
+  ON public.purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.purchase_total_d();
+##########################################################
+CREATE TRIGGER bd_purchase_detail_material
+  BEFORE DELETE
+  ON public.purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.material_quantity_d();
+##########################################################
+CREATE TRIGGER d_balance_sale
+  BEFORE DELETE
+  ON public.sales_charges
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.sale_charge_d();
+  ##########################################################
+  CREATE TRIGGER d_utility_total
+  BEFORE DELETE
+  ON public.u_purchase_details
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.purchase_utilities_d();
+###########################################################
+CREATE TRIGGER d_furniture_util_cost
+  BEFORE DELETE
+  ON public.utilities_for_furnitures
+  FOR EACH ROW
+  EXECUTE PROCEDURE public.furniture_cost_d();
 
