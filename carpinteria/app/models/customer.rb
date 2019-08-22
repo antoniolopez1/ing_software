@@ -40,7 +40,7 @@ length: {
 
 validates :observation,
 format: {
-with: /\A[0-9ÁÉÍÓÚÑA-Z\. ]+\z/,
+with: /\A[0-9ÁÉÍÓÚÑA-Z \. ]\b\z/,
 message: "Solo números, letras o pasar a mayúsculas" }
 
 

@@ -5,6 +5,6 @@ class EmployeePayment < ApplicationRecord
   numericality: {
     greater_than: 99,
     less_than: 999999999,
-    :message => "Monto no entra en el rango"
+    :message => "no entra en el rango"
   }
 end
