@@ -27,15 +27,15 @@
 <%= f.select :measure_unit,options_for_select([["GRAMOS"],["KILOGRAMOS"],["LITROS"],["UNIDAD"]]), class: "form-control" %> </br></p>
 <p>
 <%= f.label :Descripción %> </br>
-<%= f.text_field :description , class:"form-control"%>
+<%= f.text_field :description , class:"form-control", :required => true%>
 </p>
 <p>
 <%= f.label :Cantidad %> </br>
-<%= f.number_field :quantity, :class => 'text_field', :step => 1  %>
+<%= f.number_field :quantity, :class => 'text_field', :step => 1, :required => true %>
 </p>
 <p>
 <%= f.label :Costo %> </br>
-<%= f.number_field :cost , :class => 'text_field' %>
+<%= f.number_field :cost , :class => 'text_field', :required => true %>
 </p>
 
 <p>

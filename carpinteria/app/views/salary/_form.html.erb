@@ -23,7 +23,7 @@
 <% end %>
 </ul>
 <p>
-		<% if params[:employee]==nil%>
+		<% if params[:employee]==nil && params[:id]==nil%>
 			<%= f.label "Personal" %> </br>
 			<%= f.collection_select :employee_id, Employee.order(:name), :id, :name, {id: 'list-employees'} %>
 		<% else%>
@@ -38,7 +38,7 @@
 </p>
 <p>
 <%= f.label "Bonificación por hora" %> </br>
-<%= f.text_field :charge_for_hours %>
+<%= f.number_field :charge_for_hours, class: "form-control", :required => true%>
 </p>
 <p>
 <%= f.submit "Enviar" , class: "form-control btn btn-primary"%>

@@ -14,18 +14,18 @@
 </ul>
 <p>
 	<%= e.label :Descripción %>
-	<%= e.text_field :description, class:"form-control" %>
+	<%= e.text_field :description, class:"form-control", :required => true %>
 </p>
 <p>
 	<%= e.label :Costo %>
-	<%= e.text_field :cost , class:"form-control"%>
+	<%= e.text_field :cost , class:"form-control", :required => true%>
 	<!--%= e.number_field :cost, :class => 'text_field',
 	:step => 0.5 %-->
 <p>
 <p>
 
 	<%= e.label :ganancia %>
-	<%= e.number_field :profit, :class => 'text_field', :step => 0.5 , class: "form-control" %>
+	<%= e.number_field :profit, :class => 'text_field', :step => 0.5 , class: "form-control", :required => true%>
 	<p>
 <%= e.label "IVA" %> </br>
 <%= e.select :iva,options_for_select([[5],[10]]), class: "form-control"  %>

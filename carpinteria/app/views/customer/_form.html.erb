@@ -18,27 +18,27 @@
 
   	<p >
 <%= f.label :Nombres %> </br>
-<%= f.text_field :name, class: "form-control" %>
+<%= f.text_field :name, class: "form-control", :required => true%>
 	</p>
 	<p>
 <%= f.label :Apellidos %> </br>
-<%= f.text_field :lastname, class: "form-control" %>
+<%= f.text_field :lastname, class: "form-control", :required => true %>
 </p>
 
 
 <%= f.label :Teléfono %> </br>
-<%= f.text_field :telephone , class: "form-control"%>
+<%= f.text_field :telephone , class: "form-control", :required => true%>
 
 	<p>
 <%= f.label :Dirección%> </br>
-<%= f.text_field :address, class: "form-control" %>
+<%= f.text_field :address, class: "form-control", :required => true %>
 </p>
 
 
 
 <p>
 <%= f.label :"Documento -"%> RUC  </br>
-<%= f.text_field :document, size: "13"%>
+<%= f.text_field :document, size: "13", :required => true%>
 <%= f.label :" - " %>
 <%= f.number_field :ruc, size: "1" %>
 </p>

@@ -20,22 +20,22 @@
 <br>
 <p>
 <%= f.label :Nombre %> </br>
-<%= f.text_field :name, class:"form-control" %>
+<%= f.text_field :name, class:"form-control", :required => true %>
 </p>
 <p>
 <%= f.label :Dirección %> </br>
-<%= f.text_field :address , class:"form-control"%>
+<%= f.text_field :address , class:"form-control", :required => true%>
 </p>
 <p>
 <%= f.label :Teléfono %> </br>
-<%= f.text_field :telephone, class:"form-control" %>
+<%= f.text_field :telephone, class:"form-control", :required => true %>
 </p>
 
 <p>
 <%= f.label :"Documento-"%>RUC  </br>
-<%= f.text_field :document, size: "13"%>
+<%= f.text_field :document, size: "13", :required => true%>
 <%= f.label :" - " %>
-<%= f.text_field :ruc, size: "1" %>
+<%= f.text_field :ruc, size: "1", :required => true %>
 </p>
 <p>
 <%= f.submit "Enviar", class:"form-control btn btn-primary" %>

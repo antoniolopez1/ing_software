@@ -27,11 +27,11 @@
 
 <p>
 <%= f.label "Fecha" %> </br>
-<%= f.date_field :purchase_date %>
+<%= f.date_field :purchase_date, :required => true %>
 </p>
 <p>
 <%= f.label "Importe" %> </br>
-<%= f.text_field :amount, class:"form-control" %>
+<%= f.text_field :amount, class:"form-control", :required => true %>
 </p>
 <p>
 <%= f.submit "Enviar" , class:"form-control btn btn-primary"%>

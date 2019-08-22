@@ -18,11 +18,11 @@
 
 <p>
 <%= f.label "Importe de entrega" %> </br>
-<%= f.number_field :amount, class: "form-control"%>
+<%= f.number_field :amount, class: "form-control", :required => true%>
 </p>
 <p>
 <%= f.label "Estado" %> </br>
-<%= f.text_field :status, class: "form-control" %>
+<%= f.text_field :status, class: "form-control", :required => true %>
 </p>
 <!--p>
 <%= f.label "Saldo" %> </br>

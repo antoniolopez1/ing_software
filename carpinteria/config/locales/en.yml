@@ -31,4 +31,134 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+        attributes:
+          salary:
+            charge_for_hours: "Bonificación por hora"
+            accumulated: "Acumulado"
+            total_hours: "Total Hora"
+            total_extra_hours: "Total Hora Extra"
+        attributes:
+          employee_payment:
+            amount: "Monto"
+            balance: "Saldo"
+        attributes:
+          provider:
+            name: "Nombre"
+            address: "Dirección"
+            telephone: "Teléfono"
+            document: "Documento"
+            ruc: "RUC"
+        attributes:
+          budget_for_order:
+            customer: "Cliente"
+            observation: "Observación"
+            telephone: "Teléfono"
+        attributes:
+          budget:
+            quantity: "Cantidad"
+            observation: "Observación"
+            unit_price: "Precio Unitario"
+            subtotal: "Subtotal"
+        attributes:
+          customer:
+            name: "Nombre"
+            lastname: "Apellido"
+            address: "Dirección"
+            telephone: "Teléfono"
+            email: "Email"
+            document: "Documento"
+            ruc: "RUC"
+            observation: "Observación"
+        attributes:
+          employee:
+            name: "Nombre"
+            lastname: "Apellido"
+            address: "Dirección"
+            telephone: "Teléfono"
+            document: "Documento"
+            speciality: "Especialidad"
+            status: "Estado"
+        attributes:
+          furniture:
+            description: "Descripción"
+            cost: "Costo"
+            profit: "Ganancia"
+            iva: "IVA"
+            price: "Precio"
+        attributes:
+          hours_historie:
+            entry_time: "Hora de Entrada"
+            departure_time: "Hora de salida"
+            total_hours: "Total Horas"
+            extra_hours: "Horas Extras"
+        attributes:
+          material_for_furniture:
+            quantity: "Cantidad"
+            cost: "Costo"
+            subtotal: "Subtotal"
+        attributes:
+          material:
+            description: "Descripción"
+            quantity: "Cantidad"
+            cost: "Costo"
+        attributes:
+          materials_type:
+            description: "Descripción"
+        attributes:
+          measure_unit:
+            description: "Descripción"
+        attributes:
+          order:
+            status: "Estado"
+            begin_date: "Fecha de Inicio"
+            end_date: "Fecha de Finalicación"
+            observation: "Observación"
+        attributes:
+          purchase_detail:
+            quantity: "Cantidad"
+            subtotal: "Subtotal"
+            net_price: "Precio Neto"
+            iva: "IVA"
+        attributes:
+          purchase:
+            purchase_date: "Fecha de Compra"
+            total: "Total"
+            amount: "Monto"
+            balance: "Saldo"
+        attributes:
+          sale:
+            total: "Total"
+            amount: "Monto"
+            balance: "Saldo"
+            status: "Estado"
+        attributes:
+          sales_charge:
+            amount: "Monto"
+            balance: "Saldo"
+        attributes:
+          u_purchase_detail:
+            quantity: "Cantidad"
+            width: "Ancho"
+            high: "Alto"
+            thickness: "Espesor"
+            cost: "Costo"
+            subtotal: "Subtotal"
+            observation: "Observación"
+        attributes:
+          utilitie:
+            quantity: "Cantidad"
+            width: "Ancho"
+            high: "Alto"
+            thickness: "Espesor"
+            cost: "Costo"
+            observation: "Observación"
+        attributes:
+          utilities_for_furniture:
+            cost: "Costo"
+            subtotal: "Subtotal"
+            quantity: "Cantidad"
+        attributes:
+          utilities_type:
+            description: "Descripción"
    

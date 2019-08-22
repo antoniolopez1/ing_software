@@ -7,8 +7,10 @@ class Salary < ApplicationRecord
     :message => "Campo obligatorio"
   },
 	numericality: {
+    only_integer: true,
     greater_than: 999,
-    less_than: 99999
+    less_than: 99999,
+    :message => ": Ingresar un valor valido"
   }
 
 

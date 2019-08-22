@@ -14,19 +14,19 @@
 </ul>
 <p>
 <%= f.label "Fecha de Inicio" %> </br>
-<%= f.date_field :begin_date %>
+<%= f.date_field :begin_date, :required => true%>
 </p>
 <p>
 <%= f.label "Fecha Final" %> </br>
-<%= f.date_field :end_date %>
+<%= f.date_field :end_date, :required => true %>
 </p>
 <p>
 <%= f.label :estado %> </br>
-<%= f.text_field :status , class:"form-control"%>
+<%= f.text_field :status , class:"form-control", :required => true%>
 </p>
 <p>
 <%= f.label :observación %> </br>
-<%= f.text_field :observation , class:"form-control"%>
+<%= f.text_field :observation , class:"form-control", :required => true%>
 </p>
 <p>
 <%= f.label "Presupuesto por pedido" %> </br>

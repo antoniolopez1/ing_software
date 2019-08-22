@@ -32,11 +32,11 @@
 </p-->
 <p>
 <%= f.label "Hora de entrada" %> </br>
-<%= f.time_field :entry_time %>
+<%= f.time_field :entry_time, :required => true %>
 </p>
 <p>
 <%= f.label "Hora de salida" %> </br>
-<%= f.time_field :departure_time %>
+<%= f.time_field :departure_time, :required => true %>
 </p>
 
 

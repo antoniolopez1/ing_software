@@ -37,6 +37,10 @@ class SalaryController < ApplicationController
     if @salary.save 
       redirect_to  salary_index_path
     else 
+      
+      employee_id=params[:salary][:employee_id]
+      @salary.employee_id=employee_id
+      
       render "new"  
     end
   end
@@ -44,12 +48,15 @@ class SalaryController < ApplicationController
   def edit
     id=params[:id]
     @salary=Salary.find(id)
+      @employee=Employee.find(@salary.employee_id)
+     
   end
 
   def update
     id=params[:id]
     @salary=Salary.find(id)
     @salary.employee_id=params[:salary][:employee_id]
+    @employee=Employee.find(@salary.employee_id)
     @salary.charge_for_hours=params[:salary][:charge_for_hours]
     if @salary.save 
       redirect_to  salary_index_path
