@@ -34,7 +34,7 @@
 </p>
 <p>
 <%= f.label :Especialidad %> </br>
-<%= f.text_field :speciality , class:"form-control", :required => true %>
+<%= f.select :speciality,options_for_select([["PINTURA"],["PEGADO"],["CORTE"],["TALADRADO"],["LIJADO"],["CLAVADO"],["ARMADO"],["PERFILADO"]]), class: "form-control" %>
 </p>
 <p>
   <%= f.label :Estado %>&nbsp&nbsp&nbsp&nbsp&nbsp
