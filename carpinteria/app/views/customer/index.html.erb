@@ -36,9 +36,7 @@
 		<TD><%= f.observation %></TD>
 
 
-		<TD><%= link_to 'Editar', customer_edit_path(f['id']) , class: "btn btn-link"%></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class: "btn btn-danger"%>
-		</TD>
+		<TD><%= link_to 'Editar', customer_edit_path(f['id']) , class: "btn btn-link"%></TD>
 	</tr>
     <% end %>
     </tbody>

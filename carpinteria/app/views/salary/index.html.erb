@@ -31,9 +31,7 @@
 		<TD><%= f.total_extra_hours %></TD>
 
 		<TD><%= link_to 'Abonar Salario', employee_payment_add_s_path(f['id']), class:"btn btn-link" %></TD>
-		<TD><%= link_to 'Editar', salary_edit_path(f['id']) , class:"btn btn-link" %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
-		</TD>
+		<TD><%= link_to 'Editar', salary_edit_path(f['id']) , class:"btn btn-link" %></TD>
 	</tr>
     <% end %>
     </tbody>

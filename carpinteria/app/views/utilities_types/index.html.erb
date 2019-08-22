@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Utilities Types</h1>
+<h1>Tipos de tablones</h1>
 
 <table class="style_table">
   <thead>
@@ -14,9 +14,9 @@
     <% @utilities_types.each do |utilities_type| %>
       <tr>
         <td><%= utilities_type.description %></td>
-        <td><%= link_to 'Show', utilities_type %></td>
-        <td><%= link_to 'Edit', edit_utilities_type_path(utilities_type) %></td>
-        <td><%= link_to 'Destroy', utilities_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Ver', utilities_type %></td>
+        <td><%= link_to 'Editar', edit_utilities_type_path(utilities_type) %></td>
+        
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,3 @@
 
 <br>
 
-<%= link_to 'New Utilities Type', new_utilities_type_path %>

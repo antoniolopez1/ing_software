@@ -33,9 +33,7 @@
 		<TD><%= f.cost %> Gs.</TD>
 
 
-		<TD><%= link_to 'Editar', material_edit_path(f['id']) , class:"btn btn-link"%></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class:"btn btn-danger"%>
-		</TD>
+		<TD><%= link_to 'Editar', material_edit_path(f['id']) , class:"btn btn-link"%></TD>
 	</tr>
     <% end %>
     </tbody>

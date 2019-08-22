@@ -28,10 +28,9 @@
 		<TD><%= f.iva %>%</TD>
 		<TD><%= f.price %> Gs.</TD>
 		<TD><%= link_to 'Detalles', furniture_show_path(f['id']) , class:"btn btn-link" %></TD>
-		<TD><%= link_to 'Editar', furniture_edit_path(f['id']) , class:"btn btn-link"  %></TD><TD>
+		<TD><%= link_to 'Editar', furniture_edit_path(f['id']) , class:"btn btn-link"  %></TD>
 
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class:"btn btn-danger"  %>
-		</TD>
+
 	</tr>
     <% end %>
     </tbody>

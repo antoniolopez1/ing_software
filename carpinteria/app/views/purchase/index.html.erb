@@ -32,9 +32,7 @@
 		<TD><%= f.amount %> Gs.</TD>
 		<TD><%= f.balance%> Gs.</TD>
 		<TD><%= link_to 'Ver Detalles', purchase_show_path(f['id']), class:"btn btn-link" %></TD>
-		<TD><%= link_to 'Editar', purchase_edit_path(f['id']) , class: "btn btn-link"%></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
-		</TD>
+		<TD><%= link_to 'Editar', purchase_edit_path(f['id']) , class: "btn btn-link"%></TD>
 	</tr>
     <% end %>
     </tbody>

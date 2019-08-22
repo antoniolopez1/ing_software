@@ -33,7 +33,6 @@
         <td><%= link_to 'A Pedidos', order_new_add_path(budget_for_order['id']) , class:"btn btn-link"%></td>
         <td><%= link_to 'Detalles', budget_for_order , class:"btn btn-link" %></td>
         <td><%= link_to 'Editar', edit_budget_for_order_path(budget_for_order), class:"btn btn-link" %></td>
-        <td><%= link_to 'Borrar', budget_for_order, method: :delete, data: { confirm: 'Are you sure?' } , class: "btn btn-danger"%></td>
       </tr>
     <% end %>
   </tbody>

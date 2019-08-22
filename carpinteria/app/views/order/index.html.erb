@@ -34,8 +34,7 @@
 		<TD><%= f.budget_for_order.total%></TD>
 		<TD><%=link_to('Generar Reporte', order_show_path(f['id'],format: :pdf) , class: "btn btn-link") %></TD>
 
-		<TD><%= link_to 'Editar', order_edit_path(f['id']) , class: "btn btn-link" %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } , class: "btn btn-danger" %>
+		<TD><%= link_to 'Editar', order_edit_path(f['id']) , class: "btn btn-link" %></TD>
 		</TD>
 	</tr>
     <% end %>

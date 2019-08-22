@@ -23,8 +23,7 @@
 		<TD><%= f.observation %></TD>
 		
 		
-		<TD><%= link_to 'Editar', budget_edit_path(f['id']) %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' } %>
+		<TD><%= link_to 'Editar', budget_edit_path(f['id']) %>
 		</TD>
 	</tr>
     <% end %>

@@ -34,7 +34,6 @@
 		<TD><%= f.employee.lastname %>, <%= f.employee.name %> </TD>
 
 		<TD><%= link_to 'Editar', hours_history_edit_path(f['id']) , class: "btn btn-link"%></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class:"btn btn-danger" %>
 		</TD>
 	</tr>
     <% end %>

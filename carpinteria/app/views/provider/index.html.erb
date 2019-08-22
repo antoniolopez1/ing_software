@@ -29,9 +29,7 @@
 		<TD><%= f.document %> - <%= f.ruc%></TD>
 
 		<TD><%= link_to 'Cargar una compra de este proveedor', purchase_new_prid_add_path(f['id']), class:"btn btn-link" %></TD>
-		<TD><%= link_to 'Editar', provider_edit_path(f['id']), class: "btn btn-link" %></TD><TD>
-<%= link_to 'Borrar', { :action => :destroy, :id => f.id }, :method => :delete, :data => { :confirm => 'Desea borrar el registro?' }, class: "btn btn-danger" %>
-		</TD>
+		<TD><%= link_to 'Editar', provider_edit_path(f['id']), class: "btn btn-link" %></TD>
 	</tr>
     <% end %>
     </tbody>
