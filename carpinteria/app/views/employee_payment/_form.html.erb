@@ -14,14 +14,26 @@
 <li> <%= m %></li>
 <% end %>
 </ul>
-
 <p>
+		<% if params[:salary]==nil && params[:id]==nil%>
+			<%= f.label "Codigo del salario" %> </br>
+			<%= f.collection_select(:salary_id, Salary.all, :id , :employee_id)  %><br>
 
-<%= f.label :Codigo_de_salario %> </br>
-<%= f.collection_select(:salary_id, Salary.all, :id , :employee_id)  %>
-<p>
-<%= f.label :Codigo_del_personal %> </br>
-<%= f.collection_select(:employee_id, Employee.all, :id , :name)  %>
+			<%= f.label :Codigo_del_personal %> </br>
+			<%= f.collection_select(:employee_id, Employee.all, :id , :name)  %>
+		<% else%>
+			<%= f.label "Codigo del salario" %> </br>
+			<%= @salary.id %>
+			<%= f.hidden_field :salary_id %><br>
+			
+			<%= f.label "Empleado" %> </br>
+			<%= @employee.lastname%>, <%= @employee.name%>
+			<%= f.hidden_field :employee_id %>
+		<% end%>
+
+	</p>
+
+
 </p>
 <p>
 <%= f.label :Monto%> </br>

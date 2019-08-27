@@ -6,7 +6,7 @@
 	<%= link_to 'Es todo, volver a la Compra', purchase_show_path(params[:purchase])%>
 </div><br>
 <div class="boton_redirect">&larr;
-	<%= link_to 'Nuevo Tablón', u_purchase_detail_new_path%>
+	<%= link_to 'Nuevo Tablón', u_purchase_detail_new_add_path(params[:purchase])%>
 </div><br>
 <ul>
 <%
@@ -16,9 +16,18 @@
 <% end %>
 </ul>
 <p>
-<%= f.label "ID Compra" %> </br>
-<%= f.collection_select :purchase_id, Purchase.all, :id, :id %>
-</p>
+		<% if params[:purchase]==nil && params[:id]==nil%>
+			<%= f.label "Nro de compra" %> </br>
+			<%= f.collection_select :purchase_id, Purchase.all, :id, :id %>
+		<% else%>
+			<%= f.label "Nro de compra" %> </br>
+			<%= @purchase_detail.purchase_id%>
+			<%= f.hidden_field :purchase_id %>
+		<% end%>
+
+	</p>
+<p>
+
 
 <div class="boton_redirect">&larr;
 	<%= link_to 'Nuevo Material', material_new_path%>

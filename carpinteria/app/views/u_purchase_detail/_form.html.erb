@@ -12,11 +12,17 @@
 <li> <%= m %></li>
 <% end %>
 </ul>
-
 <p>
-<%= f.label "Compra id" %> </br>
-<%= f.collection_select :purchase_id, Purchase.all, :id, :id %>
-</p>
+		<% if params[:purchase]==nil && params[:id]==nil%>
+			<%= f.label "Nro de compra" %> </br>
+			<%= f.collection_select :purchase_id, Purchase.all, :id, :id %>
+		<% else%>
+			<%= f.label "Nro de compra" %> </br>
+			<%= @u_purchase_detail.purchase_id%>
+			<%= f.hidden_field :purchase_id %>
+		<% end%>
+
+	</p>
 <p>
 <%= f.label "Material" %> </br>
 <%= f.collection_select :utilities_type_id, UtilitiesType.all, :id, :description %>
