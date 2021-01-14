@@ -68,7 +68,7 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'validates_timeliness', '~> 5.0.0.alpha3'
 
 ## Gema rails_admin para Panel de Administracion de design
-gem  'rails_admin', '~> 1.0'
+gem  'rails_admin', '~> 1.4'
 
 # Gema devise para crear sesiones de logueo
 gem 'devise'
